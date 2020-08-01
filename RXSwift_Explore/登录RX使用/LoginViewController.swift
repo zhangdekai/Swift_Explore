@@ -76,7 +76,6 @@ class LoginViewController: UIViewController {
 
 
         
-        Observable.create(<#T##subscribe: (AnyObserver<_>) -> Disposable##(AnyObserver<_>) -> Disposable#>)
     }
     
 

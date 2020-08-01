@@ -18,6 +18,11 @@
 		4989DE2B24BE06A1009DAF62 /* FRPTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE2A24BE06A1009DAF62 /* FRPTestViewController.swift */; };
 		4989DE3024BE7F92009DAF62 /* RXSwiftRestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE2F24BE7F92009DAF62 /* RXSwiftRestViewController.swift */; };
 		7AF101A004E785E382CF7283 /* Pods_RXSwift_Explore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */; };
+		F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */; };
+		F3966C2B24CC309600D9F01F /* OperationtestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3966C2A24CC309600D9F01F /* OperationtestViewController.swift */; };
+		F3B9937E24D14C1B000AD623 /* TestCuddeleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */; };
+		F3B9938124D173CF000AD623 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9938024D173CF000AD623 /* IntExtension.swift */; };
+		F3C358E324CEB8CB00D5C107 /* BMPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C358E224CEB8CB00D5C107 /* BMPlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		AAEFC897D70E78DB7C9BF5F9 /* Pods-RXSwift_Explore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXSwift_Explore.release.xcconfig"; path = "Target Support Files/Pods-RXSwift_Explore/Pods-RXSwift_Explore.release.xcconfig"; sourceTree = "<group>"; };
 		D474DB7044B723A277DDFCBC /* Pods-RXSwift_Explore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXSwift_Explore.debug.xcconfig"; path = "Target Support Files/Pods-RXSwift_Explore/Pods-RXSwift_Explore.debug.xcconfig"; sourceTree = "<group>"; };
 		EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXSwift_Explore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTestViewController.swift; sourceTree = "<group>"; };
+		F3966C2A24CC309600D9F01F /* OperationtestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationtestViewController.swift; sourceTree = "<group>"; };
+		F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCuddeleViewController.swift; sourceTree = "<group>"; };
+		F3B9938024D173CF000AD623 /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		F3C358E224CEB8CB00D5C107 /* BMPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMPlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +105,15 @@
 		4989DE1424BE0670009DAF62 /* RXSwift_Explore */ = {
 			isa = PBXGroup;
 			children = (
+				F3B9937F24D173AE000AD623 /* EXtension */,
+				F3B9937C24D14C03000AD623 /* TestVC */,
+				F3966C2924CC303500D9F01F /* 操作符map、flat */,
+				F30ABAE924C8683B001936D5 /* 序列Observable创建 */,
 				493203E624C438C300690A7D /* Protocol */,
 				493203E324C4378E00690A7D /* 登录RX使用 */,
 				4989DE2E24BE7F70009DAF62 /* RXSwift示例 */,
 				4989DE2924BE0682009DAF62 /* 函数响应式 */,
+				F3C358E124CEB8B200D5C107 /* BMPlayer */,
 				4989DE1524BE0670009DAF62 /* AppDelegate.swift */,
 				4989DE1724BE0670009DAF62 /* SceneDelegate.swift */,
 				4989DE1924BE0670009DAF62 /* ViewController.swift */,
@@ -133,6 +148,46 @@
 				AAEFC897D70E78DB7C9BF5F9 /* Pods-RXSwift_Explore.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F30ABAE924C8683B001936D5 /* 序列Observable创建 */ = {
+			isa = PBXGroup;
+			children = (
+				F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */,
+			);
+			path = "序列Observable创建";
+			sourceTree = "<group>";
+		};
+		F3966C2924CC303500D9F01F /* 操作符map、flat */ = {
+			isa = PBXGroup;
+			children = (
+				F3966C2A24CC309600D9F01F /* OperationtestViewController.swift */,
+			);
+			path = "操作符map、flat";
+			sourceTree = "<group>";
+		};
+		F3B9937C24D14C03000AD623 /* TestVC */ = {
+			isa = PBXGroup;
+			children = (
+				F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */,
+			);
+			path = TestVC;
+			sourceTree = "<group>";
+		};
+		F3B9937F24D173AE000AD623 /* EXtension */ = {
+			isa = PBXGroup;
+			children = (
+				F3B9938024D173CF000AD623 /* IntExtension.swift */,
+			);
+			path = EXtension;
+			sourceTree = "<group>";
+		};
+		F3C358E124CEB8B200D5C107 /* BMPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				F3C358E224CEB8CB00D5C107 /* BMPlayerViewController.swift */,
+			);
+			path = BMPlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,8 +308,13 @@
 				493203E524C437A500690A7D /* LoginViewController.swift in Sources */,
 				4989DE1A24BE0670009DAF62 /* ViewController.swift in Sources */,
 				4989DE2B24BE06A1009DAF62 /* FRPTestViewController.swift in Sources */,
+				F3966C2B24CC309600D9F01F /* OperationtestViewController.swift in Sources */,
+				F3C358E324CEB8CB00D5C107 /* BMPlayerViewController.swift in Sources */,
+				F3B9938124D173CF000AD623 /* IntExtension.swift in Sources */,
 				4989DE1624BE0670009DAF62 /* AppDelegate.swift in Sources */,
 				4989DE1824BE0670009DAF62 /* SceneDelegate.swift in Sources */,
+				F3B9937E24D14C1B000AD623 /* TestCuddeleViewController.swift in Sources */,
+				F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */,
 				493203E824C438E500690A7D /* GRENibloadable.swift in Sources */,
 				4989DE3024BE7F92009DAF62 /* RXSwiftRestViewController.swift in Sources */,
 			);

@@ -36,16 +36,41 @@
                                     <action selector="jumpLoginVC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KeV-gp-eS3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khl-eJ-YAq">
+                                <rect key="frame" x="50" y="243" width="62" height="30"/>
+                                <state key="normal" title="序列创建"/>
+                                <connections>
+                                    <action selector="jumpObserable:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ihO-br-j0Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMx-Df-PBY">
+                                <rect key="frame" x="245" y="128" width="80" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="titleEdgeInsets" minX="-80" minY="100" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="40"/>
+                                <state key="normal" title="skjsl " image="huanfu"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Kz-G8-aJU">
+                                <rect key="frame" x="50" y="291" width="77" height="30"/>
+                                <state key="normal" title="操作符操作"/>
+                                <connections>
+                                    <action selector="jumpOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WIU-r3-JZh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="BBf-xy-Vog" firstAttribute="top" secondItem="3oW-P0-iAs" secondAttribute="bottom" constant="16" id="308-ha-VJS"/>
+                            <constraint firstItem="Khl-eJ-YAq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="63k-z4-Mvz"/>
                             <constraint firstItem="3oW-P0-iAs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="62" id="7Tq-LC-VG4"/>
+                            <constraint firstItem="Khl-eJ-YAq" firstAttribute="top" secondItem="6ek-cm-3Mu" secondAttribute="bottom" constant="14" id="AQ5-hr-XaX"/>
                             <constraint firstItem="BBf-xy-Vog" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="DNy-Gi-7Sd"/>
                             <constraint firstItem="3oW-P0-iAs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="G4T-uC-s3X"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BBf-xy-Vog" secondAttribute="trailing" symbolic="YES" id="GoT-No-zVv"/>
+                            <constraint firstItem="4Kz-G8-aJU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Jq4-r7-Cgx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3oW-P0-iAs" secondAttribute="trailing" symbolic="YES" id="Jta-cd-sUP"/>
                             <constraint firstItem="6ek-cm-3Mu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="ViK-2k-aSA"/>
+                            <constraint firstItem="4Kz-G8-aJU" firstAttribute="top" secondItem="Khl-eJ-YAq" secondAttribute="bottom" constant="18" id="k1Z-Rd-VSq"/>
                             <constraint firstItem="6ek-cm-3Mu" firstAttribute="top" secondItem="BBf-xy-Vog" secondAttribute="bottom" constant="17" id="p0U-Ae-2sM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -224,4 +249,7 @@
             <point key="canvasLocation" x="1949" y="119"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="huanfu" width="200" height="200"/>
+    </resources>
 </document>
