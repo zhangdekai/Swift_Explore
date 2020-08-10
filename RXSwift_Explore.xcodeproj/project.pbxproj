@@ -19,6 +19,7 @@
 		4989DE3024BE7F92009DAF62 /* RXSwiftRestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE2F24BE7F92009DAF62 /* RXSwiftRestViewController.swift */; };
 		7AF101A004E785E382CF7283 /* Pods_RXSwift_Explore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */; };
 		F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */; };
+		F33801B624D7AFE900DAC697 /* DeviceAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33801B524D7AFE900DAC697 /* DeviceAuthManager.swift */; };
 		F3966C2B24CC309600D9F01F /* OperationtestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3966C2A24CC309600D9F01F /* OperationtestViewController.swift */; };
 		F3B9937E24D14C1B000AD623 /* TestCuddeleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */; };
 		F3B9938124D173CF000AD623 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9938024D173CF000AD623 /* IntExtension.swift */; };
@@ -42,6 +43,7 @@
 		D474DB7044B723A277DDFCBC /* Pods-RXSwift_Explore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXSwift_Explore.debug.xcconfig"; path = "Target Support Files/Pods-RXSwift_Explore/Pods-RXSwift_Explore.debug.xcconfig"; sourceTree = "<group>"; };
 		EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXSwift_Explore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTestViewController.swift; sourceTree = "<group>"; };
+		F33801B524D7AFE900DAC697 /* DeviceAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAuthManager.swift; sourceTree = "<group>"; };
 		F3966C2A24CC309600D9F01F /* OperationtestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationtestViewController.swift; sourceTree = "<group>"; };
 		F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCuddeleViewController.swift; sourceTree = "<group>"; };
 		F3B9938024D173CF000AD623 /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		4989DE1424BE0670009DAF62 /* RXSwift_Explore */ = {
 			isa = PBXGroup;
 			children = (
+				F33801B424D7AFCF00DAC697 /* 权限检测 */,
 				F3B9937F24D173AE000AD623 /* EXtension */,
 				F3B9937C24D14C03000AD623 /* TestVC */,
 				F3966C2924CC303500D9F01F /* 操作符map、flat */,
@@ -156,6 +159,14 @@
 				F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */,
 			);
 			path = "序列Observable创建";
+			sourceTree = "<group>";
+		};
+		F33801B424D7AFCF00DAC697 /* 权限检测 */ = {
+			isa = PBXGroup;
+			children = (
+				F33801B524D7AFE900DAC697 /* DeviceAuthManager.swift */,
+			);
+			path = "权限检测";
 			sourceTree = "<group>";
 		};
 		F3966C2924CC303500D9F01F /* 操作符map、flat */ = {
@@ -310,6 +321,7 @@
 				4989DE2B24BE06A1009DAF62 /* FRPTestViewController.swift in Sources */,
 				F3966C2B24CC309600D9F01F /* OperationtestViewController.swift in Sources */,
 				F3C358E324CEB8CB00D5C107 /* BMPlayerViewController.swift in Sources */,
+				F33801B624D7AFE900DAC697 /* DeviceAuthManager.swift in Sources */,
 				F3B9938124D173CF000AD623 /* IntExtension.swift in Sources */,
 				4989DE1624BE0670009DAF62 /* AppDelegate.swift in Sources */,
 				4989DE1824BE0670009DAF62 /* SceneDelegate.swift in Sources */,
@@ -462,7 +474,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69MW7VVKA9;
 				INFOPLIST_FILE = RXSwift_Explore/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,7 +494,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69MW7VVKA9;
 				INFOPLIST_FILE = RXSwift_Explore/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

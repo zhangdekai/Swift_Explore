@@ -11,7 +11,218 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
+// MARK: 金币View
+class UserCoinCountView: UIView {
+    
+    lazy var button = UIButton()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4).cgColor
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 21
+        
+        button.setTitle("180", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.textAlignment = .right
+        self.addSubview(button)
+        
+        button.snp.makeConstraints { (make) in
+            make.left.equalTo(18)
+            make.centerY.equalToSuperview()
+        }
+        
+        let image = UIImageView(image: UIImage(named: "vivichat_coins_icoon"))
+        self.addSubview(image)
+        image.snp.makeConstraints { (make) in
+            make.left.equalTo(button.snp.right).offset(10)
+            make.centerY.equalToSuperview()
+            make.width.height.equalTo(30)
+            make.right.equalTo(-12)
+        }
+        
+        let label = UILabel()
+        self.addSubview(label)
+        
+    }
+    
+    func setCoinsCount(_ num: String) {
+        button.setTitle(num, for: .normal)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class VideoCallProgressView: UIView {
+    
+    var timerEndHandle: (() -> Void)?
+    var progress: CGFloat = 1.0
+    var progressWidth: CGFloat = 10.0
+    
+    var progressViewBgColor:UIColor = UIColor.green
+    
+    var progressBarColor:UIColor =  UIColor.white
+    
+    var _timer: Timer?
+    var timeOut = 60
+    var step = 0.01 * (100.0 / 60.0)
+    
+    lazy var textLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.white
+//        label.font = UI//Font.mediumTitle20.value
+        label.textAlignment = .center
+        return label
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+                
+        self.backgroundColor = UIColor.clear
+        self.layer.cornerRadius = frame.size.width / 2
+        self.clipsToBounds = true
+        
+//        let subView = UIView()
+//        self.addSubview(subView)
+//        subView.snp.makeConstraints { (make) in
+//            make.edges.equalToSuperview()
+//        }
+//        subView.layer.cornerRadius = frame.size.width / 2
+//        subView.clipsToBounds = true
+//
+//        subView.layer.borderColor = UIColor.green.cgColor
+//        subView.layer.borderWidth = 5.0
+        
+        self.addSubview(textLabel)
+        textLabel.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+        }
+        
+        self.setNeedsDisplay()
+    }
+    
+    func setProgressDefault() {
+        self.progress = 1.0
+        self.setNeedsDisplay()
+    }
+    
+    var topTitle: UILabel!
+    var bottomTitle: UILabel!
+    
+    func addProductUI() {
+        textLabel.snp.remakeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        let image = UIImageView(image: UIImage(named: ""))
+        self.addSubview(image)
+        image.snp.makeConstraints { (make) in
+            make.left.equalTo(30)
+            make.top.equalTo(12)
+            make.width.height.equalTo(18)
+        }
+        
+        let label = UILabel()
+        self.topTitle = label
+        label.textColor = UIColor.white
+        label.font = .systemFont(ofSize: 14)
+        self.addSubview(label)
+        label.snp.makeConstraints { (make) in
+            make.left.equalTo(image.snp.right).offset(3)
+            make.centerY.equalTo(image)
+            make.height.equalTo(20)
+        }
+        
+        let label1 = UILabel()
+        self.bottomTitle = label1
+        label1.textColor = UIColor.white
+        label1.font = .systemFont(ofSize: 14)
+        self.addSubview(label1)
+        label1.snp.makeConstraints { (make) in
+            make.height.equalTo(20)
+            make.left.equalTo(30)
+            make.bottom.equalTo(-12)
+        }
+    }
+   
+    
+    func addTimer() {
+        _timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+        RunLoop.main.add(_timer!, forMode: .common)
+    }
+    
+    func addTimerA() {
+        step = 0.01 * (100.0 / 25.0)
+        textLabel.isHidden = true
+        _timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+        RunLoop.main.add(_timer!, forMode: .common)
+    }
+    
+    @objc func timerAction() {
+        timeOut -= 1
+        textLabel.text = "\(timeOut)"
+        startProgress(CGFloat(step))
+        
+        if progress <= 0 {
+            if let block = self.timerEndHandle {
+                block()
+            }
+            removeTimer()
+        }
+    }
+    
+    func removeTimer() {
+        if _timer != nil {
+            if _timer!.isValid {
+                _timer?.invalidate()
+                _timer = nil
+            }
+        }
+    }
+    
+    func startProgress(_ step: CGFloat) {
+        self.progress -= step
+        self.setNeedsDisplay()
+    }
+    
+    
+    deinit {
+        removeTimer()
+    }
+    
+    override func draw(_ rect: CGRect) {
+        
+        let ctx: CGContext = UIGraphicsGetCurrentContext()!
+        
+        let xCenter = rect.size.width * 0.5
+        let yCenter = rect.size.height * 0.5
+        
+        progressBarColor.set()
+        
+        ctx.setLineWidth(progressWidth)
+        
+        ctx.setLineCap(.round)
+        
+        let to = -CGFloat.pi / 2 + CGFloat.pi * 2 * progress;  //圆终点位置
+        
+        let radius: CGFloat = min(rect.size.width, rect.size.height) * 0.5// - progressWidth
+        
+        ctx.addArc(center: CGPoint(x: xCenter, y: yCenter), radius: radius, startAngle: -CGFloat.pi / 2, endAngle: to, clockwise: true)
+        
+        ctx.strokePath()
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 class ViewController: UIViewController {
+    
+    lazy var progressView: VideoCallProgressView = {//倒计时商品
+        let view = VideoCallProgressView(frame: CGRect(x: 235.scalValue, y: 400, width: 118, height: 118))
+        return view
+    }()
     
     lazy var rejectButton: UIButton = {
         let button = UIButton()
@@ -23,17 +234,77 @@ class ViewController: UIViewController {
         return button
     }()
 
+    var _timer: Timer!
+    var progressV: ProgressView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        view.addSubview(rejectButton)
-//        
-//        rejectButton.snp.makeConstraints { (make) in
-//            make.centerX.equalToSuperview()
-//            make.top.equalTo(230)
-//            make.size.equalTo(CGSize(width: 80, height: 120))
-//        }
+        
+        let imageView = UIImageView(image: UIImage(named: "background"))
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
     
+//
+//        view.addSubview(progressView)
+//        progressView.setProgressDefault()
+//        progressView.addTimerA()
+        
+        let pro = ProgressProgerty(width: 5.0, progressEnd: 25, progressColor: UIColor.green)
+
+        progressV =  ProgressView(propressProperty: pro, frame: CGRect(x: 235.scalValue, y: 400, width: 118, height: 118))
+        view.addSubview(progressV)
+
+        progressV.setProgress(progress: 0.01, time: 2.0, animate: true)
+
+        
+//        _timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+//        RunLoop.main.add(_timer!, forMode: .common)
+        
+    }
+    
+    @objc func timerAction() {
+        
+        progressV.setProgress(progress: 25, time: 1, animate: true)
+
+    }
+    
+    //日期 -> 字符串
+    func date2String(_ date:Date, dateFormat:String = "yyyyMMdd") -> String {
+        let formatter = DateFormatter()
+//        formatter.locale = Locale.init(identifier: "zh_CN")
+        formatter.dateFormat = dateFormat
+        let date = formatter.string(from: date)
+        return date
+    }
+    
+    
+    func checkVideoCallAuth(from currentVC: UIViewController) {
+        
+//        DeviceAuthManager.getCameraAuth(from: self)//之请求一次，关了权限也不谈了
+        
+        if !DeviceAuthManager.checkCamerAuthority() {
+            
+            DeviceAuthManager.getCameraAuth(from: self)
+        } else {
+             DeviceAuthManager.getMicrophonePermission(from: currentVC) 
+        }
+        
+//        weak var weakVC = currentVC
+//        if !DeviceAuthManager.checkCamerAuthority() {
+//
+//        } else {
+//
+//            DeviceAuthManager.checkMicroPhoneAuthority({[weak self] (isOpen) in
+//                guard let `self` = self else { return }
+//                if !isOpen {
+//
+//                } else {
+//
+//                }
+//            })
+//        }
     }
 
     @IBAction func jumpToFRP(_ sender: Any) {
@@ -58,7 +329,9 @@ class ViewController: UIViewController {
         
 //        let vc = LoginViewController.instanceController(.main)
         
-        let vc = TestCuddeleViewController()
+        let vc = BMPlayerViewController("")
+
+//        let vc = TestCuddeleViewController()
         self.present(vc, animated: true, completion: nil)
         
     }

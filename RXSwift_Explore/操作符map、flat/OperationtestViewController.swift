@@ -56,6 +56,8 @@ class OperationtestViewController: UIViewController {
         
         print("*****zip*****")
 
+        let arra = [1,2,34]
+//        arra.compactMap(<#T##transform: (Int) throws -> ElementOfResult?##(Int) throws -> ElementOfResult?#>)
         
         
             

@@ -10,6 +10,8 @@ target 'RXSwift_Explore' do
   pod 'RxSwift', '5.1.0'
   pod 'RxCocoa', '~> 5.1.1'
   pod 'SnapKit', '5.0.1'
-  pod 'BMPlayer/Core', '~> 1.3.2'
+  pod 'BMPlayer', '~> 1.3.2'
+  
+  pod 'DeviceKit'
   
 end
