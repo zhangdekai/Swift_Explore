@@ -13,6 +13,7 @@ import RxCocoa
 
 class RXSwiftRestViewController: UIViewController {
     
+    var presentedCount = 0
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var textFiled: UITextField!
     @IBOutlet weak var button: UIButton!
@@ -23,6 +24,44 @@ class RXSwiftRestViewController: UIViewController {
     let disposeBag = DisposeBag()
     var timer: Observable<Int>!
     
+    @IBAction func hitmeAction(_ sender: Any) {
+        
+        let vc = RXSwiftRestViewController.instanceController(.main)
+        vc.presentedCount  = self.presentedCount + 1
+        let nav = UINavigationController(rootViewController: vc)
+//        vc.modalPresentationStyle = .fullScreen
+        nav.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(nav, animated: true, completion: nil)
+//        self.present(vc, animated: true, completion: nil)
+
+    }
+    @IBAction func dismissAction(_ sender: Any) {
+        
+//        self.dismiss(animated: true, completion: nil)
+        var vc = self.presentingViewController
+//        var vc = self.presentingViewController
+        
+        while presentedCount > 0 {
+            vc = vc?.presentingViewController
+            presentedCount -= 1
+        }
+        
+        vc?.dismiss(animated: true, completion: nil)
+        
+//        while vc != nil  {
+//            vc?.dismiss(animated: false, completion: nil)
+//
+//            vc = vc?.presentingViewController
+//        }
+//        if vc == nil {
+//            self.navigationController?.dismiss(animated: true, completion: nil)
+//        } else {
+//            vc?.navigationController?.dismiss(animated: true, completion: nil)
+//        }
+//        self.navigationController?.dismiss(animated: true, completion: nil)
+//        vc?.dismiss(animated: true, completion: nil)
+//        vc?.dismiss(animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {

@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RXSwift_Explore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="RXSwift_Explore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,10 +105,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5D0-2m-dZ0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5D0-2m-dZ0">
                                 <rect key="frame" x="98" y="243" width="218" height="30"/>
                                 <color key="backgroundColor" red="0.81504352410000003" green="1" blue="0.56536479470000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="218" id="8Yw-iD-rH7"/>
+                                </constraints>
                                 <state key="normal" title="点我"/>
+                                <connections>
+                                    <action selector="hitmeAction:" destination="Rmi-TR-s9H" eventType="touchUpInside" id="zo3-rd-sBH"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dey-as-MH7">
                                 <rect key="frame" x="57" y="353" width="300" height="200"/>
@@ -130,6 +136,13 @@
                                     <constraint firstItem="9Yz-va-Nia" firstAttribute="top" secondItem="dey-as-MH7" secondAttribute="top" id="zQg-uO-ycP"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn2-9d-AGW">
+                                <rect key="frame" x="181" y="309" width="52" height="30"/>
+                                <state key="normal" title="dismiss"/>
+                                <connections>
+                                    <action selector="dismissAction:" destination="Rmi-TR-s9H" eventType="touchUpInside" id="pTJ-4Y-4ax"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -137,11 +150,13 @@
                             <constraint firstItem="dey-as-MH7" firstAttribute="top" secondItem="lKB-RW-xY1" secondAttribute="top" constant="309" id="C3w-oh-nnC"/>
                             <constraint firstItem="dey-as-MH7" firstAttribute="leading" secondItem="lKB-RW-xY1" secondAttribute="leading" constant="57" id="IdT-nw-Iaf"/>
                             <constraint firstItem="dey-as-MH7" firstAttribute="centerX" secondItem="5D0-2m-dZ0" secondAttribute="centerX" id="Lbf-eG-UHQ"/>
+                            <constraint firstItem="hn2-9d-AGW" firstAttribute="top" secondItem="5D0-2m-dZ0" secondAttribute="bottom" constant="36" id="Ynd-lH-iUA"/>
                             <constraint firstItem="dey-as-MH7" firstAttribute="centerX" secondItem="QkN-ej-FJc" secondAttribute="centerX" id="ZKf-l8-xNu"/>
                             <constraint firstItem="dey-as-MH7" firstAttribute="top" secondItem="5D0-2m-dZ0" secondAttribute="bottom" constant="80" id="k31-vR-ICG"/>
                             <constraint firstItem="QkN-ej-FJc" firstAttribute="top" secondItem="Iy4-b2-VgY" secondAttribute="bottom" constant="34" id="nMV-Kz-iQw"/>
                             <constraint firstItem="lKB-RW-xY1" firstAttribute="trailing" secondItem="dey-as-MH7" secondAttribute="trailing" constant="57" id="ttc-LU-pev"/>
                             <constraint firstItem="dey-as-MH7" firstAttribute="centerX" secondItem="Iy4-b2-VgY" secondAttribute="centerX" id="uW1-rF-Agg"/>
+                            <constraint firstItem="hn2-9d-AGW" firstAttribute="centerX" secondItem="lKB-RW-xY1" secondAttribute="centerX" id="vdD-iK-b3G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lKB-RW-xY1"/>
                     </view>

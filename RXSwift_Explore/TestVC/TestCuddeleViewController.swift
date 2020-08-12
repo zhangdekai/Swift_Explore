@@ -8,6 +8,201 @@
 
 import UIKit
 
+// MARK: 金币View
+class UserCoinCountView: UIView {
+    
+    lazy var button = UIButton()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4).cgColor
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 21
+        
+        button.setTitle("180", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.textAlignment = .right
+        self.addSubview(button)
+        
+        button.snp.makeConstraints { (make) in
+            make.left.equalTo(18)
+            make.centerY.equalToSuperview()
+        }
+        
+        let image = UIImageView(image: UIImage(named: "vivichat_coins_icoon"))
+        self.addSubview(image)
+        image.snp.makeConstraints { (make) in
+            make.left.equalTo(button.snp.right).offset(10)
+            make.centerY.equalToSuperview()
+            make.width.height.equalTo(30)
+            make.right.equalTo(-12)
+        }
+        
+        let label = UILabel()
+        self.addSubview(label)
+        
+    }
+    
+    func setCoinsCount(_ num: String) {
+        button.setTitle(num, for: .normal)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class VideoCallCycleView: UIView {
+    
+    var timerEndHandle: (() -> Void)?
+    
+    var progressWidth: CGFloat = 10//线宽
+    var bottomColor: UIColor? //底线
+    var topColor: UIColor?//progress线条
+    
+    var roundOrigin: CGPoint = CGPoint(x: 0, y: 0)//圆点
+    var radius: CGFloat = 0//半径
+    var startAngle: CGFloat = 0//起始
+    var endAngle: CGFloat = 0//结束
+    var blocks: ((_ progressfloat: CGFloat) -> Void)?
+    
+    var _timer: Timer?
+    var timeOut = 60
+    var step = 1.0//0.01 * (100.0 / 60.0)
+    //进度label
+    private lazy var progressLabel: UILabel = {
+        let lab = UILabel()
+        lab.frame = CGRect(x: 0, y: 0, width: 100, height: 15)
+        lab.center = CGPoint(x: self.bounds.size.width / 2, y: self.bounds.size.height / 2)
+        lab.textColor = UIColor.white
+        lab.font = UIFont.systemFont(ofSize: 13)
+        lab.textAlignment = .center
+        return lab
+    }()
+    private lazy var bottomLayer: CAShapeLayer = {
+        let layers = CAShapeLayer()
+        layers.fillColor = UIColor.clear.cgColor
+        return layers
+    }()
+    private lazy var topLayer: CAShapeLayer = {
+        let layers = CAShapeLayer()
+        layers.lineCap = CAShapeLayerLineCap.round
+        layers.fillColor = UIColor.clear.cgColor
+        return layers
+    }()
+    
+    var topTitle: UILabel!
+    var bottomTitle: UILabel!
+    var anmationDuration = 1.0
+    
+    //    func setProductInfo(_ info: [Entity.VideoCall.RecommendProduct]) {
+    //        if !info.isEmpty {
+    //            topTitle.text = info[0].amount.string
+    //            bottomTitle.text = "$ \(Double(info[0].price) / 100.0 )"
+    //        }
+    //    }
+    //
+    func addTimer() {
+        timeOut = 60
+        _timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+        RunLoop.main.add(_timer!, forMode: .common)
+        
+    }
+    
+    func addTimerA() {
+        timeOut = 25
+        progressLabel.isHidden = true
+        _timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+        RunLoop.main.add(_timer!, forMode: .common)
+        
+        //        self.gotoMove(profloat: 1.0)
+        //        if let block = self.blocks {
+        //            block(1.0)
+        //        }
+    }
+    
+    @objc func timerAction() {
+        timeOut -= 1
+        progressLabel.text = "\(timeOut)"
+        
+        if timeOut <= 0 {
+            if let block = self.timerEndHandle {
+                block()
+            }
+            removeTimer()
+        }
+    }
+    
+    func removeTimer() {
+        if _timer != nil {
+            if _timer!.isValid {
+                _timer?.invalidate()
+                _timer = nil
+            }
+        }
+    }
+    deinit {
+        removeTimer()
+    }
+    
+    override func draw(_ rect: CGRect) {
+        
+        setUPUI()
+        addRound()
+        setMethoud()
+        
+        blocks = {(profloat: CGFloat) -> Void in
+            
+            self.progressLabel.text = "\(self.timeOut)"
+            
+            self.startAngle = -CGFloat(Double.pi / 2)
+            
+            self.endAngle = self.startAngle + profloat * CGFloat(Double.pi * 2)
+            
+            let topPath = UIBezierPath(arcCenter: self.roundOrigin, radius: self.radius, startAngle: self.startAngle, endAngle: self.endAngle, clockwise: true)
+            
+            self.topLayer.path = topPath.cgPath//添加路径
+            //添加动画
+            let pathAnimation = CABasicAnimation(keyPath: "strokeEnd")
+            pathAnimation.duration = self.anmationDuration//动画持续时间
+            pathAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+            pathAnimation.fromValue = 1
+            pathAnimation.toValue = 0
+            self.topLayer.add(pathAnimation, forKey: "strokeEndAnimation")
+            //            self.gotoMove(profloat: profloat)
+        }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = UIColor.clear
+        
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    func setUPUI() {
+        
+        layer.addSublayer(bottomLayer)
+        layer.addSublayer(topLayer)
+        addSubview(progressLabel)
+    }
+    func addRound() {
+        roundOrigin = CGPoint(x: self.bounds.size.width / 2, y: self.bounds.size.height / 2)
+        radius = self.bounds.size.width / 2
+        let bottomPath = UIBezierPath(arcCenter: roundOrigin, radius: radius, startAngle: 0, endAngle: CGFloat(Double.pi * 2), clockwise: true)
+        bottomLayer.path = bottomPath.cgPath
+    }
+    func setMethoud() {
+        bottomLayer.strokeColor = bottomColor?.cgColor
+        topLayer.strokeColor = topColor?.cgColor
+        topLayer.lineWidth = progressWidth
+        bottomLayer.lineWidth = progressWidth
+    }
+}
+
+
+
 class TestCuddeleViewController: UIViewController {
 
     

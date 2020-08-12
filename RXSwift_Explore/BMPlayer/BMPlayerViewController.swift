@@ -37,55 +37,6 @@ struct ProgressProgerty {
     
 }
 
-class ProgressView: UIView {
-    var progressProperty = ProgressProgerty.init()
-    private let progressLayer = CAShapeLayer()
-    
-    init(propressProperty:ProgressProgerty,frame:CGRect) {
-        self.progressProperty = propressProperty
-        super.init(frame: frame)
-        self.backgroundColor = UIColor.clear
-    }
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = UIColor.clear
-    }
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:)has not been implemented")
-    }
-    
-    override func draw(_ rect: CGRect) {
-        let path = UIBezierPath.init(ovalIn: bounds).cgPath
-        let tracklayer = CAShapeLayer()
-        tracklayer.frame = bounds
-        tracklayer.fillColor = UIColor.clear.cgColor
-        tracklayer.strokeColor = UIColor.cyan.cgColor
-        tracklayer.lineWidth = progressProperty.width!
-        tracklayer.path = path
-        layer.addSublayer(tracklayer)
-        
-        progressLayer.frame = bounds
-        progressLayer.fillColor = UIColor.clear.cgColor
-        progressLayer.strokeColor = progressProperty.progressColor?.cgColor
-        progressLayer.lineWidth = progressProperty.width!
-        progressLayer.path = path
-        progressLayer.strokeStart = progressProperty.progressStart!
-        progressLayer.strokeEnd = progressProperty.progressEnd!
-        layer.addSublayer(progressLayer)
-    }
-
-    func setProgress(progress:CGFloat,time:CFTimeInterval,animate:Bool){
-        CATransaction.begin()
-        CATransaction.setDisableActions(!animate)
-        CATransaction.setAnimationDuration(time)
-        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.easeInEaseOut))
-        progressLayer.strokeEnd = progress
-        CATransaction.commit()
-    }
-
-}
-
-
 class BMPlayerViewController: UIViewController {
     
     private var playerView: BMPlayerLayerView!

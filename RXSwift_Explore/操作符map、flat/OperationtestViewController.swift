@@ -16,8 +16,41 @@ class OperationtestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        testCombinationOperators()
+//        testCombinationOperators()
+        
+        testTransformingOperators()
+        
 
+    }
+    
+    func testTransformingOperators() {
+        // ***** map: 转换闭包应用于可观察序列发出的元素，并返回转换后的元素的新可观察序列。
+        print("*****map*****")
+               let ob = Observable.of(1,2,3,4)
+        
+        ob.map{ (num) -> Int in
+            return num + 2
+        }.subscribe{ print($0) }
+        .disposed(by: bag)
+        
+        // 将可观测序列发射的元素转换为可观测序列，并将两个可观测序列的发射合并为一个可观测序列。
+        // 这也很有用，例如，当你有一个可观察的序列，它本身发出可观察的序列，你想能够对任何一个可观察序列的新发射做出反应(序列中序列:比如网络序列中还有模型序列)
+        // flatMap和flatMapLatest的区别是，flatMapLatest只会从最近的内部可观测序列发射元素
+        
+        print("*****flatMap*****")
+               let boy  = LGPlayer(score: 100)
+               let girl = LGPlayer(score: 90)
+               let player = BehaviorSubject(value: boy)
+        
+        player.asObservable()
+            .flatMap{ $0.score.asObservable() }
+        .subscribe(onNext: { print($0)})
+        .disposed(by: bag)
+        
+        
+        
+        
+        
     }
     func testCombinationOperators() {
         
@@ -55,11 +88,16 @@ class OperationtestViewController: UIViewController {
          //  *** zip: 将多达8个源可观测序列组合成一个新的可观测序列，并将从组合的可观测序列中发射出对应索引处每个源可观测序列的元素
         
         print("*****zip*****")
-
-        let arra = [1,2,34]
-//        arra.compactMap(<#T##transform: (Int) throws -> ElementOfResult?##(Int) throws -> ElementOfResult?#>)
         
+        print("*****zip*****")
+        let stringSubject = PublishSubject<String>()
+        let intSubject = PublishSubject<Int>()
         
-            
+        Observable.zip(stringSubject, intSubject){ strE, intE in "\(strE),\(intE)"}
+        .subscribe(onNext: { print($0)})
+        .disposed(by: bag)
+        
+//        stringSubject.onNext(<#T##element: String##String#>)
+    
     }
 }
