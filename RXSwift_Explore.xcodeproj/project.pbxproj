@@ -20,6 +20,7 @@
 		7AF101A004E785E382CF7283 /* Pods_RXSwift_Explore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */; };
 		F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */; };
 		F33801B624D7AFE900DAC697 /* DeviceAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33801B524D7AFE900DAC697 /* DeviceAuthManager.swift */; };
+		F33AFB9B24E532EC00A0FCE6 /* UserLeadWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33AFB9A24E532EC00A0FCE6 /* UserLeadWordCollectionViewCell.swift */; };
 		F3966C2B24CC309600D9F01F /* OperationtestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3966C2A24CC309600D9F01F /* OperationtestViewController.swift */; };
 		F3B9937E24D14C1B000AD623 /* TestCuddeleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */; };
 		F3B9938124D173CF000AD623 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9938024D173CF000AD623 /* IntExtension.swift */; };
@@ -44,6 +45,7 @@
 		EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXSwift_Explore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTestViewController.swift; sourceTree = "<group>"; };
 		F33801B524D7AFE900DAC697 /* DeviceAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAuthManager.swift; sourceTree = "<group>"; };
+		F33AFB9A24E532EC00A0FCE6 /* UserLeadWordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLeadWordCollectionViewCell.swift; sourceTree = "<group>"; };
 		F3966C2A24CC309600D9F01F /* OperationtestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationtestViewController.swift; sourceTree = "<group>"; };
 		F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCuddeleViewController.swift; sourceTree = "<group>"; };
 		F3B9938024D173CF000AD623 /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				4989DE1524BE0670009DAF62 /* AppDelegate.swift */,
 				4989DE1724BE0670009DAF62 /* SceneDelegate.swift */,
 				4989DE1924BE0670009DAF62 /* ViewController.swift */,
+				F33AFB9A24E532EC00A0FCE6 /* UserLeadWordCollectionViewCell.swift */,
 				4989DE1B24BE0670009DAF62 /* Main.storyboard */,
 				4989DE1E24BE0672009DAF62 /* Assets.xcassets */,
 				4989DE2024BE0672009DAF62 /* LaunchScreen.storyboard */,
@@ -327,6 +330,7 @@
 				4989DE1824BE0670009DAF62 /* SceneDelegate.swift in Sources */,
 				F3B9937E24D14C1B000AD623 /* TestCuddeleViewController.swift in Sources */,
 				F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */,
+				F33AFB9B24E532EC00A0FCE6 /* UserLeadWordCollectionViewCell.swift in Sources */,
 				493203E824C438E500690A7D /* GRENibloadable.swift in Sources */,
 				4989DE3024BE7F92009DAF62 /* RXSwiftRestViewController.swift in Sources */,
 			);
