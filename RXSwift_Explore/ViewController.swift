@@ -69,6 +69,7 @@ class ViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
+    
     @IBAction func jumpToShiLi(_ sender: Any) {
         
         //ps: storyboard 创建的VC 都需要使用下面来alloc vc
