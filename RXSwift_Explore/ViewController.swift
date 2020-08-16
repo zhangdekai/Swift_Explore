@@ -39,6 +39,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "hello"
+        
         
 //        let imageView = UIImageView(image: UIImage(named: "background"))
 //        view.addSubview(imageView)
@@ -62,6 +64,14 @@ class ViewController: UIViewController {
 //            self.progressView.blocks!(0.88)
 //        }
         
+    }
+
+    @IBAction func subjectAction(_ sender: Any) {
+        
+        let vc = SubjectTestViewController.instanceController(.main)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    
     }
     
     @IBAction func jumpToFRP(_ sender: Any) {

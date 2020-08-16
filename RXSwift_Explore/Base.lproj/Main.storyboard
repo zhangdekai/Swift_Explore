@@ -56,6 +56,14 @@
                                     <action selector="jumpOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WIU-r3-JZh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUH-t6-tj1">
+                                <rect key="frame" x="48" y="334" width="81" height="30"/>
+                                <state key="normal" title="SubjectTest"/>
+                                <connections>
+                                    <action selector="jumpOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JLS-iJ-tkq"/>
+                                    <action selector="subjectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lve-yh-PDb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -63,12 +71,14 @@
                             <constraint firstItem="Khl-eJ-YAq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="63k-z4-Mvz"/>
                             <constraint firstItem="3oW-P0-iAs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="62" id="7Tq-LC-VG4"/>
                             <constraint firstItem="Khl-eJ-YAq" firstAttribute="top" secondItem="6ek-cm-3Mu" secondAttribute="bottom" constant="14" id="AQ5-hr-XaX"/>
+                            <constraint firstItem="ZUH-t6-tj1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="BhX-Mf-9ni"/>
                             <constraint firstItem="BBf-xy-Vog" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="DNy-Gi-7Sd"/>
                             <constraint firstItem="3oW-P0-iAs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="G4T-uC-s3X"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BBf-xy-Vog" secondAttribute="trailing" symbolic="YES" id="GoT-No-zVv"/>
                             <constraint firstItem="4Kz-G8-aJU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Jq4-r7-Cgx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3oW-P0-iAs" secondAttribute="trailing" symbolic="YES" id="Jta-cd-sUP"/>
                             <constraint firstItem="6ek-cm-3Mu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="ViK-2k-aSA"/>
+                            <constraint firstItem="ZUH-t6-tj1" firstAttribute="top" secondItem="4Kz-G8-aJU" secondAttribute="bottom" constant="13" id="dz2-Q1-rTE"/>
                             <constraint firstItem="4Kz-G8-aJU" firstAttribute="top" secondItem="Khl-eJ-YAq" secondAttribute="bottom" constant="18" id="k1Z-Rd-VSq"/>
                             <constraint firstItem="6ek-cm-3Mu" firstAttribute="top" secondItem="BBf-xy-Vog" secondAttribute="bottom" constant="17" id="p0U-Ae-2sM"/>
                         </constraints>
@@ -261,6 +271,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tlp-jI-jac" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1949" y="119"/>
+        </scene>
+        <!--Subject Test View Controller-->
+        <scene sceneID="Rb9-yB-YQ3">
+            <objects>
+                <viewController storyboardIdentifier="SubjectTestViewController" id="j0u-KV-7mq" customClass="SubjectTestViewController" customModule="RXSwift_Explore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OJU-vE-1hA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJJ-yg-Gg2">
+                                <rect key="frame" x="35" y="149" width="112" height="30"/>
+                                <state key="normal" title="BehaviorSubject"/>
+                                <connections>
+                                    <action selector="BehaviorSubjectAction:" destination="j0u-KV-7mq" eventType="touchUpInside" id="yRg-cr-7I5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTe-82-KbL">
+                                <rect key="frame" x="35" y="206" width="97" height="30"/>
+                                <state key="normal" title="BehaviorRelay"/>
+                                <connections>
+                                    <action selector="BehaviorRelayAction:" destination="j0u-KV-7mq" eventType="touchUpInside" id="Nq1-qA-71z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdT-px-S4i">
+                                <rect key="frame" x="35" y="253" width="98" height="30"/>
+                                <state key="normal" title="ReplaySubject"/>
+                                <connections>
+                                    <action selector="ReplaySubjectAction:" destination="j0u-KV-7mq" eventType="touchUpInside" id="G1k-aD-bWJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcK-mK-7je">
+                                <rect key="frame" x="35" y="291" width="103" height="30"/>
+                                <state key="normal" title="PublishSubject"/>
+                                <connections>
+                                    <action selector="PublishSubjectAction:" destination="j0u-KV-7mq" eventType="touchUpInside" id="fie-St-JJm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vf-xK-y70">
+                                <rect key="frame" x="35" y="329" width="94" height="30"/>
+                                <state key="normal" title="AsyncSubject"/>
+                                <connections>
+                                    <action selector="AsyncSubjectAction:" destination="j0u-KV-7mq" eventType="touchUpInside" id="KCT-gn-8XV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tJJ-yg-Gg2" firstAttribute="top" secondItem="uXf-Ow-Nx6" secondAttribute="top" constant="105" id="4jd-l6-qeD"/>
+                            <constraint firstItem="9Vf-xK-y70" firstAttribute="top" secondItem="tcK-mK-7je" secondAttribute="bottom" constant="8" id="Dvb-3V-09W"/>
+                            <constraint firstItem="oTe-82-KbL" firstAttribute="leading" secondItem="uXf-Ow-Nx6" secondAttribute="leading" constant="35" id="Sce-GN-IEz"/>
+                            <constraint firstItem="tcK-mK-7je" firstAttribute="top" secondItem="DdT-px-S4i" secondAttribute="bottom" constant="8" id="YHB-6l-4gQ"/>
+                            <constraint firstItem="DdT-px-S4i" firstAttribute="leading" secondItem="uXf-Ow-Nx6" secondAttribute="leading" constant="35" id="ZUM-rG-H0p"/>
+                            <constraint firstItem="oTe-82-KbL" firstAttribute="top" secondItem="tJJ-yg-Gg2" secondAttribute="bottom" constant="27" id="ZpE-GK-he3"/>
+                            <constraint firstItem="DdT-px-S4i" firstAttribute="top" secondItem="oTe-82-KbL" secondAttribute="bottom" constant="17" id="b8j-pI-xir"/>
+                            <constraint firstItem="tcK-mK-7je" firstAttribute="leading" secondItem="uXf-Ow-Nx6" secondAttribute="leading" constant="35" id="qYw-TD-FOC"/>
+                            <constraint firstItem="tJJ-yg-Gg2" firstAttribute="leading" secondItem="uXf-Ow-Nx6" secondAttribute="leading" constant="35" id="uns-yp-4nY"/>
+                            <constraint firstItem="9Vf-xK-y70" firstAttribute="leading" secondItem="uXf-Ow-Nx6" secondAttribute="leading" constant="35" id="w7V-uG-AN4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uXf-Ow-Nx6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kM2-nu-z5O" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="753"/>
         </scene>
     </scenes>
     <resources>

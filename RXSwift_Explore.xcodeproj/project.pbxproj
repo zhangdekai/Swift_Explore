@@ -17,6 +17,7 @@
 		4989DE2224BE0672009DAF62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4989DE2024BE0672009DAF62 /* LaunchScreen.storyboard */; };
 		4989DE2B24BE06A1009DAF62 /* FRPTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE2A24BE06A1009DAF62 /* FRPTestViewController.swift */; };
 		4989DE3024BE7F92009DAF62 /* RXSwiftRestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE2F24BE7F92009DAF62 /* RXSwiftRestViewController.swift */; };
+		49AE026724E8D2D5002C028B /* SubjectTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE026624E8D2D5002C028B /* SubjectTestViewController.swift */; };
 		7AF101A004E785E382CF7283 /* Pods_RXSwift_Explore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */; };
 		F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */; };
 		F33801B624D7AFE900DAC697 /* DeviceAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33801B524D7AFE900DAC697 /* DeviceAuthManager.swift */; };
@@ -40,6 +41,7 @@
 		4989DE2324BE0672009DAF62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4989DE2A24BE06A1009DAF62 /* FRPTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRPTestViewController.swift; sourceTree = "<group>"; };
 		4989DE2F24BE7F92009DAF62 /* RXSwiftRestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXSwiftRestViewController.swift; sourceTree = "<group>"; };
+		49AE026624E8D2D5002C028B /* SubjectTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTestViewController.swift; sourceTree = "<group>"; };
 		AAEFC897D70E78DB7C9BF5F9 /* Pods-RXSwift_Explore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXSwift_Explore.release.xcconfig"; path = "Target Support Files/Pods-RXSwift_Explore/Pods-RXSwift_Explore.release.xcconfig"; sourceTree = "<group>"; };
 		D474DB7044B723A277DDFCBC /* Pods-RXSwift_Explore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXSwift_Explore.debug.xcconfig"; path = "Target Support Files/Pods-RXSwift_Explore/Pods-RXSwift_Explore.debug.xcconfig"; sourceTree = "<group>"; };
 		EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXSwift_Explore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +111,7 @@
 		4989DE1424BE0670009DAF62 /* RXSwift_Explore */ = {
 			isa = PBXGroup;
 			children = (
+				49AE026524E8D2B4002C028B /* Subject */,
 				F33801B424D7AFCF00DAC697 /* 权限检测 */,
 				F3B9937F24D173AE000AD623 /* EXtension */,
 				F3B9937C24D14C03000AD623 /* TestVC */,
@@ -145,6 +148,14 @@
 				4989DE2F24BE7F92009DAF62 /* RXSwiftRestViewController.swift */,
 			);
 			path = "RXSwift示例";
+			sourceTree = "<group>";
+		};
+		49AE026524E8D2B4002C028B /* Subject */ = {
+			isa = PBXGroup;
+			children = (
+				49AE026624E8D2D5002C028B /* SubjectTestViewController.swift */,
+			);
+			path = Subject;
 			sourceTree = "<group>";
 		};
 		C94B334B363E5A41767CFB29 /* Pods */ = {
@@ -328,6 +339,7 @@
 				F3B9938124D173CF000AD623 /* IntExtension.swift in Sources */,
 				4989DE1624BE0670009DAF62 /* AppDelegate.swift in Sources */,
 				4989DE1824BE0670009DAF62 /* SceneDelegate.swift in Sources */,
+				49AE026724E8D2D5002C028B /* SubjectTestViewController.swift in Sources */,
 				F3B9937E24D14C1B000AD623 /* TestCuddeleViewController.swift in Sources */,
 				F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */,
 				F33AFB9B24E532EC00A0FCE6 /* UserLeadWordCollectionViewCell.swift in Sources */,

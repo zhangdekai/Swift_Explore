@@ -21,7 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let windowScene = scene as? UIWindowScene
         self.window = UIWindow.init(windowScene: windowScene!)
-        self.window?.backgroundColor = UIColor.red
         self.window?.frame = UIScreen.main.bounds
         let vc = ViewController.instanceController(.main)
         let nav  = UINavigationController.init(rootViewController: vc)

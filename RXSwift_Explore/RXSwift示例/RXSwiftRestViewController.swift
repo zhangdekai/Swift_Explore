@@ -107,8 +107,7 @@ class RXSwiftRestViewController: UIViewController {
         
         timer.subscribe(onNext: { (num) in
             print(num)
-        })
-            .disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         
     }
     
