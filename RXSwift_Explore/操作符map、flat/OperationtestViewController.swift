@@ -61,11 +61,7 @@ class OperationtestViewController: UIViewController {
         // ** scan: 从初始就带有一个默认值开始，然后对可观察序列发出的每个元素应用累加器闭包，并以单个元素可观察序列的形式返回每个中间结果
         print("*****scan*****")
         
-        Observable.of(10,100,1000)
-            .scan(2) { (a, b) -> Int in
-                return a + b
-        }.subscribe(onNext: <#T##((Int) -> Void)?##((Int) -> Void)?##(Int) -> Void#>, onError: <#T##((Error) -> Void)?##((Error) -> Void)?##(Error) -> Void#>, onCompleted: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, onDisposed: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
-        
+                
         
         
     }

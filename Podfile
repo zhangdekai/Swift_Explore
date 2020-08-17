@@ -10,8 +10,9 @@ target 'RXSwift_Explore' do
   pod 'RxSwift', '5.1.0'
   pod 'RxCocoa', '~> 5.1.1'
   pod 'SnapKit', '5.0.1'
-  pod 'BMPlayer', '~> 1.3.2'
   
   pod 'DeviceKit'
+  # 数据库使用
+#  pod 'WCDB.swift', '~> 1.0.8.2'
   
 end

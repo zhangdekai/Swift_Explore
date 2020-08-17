@@ -60,8 +60,7 @@
                                 <rect key="frame" x="48" y="334" width="81" height="30"/>
                                 <state key="normal" title="SubjectTest"/>
                                 <connections>
-                                    <action selector="jumpOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JLS-iJ-tkq"/>
-                                    <action selector="subjectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lve-yh-PDb"/>
+                                    <action selector="subjectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2P7-HK-zur"/>
                                 </connections>
                             </button>
                         </subviews>

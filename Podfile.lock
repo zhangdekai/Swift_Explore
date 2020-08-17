@@ -1,15 +1,5 @@
 PODS:
-  - BMPlayer (1.3.2):
-    - BMPlayer/Full (= 1.3.2)
-  - BMPlayer/Core (1.3.2)
-  - BMPlayer/Full (1.3.2):
-    - BMPlayer/Core
-    - NVActivityIndicatorView (~> 4.7.0)
-    - SnapKit (~> 5.0.0)
   - DeviceKit (3.2.0)
-  - NVActivityIndicatorView (4.7.0):
-    - NVActivityIndicatorView/Presenter (= 4.7.0)
-  - NVActivityIndicatorView/Presenter (4.7.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -19,7 +9,6 @@ PODS:
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - BMPlayer (~> 1.3.2)
   - DeviceKit
   - RxCocoa (~> 5.1.1)
   - RxSwift (= 5.1.0)
@@ -27,23 +16,19 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - BMPlayer
     - DeviceKit
-    - NVActivityIndicatorView
     - RxCocoa
     - RxRelay
     - RxSwift
     - SnapKit
 
 SPEC CHECKSUMS:
-  BMPlayer: e4b241bd088644d7b89d991a1a65d1b1615d19b3
   DeviceKit: d081659419cce07c0b5239dbc9fb39ed7413c7fe
-  NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: ad5874f24bb0dbffd1e9bb8443604e3578796c7a
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 3551f4d38fc065fb237ac47163437003537fcbea
+PODFILE CHECKSUM: ed6ab46d44c23210e28464ad000148cb6d6aa66c
 
 COCOAPODS: 1.9.3
