@@ -24,6 +24,7 @@
 		49AE027024E8F3F7002C028B /* TestCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE026F24E8F3F7002C028B /* TestCViewController.swift */; };
 		7AF101A004E785E382CF7283 /* Pods_RXSwift_Explore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */; };
 		F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */; };
+		F31FF90F24EA5B2A00642DA9 /* SwiftTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FF90E24EA5B2900642DA9 /* SwiftTimer.swift */; };
 		F33801B624D7AFE900DAC697 /* DeviceAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33801B524D7AFE900DAC697 /* DeviceAuthManager.swift */; };
 		F3966C2B24CC309600D9F01F /* OperationtestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3966C2A24CC309600D9F01F /* OperationtestViewController.swift */; };
 		F3B9937E24D14C1B000AD623 /* TestCuddeleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */; };
@@ -52,6 +53,7 @@
 		D474DB7044B723A277DDFCBC /* Pods-RXSwift_Explore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXSwift_Explore.debug.xcconfig"; path = "Target Support Files/Pods-RXSwift_Explore/Pods-RXSwift_Explore.debug.xcconfig"; sourceTree = "<group>"; };
 		EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXSwift_Explore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTestViewController.swift; sourceTree = "<group>"; };
+		F31FF90E24EA5B2900642DA9 /* SwiftTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTimer.swift; sourceTree = "<group>"; };
 		F33801B524D7AFE900DAC697 /* DeviceAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAuthManager.swift; sourceTree = "<group>"; };
 		F3966C2A24CC309600D9F01F /* OperationtestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationtestViewController.swift; sourceTree = "<group>"; };
 		F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCuddeleViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		F3B9937F24D173AE000AD623 /* EXtension */ = {
 			isa = PBXGroup;
 			children = (
+				F31FF90E24EA5B2900642DA9 /* SwiftTimer.swift */,
 				F3B9938024D173CF000AD623 /* IntExtension.swift */,
 			);
 			path = EXtension;
@@ -343,6 +346,7 @@
 				F3966C2B24CC309600D9F01F /* OperationtestViewController.swift in Sources */,
 				49AE026E24E8F3F0002C028B /* TestBViewController.swift in Sources */,
 				49AE026A24E8EDD8002C028B /* WCDBCacheManager.swift in Sources */,
+				F31FF90F24EA5B2A00642DA9 /* SwiftTimer.swift in Sources */,
 				F33801B624D7AFE900DAC697 /* DeviceAuthManager.swift in Sources */,
 				F3B9938124D173CF000AD623 /* IntExtension.swift in Sources */,
 				49AE027024E8F3F7002C028B /* TestCViewController.swift in Sources */,

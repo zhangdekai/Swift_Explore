@@ -18,9 +18,167 @@ class OperationtestViewController: UIViewController {
         super.viewDidLoad()
 //        testCombinationOperators()
         
-        testTransformingOperators()
+//        testTransformingOperators()
+//        testFilteringConditionalOperators()
         
+        testMathematicalAggregateOperators()
 
+    }
+    
+    /// 集合控制操作符
+    func testMathematicalAggregateOperators() {
+        
+        // *** toArray: 将一个可观察序列转换为一个数组，将该数组作为一个新的单元素可观察序列发出，然后终止
+        print("*****toArray*****")
+        Observable.range(start: 1, count: 10)
+            .toArray()
+            .subscribe { print($0)}
+            .disposed(by: bag)
+        
+        // *** reduce: 从一个设置的初始化值开始，然后对一个可观察序列发出的所有元素应用累加器闭包，并以单个元素可观察序列的形式返回聚合结果 - 类似scan
+        print("*****reduce*****")
+        Observable.of(2, 3, 4)
+            .reduce(1, accumulator: *)// 0 + 10 + 100 + 1000 = 1111
+            .subscribe(onNext: { print($0)})
+            .disposed(by: bag)
+        
+        // *** concat: 以顺序方式连接来自一个可观察序列的内部可观察序列的元素，在从下一个序列发出元素之前，等待每个序列成功终止
+               // 用来控制顺序
+               print("*****concat*****")
+        
+        let sub1 = BehaviorSubject(value: "DK")
+        let sub2 = BehaviorSubject(value: "1")
+        
+        let sub = BehaviorSubject(value: sub1)
+        
+        sub.asObservable()
+            .concat()
+            .subscribe { print($0) }
+            .disposed(by: bag)
+        
+        sub1.onNext("DK1")
+        sub1.onNext("DK2")
+        
+        sub.onNext(sub2)
+        
+        sub2.onNext("DK3")
+        sub2.onNext("DK4")
+        
+        sub1.onCompleted()// 必须要等subject1 完成了才能订阅到! 用来控制顺序 网络数据的异步
+        
+        sub2.onNext("DK5")// D4 D5 会打印之前一个的
+    }
+    
+    /// 过滤条件操作符
+    func testFilteringConditionalOperators() {
+        // **** filter : 仅从满足指定条件的可观察序列中发出那些元素
+
+        print("*****filter*****")
+
+        Observable.of(1,2,3,4,5,6,7,8,9,0)
+            .filter{ $0 % 2 == 0 }//偶数
+        .subscribe(onNext: { print($0)})
+        .disposed(by: bag)
+        
+        // ***** 去重 distinctUntilChanged: 抑制可观察序列发出的顺序重复元素
+               print("*****distinctUntilChanged*****")
+        
+        Observable.of("1", "2", "2", "2", "3", "3", "4")
+        .distinctUntilChanged()
+        .subscribe(onNext: { print($0)})
+        .disposed(by: bag)
+        
+        // **** elementAt: 仅在可观察序列发出的所有元素的指定索引处发出元素
+        print("*****elementAt*****")
+        Observable.of("C", "o", "K", "c", "i")
+            .elementAt(2)
+            .subscribe(onNext: { print($0) })
+            .disposed(by: bag)
+        
+        // *** single: 只发出可观察序列发出的第一个元素(或满足条件的第一个元素)。如果可观察序列发出多个元素，将抛出一个错误。
+        
+        print("*****single*****")
+        Observable.of("Cooci", "Kody")
+            .single()
+            .subscribe(onNext: { print($0) })
+            .disposed(by: bag)
+        
+        Observable.of("Cocoi","DK")
+            .single{ $0 == "DK"}//筛选
+        .subscribe(onNext: { print($0)})
+        .disposed(by: bag)
+        
+        // **** take: 只从一个可观察序列的开始发出指定数量的元素。 上面signal只有一个序列 在实际开发会受到局限 这里引出 take 想几个就几个
+        print("*****take*****")
+        Observable.of("Hank", "Kody","Cooci", "CC")
+        .take(3)
+        .subscribe(onNext: { print($0)})
+        .disposed(by: bag)
+        
+        // **** takeWhile: 只要指定条件的值为true，就从可观察序列的开始发出元素
+        print("*****takeWhile*****")
+        Observable.of(1, 2, 3, 4, 5, 6)
+            .takeWhile { $0 < 4 }
+        .subscribe(onNext: { print($0)})
+        .disposed(by: bag)
+        
+        // ***** takeUntil: 从源可观察序列发出元素，直到参考可观察序列发出元素
+        // 这个要重点,应用非常频繁 比如我页面销毁了,就不能获取值了(cell重用运用)
+        print("*****takeUntil*****")
+        let sourceSequence = PublishSubject<String>()
+        let referenceSequence = PublishSubject<String>()
+        
+        sourceSequence
+            .takeUntil(referenceSequence)
+            .subscribe(onNext: { print($0)})
+            .disposed(by: bag)
+        
+        sourceSequence.onNext("Cooci")
+        sourceSequence.onNext("Kody")
+        sourceSequence.onNext("CC")
+        
+        referenceSequence.onNext("Hank")// 条件一出来,下面就走不了
+        
+        sourceSequence.onNext("Lina")
+               sourceSequence.onNext("小雁子")
+               sourceSequence.onNext("婷婷")
+        
+        // ***** skip: 从源可观察序列发出元素，直到参考可观察序列发出元素
+        // 这个要重点,应用非常频繁 不用解释 textfiled 都会有默认序列产生
+        print("*****skip*****")
+        Observable.of(1, 2, 3, 4, 5, 6)
+        .skip(2)
+        .subscribe(onNext: { print($0)})
+        .disposed(by: bag)
+        
+        
+        print("*****skipWhile*****")
+               Observable.of(1, 2, 3, 4, 5, 6)
+                .skipWhile { $0 < 4}
+        .subscribe(onNext: { print($0)})
+        .disposed(by: bag)
+        
+        
+        // *** skipUntil: 抑制从源可观察序列发出元素，直到参考可观察序列发出元素
+        print("*****skipUntil*****")
+        let sourceSeq = PublishSubject<String>()
+        let referenceSeq = PublishSubject<String>()
+        
+        sourceSeq
+            .skipUntil(referenceSeq)
+            .subscribe(onNext: { print($0) })
+        .disposed(by: bag)
+        
+        // 没有条件命令 下面走不了
+        sourceSeq.onNext("Cooci")
+        sourceSeq.onNext("Kody")
+        sourceSeq.onNext("CC")
+        
+        referenceSeq.onNext("Hank") // 条件一出来,下面就可以走了
+        
+        sourceSeq.onNext("Lina")
+        sourceSeq.onNext("小雁子")
+        sourceSeq.onNext("婷婷")
     }
     
     func testTransformingOperators() {

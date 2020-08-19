@@ -35,27 +35,48 @@ class ViewController: UIViewController {
     var _timer: Timer!
     
     lazy var userLeaderView = UserLeadWordView()
+    var randomTimer: SwiftTimer?
     
+    var timerCont = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "hello"
         
+       
+    }
+    
+    func addTimerTest() {
+        print("SwiftTimer begine")
         
-//        let imageView = UIImageView(image: UIImage(named: "background"))
-//        view.addSubview(imageView)
-//        imageView.snp.makeConstraints { (make) in
-//            make.edges.equalToSuperview()
-//        }
-//
-//        view.addSubview(self.userLeaderView)
-//        userLeaderView.snp.makeConstraints { (make) in
-//            make.left.equalTo(12)
-//            make.right.equalTo(-12)
-//            make.height.equalTo(36)
-//            make.bottom.equalTo(-152 - 0)
-//        }
+        // 每秒。。。。
+        randomTimer = SwiftTimer(interval: .seconds(1), repeats: true, queue: .main, handler: { (timer) in
+            
+            self.timerCont += 1
+            print("SwiftTimer_____\(self.timerCont)")
+            
+        })
+        // 3秒后 。。。。
+//        randomTimer = SwiftTimer(interval: .seconds(3), handler: {[weak self] (timer) in
+//            print("SwiftTimer_____")
+//        })
+        randomTimer?.start()
+    }
+    
+    func addBackgroundViewAndProgress() {
+        let imageView = UIImageView(image: UIImage(named: "background"))
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
         
+        view.addSubview(self.userLeaderView)
+        userLeaderView.snp.makeConstraints { (make) in
+            make.left.equalTo(12)
+            make.right.equalTo(-12)
+            make.height.equalTo(36)
+            make.bottom.equalTo(-152 - 0)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
