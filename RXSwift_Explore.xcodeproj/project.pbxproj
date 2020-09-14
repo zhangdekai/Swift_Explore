@@ -25,6 +25,8 @@
 		7AF101A004E785E382CF7283 /* Pods_RXSwift_Explore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */; };
 		F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */; };
 		F31FF90F24EA5B2A00642DA9 /* SwiftTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FF90E24EA5B2900642DA9 /* SwiftTimer.swift */; };
+		F332693424F63ED100A18EA2 /* CustomAlterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A21A5E24EE9E7E0058810C /* CustomAlterViewController.swift */; };
+		F332693624F642CD00A18EA2 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332693524F642CD00A18EA2 /* Frame.swift */; };
 		F33801B624D7AFE900DAC697 /* DeviceAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33801B524D7AFE900DAC697 /* DeviceAuthManager.swift */; };
 		F3966C2B24CC309600D9F01F /* OperationtestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3966C2A24CC309600D9F01F /* OperationtestViewController.swift */; };
 		F3B9937E24D14C1B000AD623 /* TestCuddeleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */; };
@@ -54,8 +56,10 @@
 		EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXSwift_Explore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTestViewController.swift; sourceTree = "<group>"; };
 		F31FF90E24EA5B2900642DA9 /* SwiftTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTimer.swift; sourceTree = "<group>"; };
+		F332693524F642CD00A18EA2 /* Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frame.swift; sourceTree = "<group>"; };
 		F33801B524D7AFE900DAC697 /* DeviceAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAuthManager.swift; sourceTree = "<group>"; };
 		F3966C2A24CC309600D9F01F /* OperationtestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationtestViewController.swift; sourceTree = "<group>"; };
+		F3A21A5E24EE9E7E0058810C /* CustomAlterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlterViewController.swift; sourceTree = "<group>"; };
 		F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCuddeleViewController.swift; sourceTree = "<group>"; };
 		F3B9938024D173CF000AD623 /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +121,7 @@
 		4989DE1424BE0670009DAF62 /* RXSwift_Explore */ = {
 			isa = PBXGroup;
 			children = (
+				F332693324F63A8F00A18EA2 /* 点击空白dimiss的AlterVC */,
 				49AE026824E8EDC5002C028B /* 数据库WCDB */,
 				49AE026524E8D2B4002C028B /* Subject */,
 				F33801B424D7AFCF00DAC697 /* 权限检测 */,
@@ -188,6 +193,14 @@
 			path = "序列Observable创建";
 			sourceTree = "<group>";
 		};
+		F332693324F63A8F00A18EA2 /* 点击空白dimiss的AlterVC */ = {
+			isa = PBXGroup;
+			children = (
+				F3A21A5E24EE9E7E0058810C /* CustomAlterViewController.swift */,
+			);
+			path = "点击空白dimiss的AlterVC";
+			sourceTree = "<group>";
+		};
 		F33801B424D7AFCF00DAC697 /* 权限检测 */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +231,7 @@
 		F3B9937F24D173AE000AD623 /* EXtension */ = {
 			isa = PBXGroup;
 			children = (
+				F332693524F642CD00A18EA2 /* Frame.swift */,
 				F31FF90E24EA5B2900642DA9 /* SwiftTimer.swift */,
 				F3B9938024D173CF000AD623 /* IntExtension.swift */,
 			);
@@ -339,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F332693424F63ED100A18EA2 /* CustomAlterViewController.swift in Sources */,
 				493203E524C437A500690A7D /* LoginViewController.swift in Sources */,
 				4989DE1A24BE0670009DAF62 /* ViewController.swift in Sources */,
 				49AE026C24E8F3E5002C028B /* TestAViewController.swift in Sources */,
@@ -347,6 +362,7 @@
 				49AE026E24E8F3F0002C028B /* TestBViewController.swift in Sources */,
 				49AE026A24E8EDD8002C028B /* WCDBCacheManager.swift in Sources */,
 				F31FF90F24EA5B2A00642DA9 /* SwiftTimer.swift in Sources */,
+				F332693624F642CD00A18EA2 /* Frame.swift in Sources */,
 				F33801B624D7AFE900DAC697 /* DeviceAuthManager.swift in Sources */,
 				F3B9938124D173CF000AD623 /* IntExtension.swift in Sources */,
 				49AE027024E8F3F7002C028B /* TestCViewController.swift in Sources */,

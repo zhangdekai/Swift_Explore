@@ -11,18 +11,109 @@ import RxSwift
 import RxCocoa
 
 class OperationtestViewController: UIViewController {
-
+    
     let bag = DisposeBag()
+    let lgError = NSError.init(domain: "com.lgerror.cn", code: 10090, userInfo: nil)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        testCombinationOperators()
+        //        testCombinationOperators()
         
-//        testTransformingOperators()
-//        testFilteringConditionalOperators()
+        //        testTransformingOperators()
+        //        testFilteringConditionalOperators()
+        //        testMathematicalAggregateOperators()
+//        testErrorHandlingOperators()
         
-        testMathematicalAggregateOperators()
-
+    }
+    
+    /// 从可观察对象的错误通知中恢复的操作符。
+    func testErrorHandlingOperators() {
+        // **** catchErrorJustReturn
+        // 从错误事件中恢复，方法是返回一个可观察到的序列，该序列发出单个元素，然后终止
+        print("*****catchErrorJustReturn*****")
+        
+        let sub = PublishSubject<String>()
+        sub.catchErrorJustReturn("DK——Error")
+            .subscribe { print($0)}
+            .disposed(by: bag)
+        sub.onNext("Dk1")
+        sub.onNext("DK2")
+        sub.onError(lgError)
+        
+        
+        // **** catchError
+        // 通过切换到提供的恢复可观察序列，从错误事件中恢复
+        print("*****catchError*****")
+        
+        let sub1 = PublishSubject<String>()
+        sub1.catchError {
+            print("error:\($0)")
+            return sub1
+        }
+        .subscribe{ print($0)}
+        .disposed(by: bag)
+        
+        sub1.onNext("DD1")
+        sub1.onNext("DD2")
+        
+        sub1.onError(lgError)
+        
+        sub1.onNext("DD3")
+        
+        
+        // *** retry: 通过无限地重新订阅可观察序列来恢复重复的错误事件
+        print("*****retry*****")
+        var count = 1 // 外界变量控制流程
+        let sub2 = Observable<String>.create { (observer) -> Disposable in
+            observer.onNext("KK1")
+            observer.onNext("KK2")
+            observer.onNext("KK3")
+            
+            if count == 1 {
+                //流程进来之后就会过度-这里的条件可以作为出口,失败的次数
+                observer.onError(self.lgError)  // 接收到了错误序列,重试序列发生
+                print("错误序列来了")
+                count += 1
+            }
+            observer.onNext("KK4")
+            observer.onNext("KK5")
+            observer.onNext("KK6")
+            observer.onCompleted()
+            
+            return Disposables.create()
+        }
+        sub2.retry()
+            .subscribe { print($0)}
+            .disposed(by: bag)
+        
+        // **** retry(_:): 通过重新订阅可观察到的序列，重复地从错误事件中恢复，直到重试次数达到max未遂计数
+        print("*****retry(_:)*****")
+        
+        let sub3 = Observable<String>.create { (observer) -> Disposable in
+            
+            observer.onNext("KK1")
+            observer.onNext("KK2")
+            observer.onNext("KK30000")
+            
+            if count < 5 {
+                //流程进来之后就会过度-这里的条件可以作为出口,失败的次数
+                observer.onError(self.lgError)  // 接收到了错误序列,重试序列发生
+                print("错误序列来了")
+                count += 1
+            }
+            observer.onNext("KK4")
+            observer.onNext("KK5")
+            observer.onNext("KK10000")
+            observer.onCompleted()
+            
+            return Disposables.create()
+        }
+        
+        sub3.retry(3)
+            .subscribe { print($0)}
+            .disposed(by: bag)
+        
     }
     
     /// 集合控制操作符
@@ -43,8 +134,8 @@ class OperationtestViewController: UIViewController {
             .disposed(by: bag)
         
         // *** concat: 以顺序方式连接来自一个可观察序列的内部可观察序列的元素，在从下一个序列发出元素之前，等待每个序列成功终止
-               // 用来控制顺序
-               print("*****concat*****")
+        // 用来控制顺序
+        print("*****concat*****")
         
         let sub1 = BehaviorSubject(value: "DK")
         let sub2 = BehaviorSubject(value: "1")
@@ -72,21 +163,21 @@ class OperationtestViewController: UIViewController {
     /// 过滤条件操作符
     func testFilteringConditionalOperators() {
         // **** filter : 仅从满足指定条件的可观察序列中发出那些元素
-
+        
         print("*****filter*****")
-
+        
         Observable.of(1,2,3,4,5,6,7,8,9,0)
             .filter{ $0 % 2 == 0 }//偶数
-        .subscribe(onNext: { print($0)})
-        .disposed(by: bag)
+            .subscribe(onNext: { print($0)})
+            .disposed(by: bag)
         
         // ***** 去重 distinctUntilChanged: 抑制可观察序列发出的顺序重复元素
-               print("*****distinctUntilChanged*****")
+        print("*****distinctUntilChanged*****")
         
         Observable.of("1", "2", "2", "2", "3", "3", "4")
-        .distinctUntilChanged()
-        .subscribe(onNext: { print($0)})
-        .disposed(by: bag)
+            .distinctUntilChanged()
+            .subscribe(onNext: { print($0)})
+            .disposed(by: bag)
         
         // **** elementAt: 仅在可观察序列发出的所有元素的指定索引处发出元素
         print("*****elementAt*****")
@@ -105,22 +196,22 @@ class OperationtestViewController: UIViewController {
         
         Observable.of("Cocoi","DK")
             .single{ $0 == "DK"}//筛选
-        .subscribe(onNext: { print($0)})
-        .disposed(by: bag)
+            .subscribe(onNext: { print($0)})
+            .disposed(by: bag)
         
         // **** take: 只从一个可观察序列的开始发出指定数量的元素。 上面signal只有一个序列 在实际开发会受到局限 这里引出 take 想几个就几个
         print("*****take*****")
         Observable.of("Hank", "Kody","Cooci", "CC")
-        .take(3)
-        .subscribe(onNext: { print($0)})
-        .disposed(by: bag)
+            .take(3)
+            .subscribe(onNext: { print($0)})
+            .disposed(by: bag)
         
         // **** takeWhile: 只要指定条件的值为true，就从可观察序列的开始发出元素
         print("*****takeWhile*****")
         Observable.of(1, 2, 3, 4, 5, 6)
             .takeWhile { $0 < 4 }
-        .subscribe(onNext: { print($0)})
-        .disposed(by: bag)
+            .subscribe(onNext: { print($0)})
+            .disposed(by: bag)
         
         // ***** takeUntil: 从源可观察序列发出元素，直到参考可观察序列发出元素
         // 这个要重点,应用非常频繁 比如我页面销毁了,就不能获取值了(cell重用运用)
@@ -140,23 +231,23 @@ class OperationtestViewController: UIViewController {
         referenceSequence.onNext("Hank")// 条件一出来,下面就走不了
         
         sourceSequence.onNext("Lina")
-               sourceSequence.onNext("小雁子")
-               sourceSequence.onNext("婷婷")
+        sourceSequence.onNext("小雁子")
+        sourceSequence.onNext("婷婷")
         
         // ***** skip: 从源可观察序列发出元素，直到参考可观察序列发出元素
         // 这个要重点,应用非常频繁 不用解释 textfiled 都会有默认序列产生
         print("*****skip*****")
         Observable.of(1, 2, 3, 4, 5, 6)
-        .skip(2)
-        .subscribe(onNext: { print($0)})
-        .disposed(by: bag)
+            .skip(2)
+            .subscribe(onNext: { print($0)})
+            .disposed(by: bag)
         
         
         print("*****skipWhile*****")
-               Observable.of(1, 2, 3, 4, 5, 6)
-                .skipWhile { $0 < 4}
-        .subscribe(onNext: { print($0)})
-        .disposed(by: bag)
+        Observable.of(1, 2, 3, 4, 5, 6)
+            .skipWhile { $0 < 4}
+            .subscribe(onNext: { print($0)})
+            .disposed(by: bag)
         
         
         // *** skipUntil: 抑制从源可观察序列发出元素，直到参考可观察序列发出元素
@@ -167,7 +258,7 @@ class OperationtestViewController: UIViewController {
         sourceSeq
             .skipUntil(referenceSeq)
             .subscribe(onNext: { print($0) })
-        .disposed(by: bag)
+            .disposed(by: bag)
         
         // 没有条件命令 下面走不了
         sourceSeq.onNext("Cooci")
@@ -181,29 +272,30 @@ class OperationtestViewController: UIViewController {
         sourceSeq.onNext("婷婷")
     }
     
+    /// 映射操作符
     func testTransformingOperators() {
         // ***** map: 转换闭包应用于可观察序列发出的元素，并返回转换后的元素的新可观察序列。
         print("*****map*****")
-               let ob = Observable.of(1,2,3,4)
+        let ob = Observable.of(1,2,3,4)
         
         ob.map{ (num) -> Int in
             return num + 2
         }.subscribe{ print($0) }
-        .disposed(by: bag)
+            .disposed(by: bag)
         
         // 将可观测序列发射的元素转换为可观测序列，并将两个可观测序列的发射合并为一个可观测序列。
         // 这也很有用，例如，当你有一个可观察的序列，它本身发出可观察的序列，你想能够对任何一个可观察序列的新发射做出反应(序列中序列:比如网络序列中还有模型序列)
         // flatMap和flatMapLatest的区别是，flatMapLatest只会从最近的内部可观测序列发射元素
         
         print("*****flatMap*****")
-               let boy  = LGPlayer(score: 100)
-               let girl = LGPlayer(score: 90)
-               let player = BehaviorSubject(value: boy)
+        let boy  = LGPlayer(score: 100)
+        let girl = LGPlayer(score: 90)
+        let player = BehaviorSubject(value: boy)
         
         player.asObservable()
             .flatMap{ $0.score.asObservable() }
-        .subscribe(onNext: { print($0)})
-        .disposed(by: bag)
+            .subscribe(onNext: { print($0)})
+            .disposed(by: bag)
         
         boy.score.onNext(60)
         player.onNext(girl)
@@ -219,33 +311,35 @@ class OperationtestViewController: UIViewController {
         // ** scan: 从初始就带有一个默认值开始，然后对可观察序列发出的每个元素应用累加器闭包，并以单个元素可观察序列的形式返回每个中间结果
         print("*****scan*****")
         
-                
+        
         
         
     }
+    
+    /// 组合操作符
     func testCombinationOperators() {
         
         // *** startWith : 在开始从可观察源发出元素之前，发出指定的元素序列
         print("*****startWith*****")
         Observable.of("1", "2", "3", "4")
-        .startWith("A")
-        .startWith("B")
-        .startWith("C","a","b")
-        .subscribe(onNext: {print($0)})
-        .disposed(by: bag)
+            .startWith("A")
+            .startWith("B")
+            .startWith("C","a","b")
+            .subscribe(onNext: {print($0)})
+            .disposed(by: bag)
         //效果: CabBA1234
-
-         // **** merge : 将源可观察序列中的元素组合成一个新的可观察序列，并将像每个源可观察序列发出元素一样发出每个元素
+        
+        // **** merge : 将源可观察序列中的元素组合成一个新的可观察序列，并将像每个源可观察序列发出元素一样发出每个元素
         
         print("*****merge*****")
-
+        
         let subject1 = PublishSubject<String>()
         let subject2 = PublishSubject<String>()
-
+        
         Observable.of(subject1,subject2)
-        .merge()
-        .subscribe(onNext: {print($0)})
-        .disposed(by: bag)
+            .merge()
+            .subscribe(onNext: {print($0)})
+            .disposed(by: bag)
         
         subject1.onNext("C")
         subject1.onNext("o")
@@ -254,9 +348,9 @@ class OperationtestViewController: UIViewController {
         subject1.onNext("c")
         subject2.onNext("i")
         // Cooci - 任何一个响应都会勾起新序列响应
-
+        
         // : Coooci
-         //  *** zip: 将多达8个源可观测序列组合成一个新的可观测序列，并将从组合的可观测序列中发射出对应索引处每个源可观测序列的元素
+        //  *** zip: 将多达8个源可观测序列组合成一个新的可观测序列，并将从组合的可观测序列中发射出对应索引处每个源可观测序列的元素
         
         print("*****zip*****")
         
@@ -265,11 +359,11 @@ class OperationtestViewController: UIViewController {
         let intSubject = PublishSubject<Int>()
         
         Observable.zip(stringSubject, intSubject){ strE, intE in "\(strE),\(intE)"}
-        .subscribe(onNext: { print($0)})
-        .disposed(by: bag)
+            .subscribe(onNext: { print($0)})
+            .disposed(by: bag)
         
-//        stringSubject.onNext(<#T##element: String##String#>)
-    
+        //        stringSubject.onNext(<#T##element: String##String#>)
+        
     }
 }
 

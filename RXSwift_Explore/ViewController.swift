@@ -13,9 +13,11 @@ import SnapKit
 
 class ViewController: UIViewController {
     
+    let bag = DisposeBag()
+    
     lazy var progressView: VideoCallCycleView = {
         let cycle = VideoCallCycleView()
-        cycle.frame = CGRect(x: 200, y: 400, width: 52, height: 52)
+        cycle.frame = CGRect(x: 105, y: 34, width: 101, height: 101)
         cycle.topColor = UIColor.green
         cycle.bottomColor = UIColor.gray
         cycle.anmationDuration = 5.0
@@ -37,13 +39,112 @@ class ViewController: UIViewController {
     lazy var userLeaderView = UserLeadWordView()
     var randomTimer: SwiftTimer?
     
+    var alterVC:CustomAlterViewController!
+    
     var timerCont = 0
+    
+    public enum LiveType: Int {
+           case single = 1
+           case multi
+           case dating
+           
+           func seatCount() -> Int {
+               switch self {
+               case .multi:
+                   return 5
+               case .dating:
+                   return 6
+               default:
+                   return 0
+               }
+           }
+       }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "hello"
+        addBottomProgressView()
         
-       
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        progressView.timerMove()
+    }
+    //MARK: - 随机匹配底部弹出的倒计时View
+    var botomProgressImageView: UIImageView!
+    func addBottomProgressView() {
+        
+        addBackground()
+        
+        botomProgressImageView = UIImageView(image: UIImage(named: "vivi_videocall_match_limited_product"))
+        view.addSubview(botomProgressImageView)
+        botomProgressImageView.snp.makeConstraints { (make) in
+            make.bottom.equalTo(-Frame.Height.safeAeraBottomHeight - 52)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(311)
+            make.height.equalTo(343)
+        }
+        
+        let tap = UITapGestureRecognizer()
+        botomProgressImageView.addGestureRecognizer(tap)
+        botomProgressImageView.isUserInteractionEnabled = true
+        tap.rx.event
+            .subscribe(onNext: { [weak self] (tap) in
+                self?.getCoins()
+            }).disposed(by: bag)
+        
+        botomProgressImageView.addSubview(self.progressView)
+        progressView.setTimeCount(50, showType: .withTextA)
+        progressView.timerEndHandle = {[weak self] in
+            //
+            self?.getCoins()
+        }
+    }
+    
+    func getCoins() {
+        botomProgressImageView.isHidden = true
+        
+    }
+    
+    
+    func testCustomAlter() {
+        
+        alterVC = CustomAlterViewController(title: nil, message: "alter hello", preferredStyle: .alert)
+        
+        alterVC.addAction(title: "oK", style: .default, isEnabled: true) {(action) in
+            
+            print("hello 1")
+        }
+        
+        self.present(alterVC, animated: true, completion: nil)
+        
+        alterVC.dismissReturn = {
+            print("hello 1wwew")
+
+        }
+    }
+    
+    func testEnumFunc() {
+        
+        let adsd = LiveType.dating
+        
+        let count = adsd.seatCount()
+        
+        print(count)
+    }
+
+    func indexTest() {
+        let array = [1,2,3,3,3,4]
+        
+        let ind = array.firstIndex(where: { $0 == 3})
+        let lastIndex = array.lastIndex(where: { $0 == 3})
+
+        print(ind ?? -1)
+        print(lastIndex ?? -1)
     }
     
     func addTimerTest() {
@@ -63,12 +164,16 @@ class ViewController: UIViewController {
         randomTimer?.start()
     }
     
-    func addBackgroundViewAndProgress() {
+    func addBackground() {
         let imageView = UIImageView(image: UIImage(named: "background"))
         view.addSubview(imageView)
         imageView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+    }
+    
+    func addUserLeaderView() {
+        addBackground()
         
         view.addSubview(self.userLeaderView)
         userLeaderView.snp.makeConstraints { (make) in
@@ -141,3 +246,38 @@ class ViewController: UIViewController {
 extension UIViewController: LoadStoryBoard {
     
 }
+
+
+extension UIAlertController {
+    
+//    /// 给 UIAlertController 添加空白处点击 dismiss
+//    func addTapDismiss() {
+//
+//        let arrayViews = UIApplication.shared.keyWindow?.subviews
+//
+//        if !(arrayViews?.isEmpty ?? true) {
+//            let backview = arrayViews?.last
+//            backview?.isUserInteractionEnabled = true
+//            let tap = UITapGestureRecognizer(target: self, action: #selector(tapMethod))
+//            tap.delegate = self
+//            backview?.addGestureRecognizer(tap)
+//
+//        }
+//    }
+//
+//    @objc func tapMethod() {
+//        self.dismiss(animated: true, completion: nil)
+//
+//    }
+
+
+    
+    @discardableResult
+    func addAction(title: String, style: UIAlertAction.Style = .default, isEnabled: Bool = true, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
+        let action = UIAlertAction(title: title, style: style, handler: handler)
+        action.isEnabled = isEnabled
+        addAction(action)
+        return action
+    }
+}
+

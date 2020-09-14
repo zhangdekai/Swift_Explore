@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 // MARK: 金币View
 class UserCoinCountView: UIView {
@@ -52,30 +54,44 @@ class UserCoinCountView: UIView {
     }
 }
 
+/// 圆环倒计时
 class VideoCallCycleView: UIView {
     
+    enum ShowType {
+        /// show 60, 59,
+        case withText
+        /// no text show
+        case withoutText
+        /// show 00:50 -> 00:49
+        case withTextA
+    }
+    
     var timerEndHandle: (() -> Void)?
+    var tapHandle: (() -> Void)?
+    /// 线宽
+    var progressWidth: CGFloat = 10
+    /// 底线
+    var bottomColor: UIColor?
+    /// progress线条
+    var topColor: UIColor?
     
-    var progressWidth: CGFloat = 10//线宽
-    var bottomColor: UIColor? //底线
-    var topColor: UIColor?//progress线条
+    private var roundOrigin: CGPoint = CGPoint(x: 0, y: 0)//圆点
+    private var radius: CGFloat = 0//半径
+    private var startAngle: CGFloat = 0//起始
+    private var endAngle: CGFloat = 0//结束
     
-    var roundOrigin: CGPoint = CGPoint(x: 0, y: 0)//圆点
-    var radius: CGFloat = 0//半径
-    var startAngle: CGFloat = 0//起始
-    var endAngle: CGFloat = 0//结束
-    var blocks: ((_ progressfloat: CGFloat) -> Void)?
+    private var blocks: ((_ progressfloat: CGFloat) -> Void)?
     
-    var _timer: Timer?
-    var timeOut = 60
-    var step = 1.0//0.01 * (100.0 / 60.0)
-    //进度label
+    private var _timer: Timer?
+    private var timeOut = 60
+    private var step = 1.0//0.01 * (100.0 / 60.0)
+    private var showType: ShowType = .withText
+    
+    //进度 展示label
     private lazy var progressLabel: UILabel = {
         let lab = UILabel()
-        lab.frame = CGRect(x: 0, y: 0, width: 100, height: 15)
-        lab.center = CGPoint(x: self.bounds.size.width / 2, y: self.bounds.size.height / 2)
         lab.textColor = UIColor.white
-        lab.font = UIFont.systemFont(ofSize: 13)
+        lab.font = .systemFont(ofSize: 13)
         lab.textAlignment = .center
         return lab
     }()
@@ -95,18 +111,49 @@ class VideoCallCycleView: UIView {
     var bottomTitle: UILabel!
     var anmationDuration = 1.0
     
-    //    func setProductInfo(_ info: [Entity.VideoCall.RecommendProduct]) {
-    //        if !info.isEmpty {
-    //            topTitle.text = info[0].amount.string
-    //            bottomTitle.text = "$ \(Double(info[0].price) / 100.0 )"
-    //        }
-    //    }
-    //
+//    func setProductInfo(_ info: [Entity.VideoCall.RecommendProduct]) {
+//        if !info.isEmpty {
+//            topTitle.text = info[0].amount.string
+//            bottomTitle.text = "$ \(Double(info[0].price) / 100.0 )"
+//        }
+//    }
+    
+    func setTimeCount(_ time: Int, showType: ShowType) {
+        self.showType = showType
+        switch showType {
+        case .withoutText:
+            progressLabel.isHidden = true
+        case.withTextA:
+            progressLabel.text = "00:\(time)"
+            progressLabel.font = .systemFont(ofSize: 25, weight: .medium)
+        default:
+            break
+        }
+        
+        anmationDuration = Double(time)
+        self.timeOut = time
+        
+    }
+    
+    func timerMove() {
+        beginTimer()
+        drawRing(profloat: 1.0)
+    }
+    
+    private func beginTimer() {
+        _timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+        RunLoop.main.add(_timer!, forMode: .common)
+    }
+    
     func addTimer() {
         timeOut = 60
         _timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
         RunLoop.main.add(_timer!, forMode: .common)
-        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            if self.blocks != nil {
+                self.blocks!(1.0)
+            }
+        }
     }
     
     func addTimerA() {
@@ -114,17 +161,28 @@ class VideoCallCycleView: UIView {
         progressLabel.isHidden = true
         _timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
         RunLoop.main.add(_timer!, forMode: .common)
-        
-        //        self.gotoMove(profloat: 1.0)
-        //        if let block = self.blocks {
-        //            block(1.0)
-        //        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            if self.blocks != nil {
+                self.blocks!(1.0)
+            }
+        }
     }
     
     @objc func timerAction() {
         timeOut -= 1
-        progressLabel.text = "\(timeOut)"
-        
+        switch showType {
+        case.withText:
+            progressLabel.text = "\(timeOut)"
+        case.withTextA:
+            if timeOut < 10 {
+                progressLabel.text = "00:0\(timeOut)"
+            } else {
+                progressLabel.text = "00:\(timeOut)"
+            }
+        default:
+            break
+        }
+
         if timeOut <= 0 {
             if let block = self.timerEndHandle {
                 block()
@@ -145,32 +203,72 @@ class VideoCallCycleView: UIView {
         removeTimer()
     }
     
+//    func addProductUI() {
+//
+//        let image = UIImageView(image: R.image.vivi_coin())
+//        self.addSubview(image)
+//        image.snp.makeConstraints { (make) in
+//            make.left.equalTo(30)
+//            make.top.equalTo(12)
+//            make.width.height.equalTo(18)
+//        }
+//        image.isUserInteractionEnabled = true
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(tapMethod))
+//        image.addGestureRecognizer(tap)
+//
+//        let label = UILabel()
+//        self.topTitle = label
+//        label.textColor = UIColor.white
+//        label.font = .systemFont(ofSize: 14)
+//        self.addSubview(label)
+//        label.snp.makeConstraints { (make) in
+//            make.left.equalTo(image.snp.right).offset(3)
+//            make.centerY.equalTo(image)
+//            make.height.equalTo(20)
+//        }
+//
+//        let label1 = UILabel()
+//        self.bottomTitle = label1
+//        label1.textColor = UIColor.white
+//        label1.font = .systemFont(ofSize: 14)
+//        self.addSubview(label1)
+//        label1.snp.makeConstraints { (make) in
+//            make.height.equalTo(20)
+//            make.centerX.equalToSuperview()
+//            make.bottom.equalTo(-12)
+//        }
+//    }
+    
+    @objc func tapMethod() {
+        if let block = tapHandle {
+            block()
+        }
+    }
+    
     override func draw(_ rect: CGRect) {
         
         setUPUI()
         addRound()
         setMethoud()
+    }
+    
+    
+    func drawRing(profloat: CGFloat) {
+        self.startAngle = -CGFloat(Double.pi / 2)
         
-        blocks = {(profloat: CGFloat) -> Void in
-            
-            self.progressLabel.text = "\(self.timeOut)"
-            
-            self.startAngle = -CGFloat(Double.pi / 2)
-            
-            self.endAngle = self.startAngle + profloat * CGFloat(Double.pi * 2)
-            
-            let topPath = UIBezierPath(arcCenter: self.roundOrigin, radius: self.radius, startAngle: self.startAngle, endAngle: self.endAngle, clockwise: true)
-            
-            self.topLayer.path = topPath.cgPath//添加路径
-            //添加动画
-            let pathAnimation = CABasicAnimation(keyPath: "strokeEnd")
-            pathAnimation.duration = self.anmationDuration//动画持续时间
-            pathAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-            pathAnimation.fromValue = 1
-            pathAnimation.toValue = 0
-            self.topLayer.add(pathAnimation, forKey: "strokeEndAnimation")
-            //            self.gotoMove(profloat: profloat)
-        }
+        self.endAngle = self.startAngle + profloat * CGFloat(Double.pi * 2)
+        
+        let topPath = UIBezierPath(arcCenter: self.roundOrigin, radius: self.radius, startAngle: self.startAngle, endAngle: self.endAngle, clockwise: true)
+        
+        self.topLayer.path = topPath.cgPath//添加路径
+        //添加动画
+        let pathAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        pathAnimation.isRemovedOnCompletion = false
+        pathAnimation.duration = self.anmationDuration //动画持续时间
+        pathAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        pathAnimation.fromValue = 1
+        pathAnimation.toValue = 0
+        self.topLayer.add(pathAnimation, forKey: "strokeEndAnimation")
     }
     
     override init(frame: CGRect) {
@@ -186,6 +284,10 @@ class VideoCallCycleView: UIView {
         layer.addSublayer(bottomLayer)
         layer.addSublayer(topLayer)
         addSubview(progressLabel)
+        progressLabel.snp.makeConstraints { (make) in
+            make.width.equalTo(100)
+            make.center.equalToSuperview()
+        }
     }
     func addRound() {
         roundOrigin = CGPoint(x: self.bounds.size.width / 2, y: self.bounds.size.height / 2)
