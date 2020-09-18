@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "hello"
-        addBottomProgressView()
+//        addBottomProgressView()
         
     }
     
