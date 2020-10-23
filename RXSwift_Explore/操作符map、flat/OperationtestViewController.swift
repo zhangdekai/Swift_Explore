@@ -189,7 +189,6 @@ class OperationtestViewController: UIViewController {
                 print(str)
             })
             .disposed(by: bag)
-        
     }
     
     /// 从可观察对象的错误通知中恢复的操作符。
@@ -199,13 +198,14 @@ class OperationtestViewController: UIViewController {
         print("*****catchErrorJustReturn*****")
         
         let sub = PublishSubject<String>()
+        
         sub.catchErrorJustReturn("DK——Error")
             .subscribe { print($0)}
             .disposed(by: bag)
+        
         sub.onNext("Dk1")
         sub.onNext("DK2")
         sub.onError(lgError)
-        
         
         // **** catchError
         // 通过切换到提供的恢复可观察序列，从错误事件中恢复

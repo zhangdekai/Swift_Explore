@@ -13,6 +13,7 @@ import SnapKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var textButton: UIButton!
     let bag = DisposeBag()
     
     lazy var progressView: VideoCallCycleView = {
@@ -60,13 +61,67 @@ class ViewController: UIViewController {
            }
        }
     
+    class TestSortType {
+        var category: Int = 0
+        init(category: Int) {
+            self.category = category
+        }
+    }
+    
+    var heartImage = UIImageView(image: UIImage(named: "vivi_videocall_match_redheart"))
+//    var heartImage = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "hello"
 //        addBottomProgressView()
+                
         
+       
+    }
+    /// 红心跳动
+    func redHeartMove() {
+        view.addSubview(heartImage)
+        heartImage.snp.makeConstraints { (make) in
+            make.bottom.equalTo(-120)
+            make.width.height.equalTo(90)
+            make.centerX.equalToSuperview()
+        }
+        
+        let k = CAKeyframeAnimation(keyPath: "transform.scale")
+        k.values = [0.9, 1.0,1.1]
+        k.keyTimes = [0.0, 0.2, 0.6, 0.8, 1.0]
+        k.calculationMode = .linear
+        k.repeatCount = 1000
+        k.duration = 1.5
+        heartImage.layer.add(k, forKey: "SHOW")
+    }
+    
+    func testSort() {
+        var aaa = [TestSortType(category: 1), TestSortType(category: 2), TestSortType(category: 3), TestSortType(category: 4)]
+                
+        aaa.sort(by: { $0.category > $1.category })
+        aaa.map({ print($0.category) })
+        
+        let bbb = aaa.sorted(by: {$0.category > $1.category})
+        bbb.map({ print($0.category) })
+    }
+    
+    func testABClient() {
+        let client:Client = AClient()
+        client.connectIm()
+    
+        let client1:Client = BClient()
+        client1.connectIm()
+        
+        
+        textButton.backgroundColor = .yellow
+        textButton.titleLabel?.numberOfLines = 1
+        textButton.titleLabel?.lineBreakMode = .byWordWrapping
+
+        textButton.setTitle("please input hello world    ", for: .normal)
+//        textButton.sizeToFit()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -222,11 +277,11 @@ class ViewController: UIViewController {
         
         let vc = TestAViewController()
 //        let vc = LoginViewController.instanceController(.main)
-//        self.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)
         
-        self.navigationController?.pushViewController(vc, animated: true)
-        
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     @IBAction func jumpObserable(_ sender: Any) {
         
         let vc = ObservableTestViewController()

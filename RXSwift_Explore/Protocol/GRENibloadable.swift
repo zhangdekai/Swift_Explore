@@ -44,3 +44,58 @@ extension LoadStoryBoard where Self : UIViewController {
         return vc
     }
 }
+
+protocol IMClientProtocol: NSObjectProtocol {
+    func connectIm()
+    func joinRoom(room: String)
+}
+
+class Client: NSObject {
+    func connectIm() {
+        
+    }
+    
+    func joinRoom(room: String) {
+        
+    }
+    
+    var name: String?
+    
+    override init() {
+        super.init()
+    }
+}
+
+class AClient: Client {
+    override func connectIm() {
+        print("AClient")
+    }
+    
+    override func joinRoom(room: String) {
+        print("AClient")
+
+    }
+    
+    override init() {
+        super.init()
+        
+    }
+}
+
+class BClient: Client {
+    override func connectIm() {
+        print("BClient")
+
+    }
+    
+    override func joinRoom(room: String) {
+        print("BClient")
+
+    }
+    
+    override init() {
+        super.init()
+        
+    }
+    
+}

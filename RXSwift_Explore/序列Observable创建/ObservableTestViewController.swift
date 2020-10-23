@@ -84,8 +84,6 @@ class ObservableTestViewController: UIViewController {
        
        print("********from********")
 
-
-        
         //MARK:  from
         // 从集合中获取序列:数组,集合,set 获取序列 - 有可选项处理 - 更安全
         Observable<[String]>.from(optional: ["LG_Cooci","LG_Kody"])
