@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
+import CoreLocation
 
 class ViewController: UIViewController {
     
@@ -68,7 +69,6 @@ class ViewController: UIViewController {
         }
     }
     
-    var heartImage = UIImageView(image: UIImage(named: "vivi_videocall_match_redheart"))
 //    var heartImage = UIButton()
     
     override func viewDidLoad() {
@@ -80,7 +80,49 @@ class ViewController: UIViewController {
         
        
     }
-    /// 红心跳动
+    //MARK: - 定位测试
+    var manager: LocationManager!
+    @IBAction func testLocation(_ sender: Any) {
+        
+        if CLLocationManager.locationServicesEnabled() {
+            print("设备有定位服务")
+            
+            manager = LocationManager.shared
+            
+            manager.getAuthHandle = { [weak self] (success) in
+                if success {
+                    
+                }
+                print("获取权限:\(success)")
+            }
+            
+            if manager.hasLocationPermission() {
+                
+
+                manager.requestLocation()
+                manager.getLocationHandle = { (success,latitude, longitude) in
+                    
+                    print("获得location \(success), latitude:\(latitude)  longitude:\(longitude)")
+                }
+            } else {
+                manager.requestLocationAuthorizaiton()
+
+            }
+        } else {
+            print("设备meiyou有定位服务")
+            
+            let alter = UIAlertController(title: "Location is Disabled", message: "To use location, go to your settings\nApp > Privacy > Location Services", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alter.addAction(action)
+           
+            present(alter, animated: true, completion: nil)
+        }
+        
+    }
+    
+    //MARK: - 红心跳动
+    var heartImage = UIImageView(image: UIImage(named: "vivi_videocall_match_redheart"))
     func redHeartMove() {
         view.addSubview(heartImage)
         heartImage.snp.makeConstraints { (make) in
@@ -98,7 +140,9 @@ class ViewController: UIViewController {
         heartImage.layer.add(k, forKey: "SHOW")
     }
     
+    //MARK: - Sort 测试
     func testSort() {
+        
         var aaa = [TestSortType(category: 1), TestSortType(category: 2), TestSortType(category: 3), TestSortType(category: 4)]
                 
         aaa.sort(by: { $0.category > $1.category })
@@ -108,6 +152,7 @@ class ViewController: UIViewController {
         bbb.map({ print($0.category) })
     }
     
+    //MARK: - 多态实现
     func testABClient() {
         let client:Client = AClient()
         client.connectIm()

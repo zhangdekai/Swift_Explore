@@ -24,6 +24,7 @@
 		49AE027024E8F3F7002C028B /* TestCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE026F24E8F3F7002C028B /* TestCViewController.swift */; };
 		7AF101A004E785E382CF7283 /* Pods_RXSwift_Explore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */; };
 		F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */; };
+		F318464E25593D63006BC8E5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F318464D25593D63006BC8E5 /* LocationManager.swift */; };
 		F31FF90F24EA5B2A00642DA9 /* SwiftTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FF90E24EA5B2900642DA9 /* SwiftTimer.swift */; };
 		F332693424F63ED100A18EA2 /* CustomAlterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A21A5E24EE9E7E0058810C /* CustomAlterViewController.swift */; };
 		F332693624F642CD00A18EA2 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332693524F642CD00A18EA2 /* Frame.swift */; };
@@ -55,6 +56,7 @@
 		D474DB7044B723A277DDFCBC /* Pods-RXSwift_Explore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXSwift_Explore.debug.xcconfig"; path = "Target Support Files/Pods-RXSwift_Explore/Pods-RXSwift_Explore.debug.xcconfig"; sourceTree = "<group>"; };
 		EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXSwift_Explore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTestViewController.swift; sourceTree = "<group>"; };
+		F318464D25593D63006BC8E5 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F31FF90E24EA5B2900642DA9 /* SwiftTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTimer.swift; sourceTree = "<group>"; };
 		F332693524F642CD00A18EA2 /* Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frame.swift; sourceTree = "<group>"; };
 		F33801B524D7AFE900DAC697 /* DeviceAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAuthManager.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		4989DE1424BE0670009DAF62 /* RXSwift_Explore */ = {
 			isa = PBXGroup;
 			children = (
+				F318464C25593D1F006BC8E5 /* 定位 */,
 				F332693324F63A8F00A18EA2 /* 点击空白dimiss的AlterVC */,
 				49AE026824E8EDC5002C028B /* 数据库WCDB */,
 				49AE026524E8D2B4002C028B /* Subject */,
@@ -191,6 +194,14 @@
 				F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */,
 			);
 			path = "序列Observable创建";
+			sourceTree = "<group>";
+		};
+		F318464C25593D1F006BC8E5 /* 定位 */ = {
+			isa = PBXGroup;
+			children = (
+				F318464D25593D63006BC8E5 /* LocationManager.swift */,
+			);
+			path = "定位";
 			sourceTree = "<group>";
 		};
 		F332693324F63A8F00A18EA2 /* 点击空白dimiss的AlterVC */ = {
@@ -370,6 +381,7 @@
 				4989DE1824BE0670009DAF62 /* SceneDelegate.swift in Sources */,
 				49AE026724E8D2D5002C028B /* SubjectTestViewController.swift in Sources */,
 				F3B9937E24D14C1B000AD623 /* TestCuddeleViewController.swift in Sources */,
+				F318464E25593D63006BC8E5 /* LocationManager.swift in Sources */,
 				F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */,
 				493203E824C438E500690A7D /* GRENibloadable.swift in Sources */,
 				4989DE3024BE7F92009DAF62 /* RXSwiftRestViewController.swift in Sources */,

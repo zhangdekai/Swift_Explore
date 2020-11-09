@@ -27,6 +27,7 @@ class SubjectTestViewController: UIViewController {
         // PublishSubject
         // 1:初始化序列
         let publishSub = PublishSubject<Int>() //初始化一个PublishSubject 装着Int类型的序列
+        
         // 2:发送响应序列
         publishSub.onNext(1)
         // 3:订阅序列
