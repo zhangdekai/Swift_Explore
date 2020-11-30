@@ -8,11 +8,14 @@
 
 import UIKit
 import CoreLocation
+import RxSwift
+import RxCocoa
 
 class LocationManager: NSObject {
     
-    
     static let shared = LocationManager()
+    
+    var locationResult = PublishRelay<[String: Any]>()
     
     var getLocationHandle: ((_ success: Bool, _ latitude: Double, _ longitude: Double) -> Void)?
     
@@ -23,6 +26,7 @@ class LocationManager: NSObject {
     override init() {
         super.init()
         locationManager = CLLocationManager()
+        //设置了精度最差的 3公里内 kCLLocationAccuracyThreeKilometers
         locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         locationManager.delegate = self
         
@@ -36,67 +40,54 @@ class LocationManager: NSObject {
     /// APP是否有定位权限
     func hasLocationPermission() -> Bool {
         
-        if #available(iOS 14.0, *) {
-            let status: CLAuthorizationStatus = locationManager.authorizationStatus
-            print("location authorizationStatus is \(status.rawValue)")
-            switch  status {
-            case .notDetermined, .restricted, .denied:
-                
-                return false
-                
-            case .authorizedWhenInUse, .authorizedAlways:
-                
-                return true
-            default:
-                break
-            }
-            
-        } else {
-            let status = CLLocationManager.authorizationStatus()
-            print("location authorizationStatus is \(status.rawValue)")
-            
-            switch  status {
-            case .notDetermined, .restricted, .denied:
-                
-                return false
-                
-            case .authorizedWhenInUse, .authorizedAlways:
-                
-                return true
-            default:
-                break
-            }
+        switch locationPermission() {
+        case .notDetermined, .restricted, .denied:
+            return false
+        case .authorizedWhenInUse, .authorizedAlways:
+            return true
+        default:
+            break
         }
-        
         return false
     }
     
+    /// 定位的权限
+    func locationPermission() -> CLAuthorizationStatus {
+        if #available(iOS 14.0, *) {
+            let status: CLAuthorizationStatus = locationManager.authorizationStatus
+            print("location authorizationStatus is \(status.rawValue)")
+            return status
+        } else {
+            let status = CLLocationManager.authorizationStatus()
+            print("location authorizationStatus is \(status.rawValue)")
+            return status
+        }
+    }
+    
+    //MARK: - 获取权限，在代理‘didChangeAuthorization’中拿到结果
     func requestLocationAuthorizaiton() {
         locationManager.requestWhenInUseAuthorization()
         
     }
-    
+    //MARK: - 获取位置  经维度在block 中获取
     func requestLocation() {
         locationManager.requestLocation()
     }
-    
 }
 
 extension LocationManager: CLLocationManagerDelegate {
-    
+    //MARK: - ios 14.0 之前，获取权限结果的方法
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if let block = getAuthHandle {
-            if hasLocationPermission() {
-                block(true)
-            } else {
-                block(false)
-            }
-        }
+        handleChangedAuthorization()
     }
     
+    //MARK: - ios 14.0，获取权限结果的方法
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        
-        if let block = getAuthHandle {
+        handleChangedAuthorization()
+    }
+    
+    private func handleChangedAuthorization() {
+        if let block = getAuthHandle, locationPermission() != .notDetermined {
             if hasLocationPermission() {
                 block(true)
             } else {
@@ -104,11 +95,13 @@ extension LocationManager: CLLocationManagerDelegate {
             }
         }
     }
-    
+    //MARK: - 获取定位后的经纬度
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let loction = locations.last {
             
             print("latitude: \(loction.coordinate.latitude)   longitude:\(loction.coordinate.longitude)")
+            
+            locationResult.accept(["latitude": loction.coordinate.latitude, "longitude": loction.coordinate.longitude])
             
             if let block = getLocationHandle {
                 block(true, loction.coordinate.latitude, loction.coordinate.longitude)
@@ -123,5 +116,4 @@ extension LocationManager: CLLocationManagerDelegate {
         }
         print("get location failed. error:\(error.localizedDescription)")
     }
-    
 }

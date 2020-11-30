@@ -76,18 +76,86 @@ class ViewController: UIViewController {
         
         self.title = "hello"
 //        addBottomProgressView()
-                
         
-       
+        
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+                
+        print("viewDidAppear")
+        
+        
+        
+    }
+    
+    //MARK: - 带图片属性字符串
+    func testImageWord() {
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(named: "vivi_recharge_user_coin")
+        imageAttachment.bounds = CGRect(x: 0, y: -4, width: 24, height: 24)
+        let imageAtts = NSAttributedString(attachment: imageAttachment)
+        let attr = NSMutableAttributedString(string: "吉林省的能")
+        attr.insert(imageAtts, at: 0)
+        
+        let nameLabel = UILabel(frame: CGRect(x: 100, y: 400, width: 200, height: 30))
+        view.addSubview(nameLabel)
+        nameLabel.attributedText = attr
+    }
+    
+    //MARK: - bannerView
+    
+    func testBannerView() {
+        let banner = VideoPhotoBannerView()
+        
+        view.addSubview(banner)
+        banner.snp.makeConstraints { (make) in
+            make.bottom.left.right.equalToSuperview()
+            make.height.equalTo(375)
+        }
+         
+    }
+    
+    //MAR: - test 定时器
+    func testRxTime() {
+        print("addBottomProgressView111")
+        Observable<Int>.interval(.seconds(5), scheduler: SerialDispatchQueueScheduler(qos: .default))
+            .startWith(0)
+            .subscribe(onNext: { [weak self] _ in
+                
+                print("addBottomProgressView")
+            })
+            .disposed(by: bag)
+    }
+    
+    
     //MARK: - 定位测试
+    ///PS: LocationManager需要全局设置，否则获取权限的弹窗会闪现消失
     var manager: LocationManager!
     @IBAction func testLocation(_ sender: Any) {
         
-        if CLLocationManager.locationServicesEnabled() {
+        
+        manager = LocationManager.shared
+        
+        if (manager.hasLocationPermission()) {
+            
+            print("设备有权限")
+
+        } else {
+            print("设备没有有权限")
+
+        }
+        
+        
+        if manager.hasLocationService() {
             print("设备有定位服务")
             
-            manager = LocationManager.shared
             
             manager.getAuthHandle = { [weak self] (success) in
                 if success {
@@ -97,7 +165,6 @@ class ViewController: UIViewController {
             }
             
             if manager.hasLocationPermission() {
-                
 
                 manager.requestLocation()
                 manager.getLocationHandle = { (success,latitude, longitude) in
@@ -109,12 +176,20 @@ class ViewController: UIViewController {
 
             }
         } else {
-            print("设备meiyou有定位服务")
+            print("设备没有定位服务")
             
             let alter = UIAlertController(title: "Location is Disabled", message: "To use location, go to your settings\nApp > Privacy > Location Services", preferredStyle: .alert)
             
-            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            let action = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            let action1 = UIAlertAction(title: "Setting", style: .default) { (action) in
+                if let url = URL(string: "App-Prefs:root=Privacy") {
+                    UIApplication.shared.canOpenURL(url)
+                    UIApplication.shared.open(url)
+                }
+            }
             alter.addAction(action)
+            alter.addAction(action1)
            
             present(alter, animated: true, completion: nil)
         }
@@ -169,11 +244,7 @@ class ViewController: UIViewController {
 //        textButton.sizeToFit()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        progressView.timerMove()
-    }
+    
     //MARK: - 随机匹配底部弹出的倒计时View
     var botomProgressImageView: UIImageView!
     func addBottomProgressView() {
@@ -210,7 +281,7 @@ class ViewController: UIViewController {
         
     }
     
-    
+    //MARK: - Custom Alter 测试
     func testCustomAlter() {
         
         alterVC = CustomAlterViewController(title: nil, message: "alter hello", preferredStyle: .alert)
@@ -323,6 +394,11 @@ class ViewController: UIViewController {
         let vc = TestAViewController()
 //        let vc = LoginViewController.instanceController(.main)
         self.present(vc, animated: true, completion: nil)
+        
+        delay(3) {
+
+
+        }
         
 //        self.navigationController?.pushViewController(vc, animated: true)
     }

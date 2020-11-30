@@ -30,6 +30,7 @@
 		F332693624F642CD00A18EA2 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F332693524F642CD00A18EA2 /* Frame.swift */; };
 		F33801B624D7AFE900DAC697 /* DeviceAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33801B524D7AFE900DAC697 /* DeviceAuthManager.swift */; };
 		F3966C2B24CC309600D9F01F /* OperationtestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3966C2A24CC309600D9F01F /* OperationtestViewController.swift */; };
+		F3A51920256D33EA00A42B9D /* VideoPhotoBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A5191F256D33EA00A42B9D /* VideoPhotoBannerView.swift */; };
 		F3B9937E24D14C1B000AD623 /* TestCuddeleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */; };
 		F3B9938124D173CF000AD623 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B9938024D173CF000AD623 /* IntExtension.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		F33801B524D7AFE900DAC697 /* DeviceAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAuthManager.swift; sourceTree = "<group>"; };
 		F3966C2A24CC309600D9F01F /* OperationtestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationtestViewController.swift; sourceTree = "<group>"; };
 		F3A21A5E24EE9E7E0058810C /* CustomAlterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlterViewController.swift; sourceTree = "<group>"; };
+		F3A5191F256D33EA00A42B9D /* VideoPhotoBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPhotoBannerView.swift; sourceTree = "<group>"; };
 		F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCuddeleViewController.swift; sourceTree = "<group>"; };
 		F3B9938024D173CF000AD623 /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 		4989DE1424BE0670009DAF62 /* RXSwift_Explore */ = {
 			isa = PBXGroup;
 			children = (
+				F3A5191E256D339000A42B9D /* 滑动BannerView */,
 				F318464C25593D1F006BC8E5 /* 定位 */,
 				F332693324F63A8F00A18EA2 /* 点击空白dimiss的AlterVC */,
 				49AE026824E8EDC5002C028B /* 数据库WCDB */,
@@ -226,6 +229,14 @@
 				F3966C2A24CC309600D9F01F /* OperationtestViewController.swift */,
 			);
 			path = "操作符map、flat";
+			sourceTree = "<group>";
+		};
+		F3A5191E256D339000A42B9D /* 滑动BannerView */ = {
+			isa = PBXGroup;
+			children = (
+				F3A5191F256D33EA00A42B9D /* VideoPhotoBannerView.swift */,
+			);
+			path = "滑动BannerView";
 			sourceTree = "<group>";
 		};
 		F3B9937C24D14C03000AD623 /* TestVC */ = {
@@ -385,6 +396,7 @@
 				F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */,
 				493203E824C438E500690A7D /* GRENibloadable.swift in Sources */,
 				4989DE3024BE7F92009DAF62 /* RXSwiftRestViewController.swift in Sources */,
+				F3A51920256D33EA00A42B9D /* VideoPhotoBannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
