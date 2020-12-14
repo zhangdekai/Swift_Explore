@@ -201,3 +201,78 @@ extension VideoPhotoBannerView: UICollectionViewDataSource, UICollectionViewDele
 //    }
     
 }
+// MARK: - 带蒙层的&上下移动动画的View
+class ClubStoryCoverView: UIView {
+
+    let bag = DisposeBag()
+    
+    let backgroundView = UIButton()
+    
+    lazy var handImage = UIImageView(image: UIImage(named: "vivi_club_story_leader"))
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.backgroundColor = .black
+        self.alpha = 0.7
+        
+        addSubview(backgroundView)
+        backgroundView.backgroundColor = .clear
+        backgroundView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        backgroundView.rx.tap
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self]() in
+                self?.removeFromSuperview()
+            })
+            .disposed(by: bag)
+        
+        addSubview(handImage)
+        handImage.snp.makeConstraints { (make) in
+            make.width.height.equalTo(140)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(0)
+        }
+        
+        let alterLabel = UILabel()
+        alterLabel.textColor = .white
+        alterLabel.font = .systemFont(ofSize: 16)
+        alterLabel.text = "Drag up and down to switch LIVE"
+        alterLabel.textAlignment = .center
+        addSubview(alterLabel)
+        alterLabel.snp.makeConstraints { (make) in
+            make.width.equalTo(Frame.Screen.width)
+            make.height.equalTo(22)
+            make.centerY.equalToSuperview().offset(80)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.upDown()
+        }
+    }
+    
+    func upDown() {
+        
+        UIView.animate(withDuration: 1.0) {
+            self.handImage.snp.updateConstraints { (make) in
+                make.centerY.equalToSuperview().offset(-200)
+            }
+            self.layoutIfNeeded()
+        }
+        
+        UIView.animate(withDuration: 1.0, delay: 1.0, options: UIView.AnimationOptions.curveEaseInOut) {
+            self.handImage.snp.updateConstraints { (make) in
+                make.centerY.equalToSuperview().offset(0)
+            }
+            self.layoutIfNeeded()
+        } completion: { (sucess) in
+            self.upDown()
+        }
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}

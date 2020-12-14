@@ -630,8 +630,6 @@ class UserLeadWordView: UIView {
             make.edges.equalToSuperview()
         }
         
-        
-        
     }
     
     func setWords() {

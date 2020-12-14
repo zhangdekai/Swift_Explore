@@ -11,6 +11,10 @@ import RxSwift
 import RxCocoa
 import SnapKit
 import CoreLocation
+import MediaPlayer
+
+let ScreenW = UIScreen.main.bounds.width
+let ScreenH = UIScreen.main.bounds.height
 
 class ViewController: UIViewController {
     
@@ -69,14 +73,35 @@ class ViewController: UIViewController {
         }
     }
     
-//    var heartImage = UIButton()
+    lazy var realPriceLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 17, weight: .black)
+        return label
+    }()
     
+    lazy var realPriceView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .orange
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 18
+        return view
+    }()
+    
+    lazy var fixedPriceLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 12, weight: .regular)
+        return label
+    }()
+    
+    var test1:Bool? = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "hello"
-//        addBottomProgressView()
-        
         
         
     }
@@ -90,9 +115,32 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
                 
         print("viewDidAppear")
+    }
+    
+    
+    //MARK: - 设置系统音量
+    func testVolume() {
+        let volumeView = MPVolumeView()
+        volumeView.showsVolumeSlider = false
+        if let slider = volumeView.subviews.first as? UISlider {
+            DispatchQueue.main.async {
+                slider.setValue(0.3, animated: false)
+            }
+            print("设置声音...")
+        }
+    }
+
+    
+    // MARK: - 带蒙层的&上下移动动画的View
+
+    func testUpDownCoverView() {
+        addBackground()
         
-        
-        
+        let coverView = ClubStoryCoverView()
+        view.addSubview(coverView)
+        coverView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
     }
     
     //MARK: - 带图片属性字符串
@@ -127,8 +175,7 @@ class ViewController: UIViewController {
         print("addBottomProgressView111")
         Observable<Int>.interval(.seconds(5), scheduler: SerialDispatchQueueScheduler(qos: .default))
             .startWith(0)
-            .subscribe(onNext: { [weak self] _ in
-                
+            .subscribe(onNext: { _ in
                 print("addBottomProgressView")
             })
             .disposed(by: bag)
@@ -343,6 +390,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK: - 用户引导提示语
     func addUserLeaderView() {
         addBackground()
         
@@ -353,14 +401,6 @@ class ViewController: UIViewController {
             make.height.equalTo(36)
             make.bottom.equalTo(-152 - 0)
         }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        //        回调圆的比例 值为0-1
-//        if self.progressView.blocks != nil {
-//            self.progressView.blocks!(0.88)
-//        }
-        
     }
 
     @IBAction func subjectAction(_ sender: Any) {
