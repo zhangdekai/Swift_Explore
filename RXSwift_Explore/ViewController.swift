@@ -104,10 +104,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var a = "19921007"
-        
-        a.addString("/", at: 4)
-        a.addString("/", at: 7)
+       
         
     }
     
@@ -122,6 +119,25 @@ class ViewController: UIViewController {
         print("viewDidAppear")
     }
     
+    func testDatePicker() {
+        let picker = DatePickerView()
+        picker.backgroundColor = .black
+        view.addSubview(picker)
+        picker.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(320)
+        }
+        picker.selectToday()
+    }
+    
+    // MARK: - add string at index
+    
+    func testStringAdd() {
+        var a = "19921007"
+        
+        a.addString("/", at: 4)
+        a.addString("/", at: 7)
+    }
     
     //MARK: - 设置系统音量
     func testVolume() {

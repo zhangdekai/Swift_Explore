@@ -18,4 +18,8 @@ extension String {
         let ind = self.index(self.startIndex, offsetBy: index)
         insert(contentsOf: string, at: ind)
     }
+    
+    var int: Int? {
+        return Int(self)
+    }
 }
