@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B915E0E25907AEB009459A4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B915E0D25907AEB009459A4 /* String+Extension.swift */; };
 		493203E524C437A500690A7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493203E424C437A500690A7D /* LoginViewController.swift */; };
 		493203E824C438E500690A7D /* GRENibloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493203E724C438E500690A7D /* GRENibloadable.swift */; };
 		4989DE1624BE0670009DAF62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE1524BE0670009DAF62 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B915E0D25907AEB009459A4 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		493203E424C437A500690A7D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		493203E724C438E500690A7D /* GRENibloadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRENibloadable.swift; sourceTree = "<group>"; };
 		4989DE1224BE0670009DAF62 /* RXSwift_Explore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RXSwift_Explore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,6 +258,7 @@
 				F332693524F642CD00A18EA2 /* Frame.swift */,
 				F31FF90E24EA5B2900642DA9 /* SwiftTimer.swift */,
 				F3B9938024D173CF000AD623 /* IntExtension.swift */,
+				2B915E0D25907AEB009459A4 /* String+Extension.swift */,
 			);
 			path = EXtension;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				F332693624F642CD00A18EA2 /* Frame.swift in Sources */,
 				F33801B624D7AFE900DAC697 /* DeviceAuthManager.swift in Sources */,
 				F3B9938124D173CF000AD623 /* IntExtension.swift in Sources */,
+				2B915E0E25907AEB009459A4 /* String+Extension.swift in Sources */,
 				49AE027024E8F3F7002C028B /* TestCViewController.swift in Sources */,
 				4989DE1624BE0670009DAF62 /* AppDelegate.swift in Sources */,
 				4989DE1824BE0670009DAF62 /* SceneDelegate.swift in Sources */,

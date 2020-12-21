@@ -100,9 +100,14 @@ class ViewController: UIViewController {
     }()
     
     var test1:Bool? = false
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var a = "19921007"
+        
+        a.addString("/", at: 4)
+        a.addString("/", at: 7)
         
     }
     
