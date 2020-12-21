@@ -16,7 +16,10 @@ class DatePickerView: UIPickerView {
     }
     
     var minYear = 1900
-    var maxYear = 2020
+    var maxYear: Int {
+        formatter.dateFormat = "yyyy"
+        return formatter.string(from: Date()).int ?? 2021
+    }
     var rowHeight: CGFloat = 42
     
     var date: Date {
