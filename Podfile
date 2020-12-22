@@ -11,7 +11,7 @@ target 'RXSwift_Explore' do
   pod 'RxCocoa', '~> 5.1.1'
   pod 'SnapKit', '5.0.1'
   
-  pod 'DeviceKit'
+  pod 'DeviceKit', '~> 4.2.1'
   pod 'CHIPageControl/Jaloro'
   # 数据库使用
 #  pod 'WCDB.swift', '~> 1.0.8.2'

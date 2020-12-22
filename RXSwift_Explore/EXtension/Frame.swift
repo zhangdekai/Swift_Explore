@@ -28,6 +28,9 @@ struct Frame {
                 .iPhone11,
                 .iPhone11Pro,
                 .iPhone11ProMax,
+                .iPhone12,
+                .iPhone12Pro,
+                .iPhone12ProMax,
                 .simulator(.iPhoneX),
                 .simulator(.iPhoneXS),
                 .simulator(.iPhoneXSMax),
@@ -35,6 +38,9 @@ struct Frame {
                 .simulator(.iPhone11),
                 .simulator(.iPhone11Pro),
                 .simulator(.iPhone11ProMax),
+                .simulator(.iPhone12),
+                .simulator(.iPhone12Pro),
+                .simulator(.iPhone12ProMax),
             ]
             return xStyleDevices.contains(Device.current)
         }
