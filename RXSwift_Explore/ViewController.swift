@@ -98,14 +98,10 @@ class ViewController: UIViewController {
         label.font = .systemFont(ofSize: 12, weight: .regular)
         return label
     }()
-    
-    var test1:Bool? = false
-        
+            
     override func viewDidLoad() {
         super.viewDidLoad()
-        
        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -115,7 +111,6 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-                
         print("viewDidAppear")
     }
     
@@ -150,10 +145,8 @@ class ViewController: UIViewController {
             print("设置声音...")
         }
     }
-
     
     // MARK: - 带蒙层的&上下移动动画的View
-
     func testUpDownCoverView() {
         addBackground()
         
