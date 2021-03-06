@@ -76,8 +76,6 @@ class WCDBCacheManager: NSObject {
             debugPrint("delete error \(error.localizedDescription)")
         }
         
-    }
- 
-    
+    }    
 }
 */

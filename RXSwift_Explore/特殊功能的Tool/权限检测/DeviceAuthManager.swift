@@ -1,5 +1,3 @@
-
-
 //
 //  DeviceAuthManager.swift
 //  RXSwift_Explore

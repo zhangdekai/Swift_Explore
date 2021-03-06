@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CHIPageControl
+//import CHIPageControl
 import RxSwift
 import RxCocoa
 
@@ -15,16 +15,16 @@ class VideoPhotoBannerView: UIView {
     
     let bag = DisposeBag()
     
-    private lazy var pageControl: CHIPageControlJaloro = {
-        let pageControl = CHIPageControlJaloro(frame: .zero)
-        pageControl.radius = 1
-        pageControl.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
-        pageControl.currentPageTintColor = .white
-        pageControl.padding = 5
-        pageControl.elementWidth = 30
-        pageControl.elementHeight = 2
-        return pageControl
-    }()
+//    private lazy var pageControl: CHIPageControlJaloro = {
+//        let pageControl = CHIPageControlJaloro(frame: .zero)
+//        pageControl.radius = 1
+//        pageControl.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+//        pageControl.currentPageTintColor = .white
+//        pageControl.padding = 5
+//        pageControl.elementWidth = 30
+//        pageControl.elementHeight = 2
+//        return pageControl
+//    }()
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -55,12 +55,12 @@ class VideoPhotoBannerView: UIView {
             make.height.equalTo(375)
 
         }
-        addSubview(pageControl)
-        pageControl.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-            make.bottom.equalTo(collectionView.snp.bottom).offset(-20)
-            make.height.equalTo(8)
-        }
+//        addSubview(pageControl)
+//        pageControl.snp.makeConstraints { make in
+//            make.left.right.equalToSuperview()
+//            make.bottom.equalTo(collectionView.snp.bottom).offset(-20)
+//            make.height.equalTo(8)
+//        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self]  in
             guard let scoll = self?.collectionView else { return }
@@ -79,8 +79,8 @@ class VideoPhotoBannerView: UIView {
         guard let indexPath = collectionView.indexPathForItem(at: CGPoint(x: xOffset, y: 0)) else {
             return
         }
-        pageControl.numberOfPages = collectionView.numberOfItems(inSection: indexPath.section)
-        pageControl.progress = Double(indexPath.item)
+//        pageControl.numberOfPages = collectionView.numberOfItems(inSection: indexPath.section)
+//        pageControl.progress = Double(indexPath.item)
     }
     
     func updateTabIndex(with scrollView: UIScrollView) {
@@ -88,8 +88,8 @@ class VideoPhotoBannerView: UIView {
             let firstCell = collectionView.visibleCells.first,
             let indexPath = collectionView.indexPath(for: firstCell) {
             
-            pageControl.numberOfPages = collectionView.numberOfItems(inSection: indexPath.section)
-            pageControl.progress = Double(indexPath.item)
+//            pageControl.numberOfPages = collectionView.numberOfItems(inSection: indexPath.section)
+//            pageControl.progress = Double(indexPath.item)
         }
     }
     

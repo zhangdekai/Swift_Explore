@@ -252,7 +252,7 @@ class VideoCallCycleView: UIView {
         setMethoud()
     }
     
-    
+    // 圆圈绘制
     func drawRing(profloat: CGFloat) {
         self.startAngle = -CGFloat(Double.pi / 2)
         

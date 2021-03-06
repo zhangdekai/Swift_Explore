@@ -113,8 +113,6 @@ class TestAViewController: UIViewController {
         closeButton.rx.tap.subscribe(onNext: { [weak self] in
             self?.dismiss(animated: true, completion: nil)
         }).disposed(by: bag)
-
-
     }
     
     func addBackground() {
@@ -248,6 +246,7 @@ class TestAViewController: UIViewController {
                 make.centerY.equalToSuperview()
             }
 
+            //MARK: - 绘制从左下到右上的斜线
             // 线的路径
             let linePath = UIBezierPath.init()
             //MARK: 动画
@@ -259,7 +258,7 @@ class TestAViewController: UIViewController {
             //可以添加n多个点 可为折线，直线等
             //        linePath.addLine(to: CGPoint.init(x: 90, y: 70))
             
-            let lineLayer = CAShapeLayer.init()
+            let lineLayer = CAShapeLayer()
             
             lineLayer.lineWidth = 2
             lineLayer.strokeColor = UIColor.red.cgColor
@@ -272,9 +271,6 @@ class TestAViewController: UIViewController {
             animation.duration = 1
             lineLayer.add(animation, forKey: "")
             priceTitle.layer.addSublayer(lineLayer)
-            
-            
-            
         }
         
         func setPopularUI() {

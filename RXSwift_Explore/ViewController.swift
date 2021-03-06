@@ -288,23 +288,6 @@ class ViewController: UIViewController {
         bbb.map({ print($0.category) })
     }
     
-    //MARK: - 多态实现
-    func testABClient() {
-        let client:Client = AClient()
-        client.connectIm()
-    
-        let client1:Client = BClient()
-        client1.connectIm()
-        
-        
-        textButton.backgroundColor = .yellow
-        textButton.titleLabel?.numberOfLines = 1
-        textButton.titleLabel?.lineBreakMode = .byWordWrapping
-
-        textButton.setTitle("please input hello world    ", for: .normal)
-//        textButton.sizeToFit()
-    }
-    
     
     //MARK: - 随机匹配底部弹出的倒计时View
     var botomProgressImageView: UIImageView!

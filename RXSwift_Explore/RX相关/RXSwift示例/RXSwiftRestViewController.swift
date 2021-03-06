@@ -140,7 +140,6 @@ class RXSwiftRestViewController: UIViewController {
     
     //MARK: - RxSwift应用-scrollView
     func setupScrollerView() {
-    
         
         scrollView.rx.contentOffset
             .subscribe(onNext: { (content) in

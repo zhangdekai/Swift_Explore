@@ -12,7 +12,7 @@ target 'RXSwift_Explore' do
   pod 'SnapKit', '5.0.1'
   
   pod 'DeviceKit', '~> 4.2.1'
-  pod 'CHIPageControl/Jaloro'
+#  pod 'CHIPageControl/Jaloro'
   # 数据库使用
 #  pod 'WCDB.swift', '~> 1.0.8.2'
   

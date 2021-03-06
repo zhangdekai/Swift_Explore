@@ -39,9 +39,6 @@ class FRPTestViewController: UIViewController {
         array.filter{$0 > 3}
             .filter{($0 + 1) % 2 != 0}
             .forEach{print($0)}
-        
-        
-        
     }
     
     
