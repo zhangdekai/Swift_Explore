@@ -99,10 +99,12 @@ class ViewController: UIViewController {
         return label
     }()
             
+    //MARK: - life clycle
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

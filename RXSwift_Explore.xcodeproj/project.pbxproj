@@ -12,7 +12,6 @@
 		493203E524C437A500690A7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493203E424C437A500690A7D /* LoginViewController.swift */; };
 		493203E824C438E500690A7D /* GRENibloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493203E724C438E500690A7D /* GRENibloadable.swift */; };
 		493904C525F36BA700C8C209 /* MutileClassImpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493904C425F36BA700C8C209 /* MutileClassImpTest.swift */; };
-		493904CC25F36C9000C8C209 /* MainQueue&ThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493904C825F36C8F00C8C209 /* MainQueue&ThreadViewController.swift */; };
 		493904CD25F36C9000C8C209 /* MainQueue&ThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493904C925F36C8F00C8C209 /* MainQueue&ThreadViewController.swift */; };
 		493904CE25F36C9000C8C209 /* EnumTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493904CB25F36C8F00C8C209 /* EnumTestViewController.swift */; };
 		4989DE1624BE0670009DAF62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE1524BE0670009DAF62 /* AppDelegate.swift */; };
@@ -467,7 +466,6 @@
 				F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */,
 				493203E824C438E500690A7D /* GRENibloadable.swift in Sources */,
 				4989DE3024BE7F92009DAF62 /* RXSwiftRestViewController.swift in Sources */,
-				493904CC25F36C9000C8C209 /* MainQueue&ThreadViewController.swift in Sources */,
 				F3A51920256D33EA00A42B9D /* VideoPhotoBannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
