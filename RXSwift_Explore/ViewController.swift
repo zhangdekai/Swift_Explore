@@ -103,6 +103,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var size: CGSize
+        
+        if #available(iOS 13.0, *) {
+            size = UIApplication.shared.windows.first(where: {$0.isKeyWindow})?.windowScene?.statusBarManager?.statusBarFrame.size ?? CGSize.zero
+        } else {
+            size = UIApplication.shared.statusBarFrame.size
+        }
+        
+        print("statusBar height is \(size.height)")
+    
     }
     
     

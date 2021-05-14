@@ -14,8 +14,8 @@
 		493904C525F36BA700C8C209 /* MutileClassImpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493904C425F36BA700C8C209 /* MutileClassImpTest.swift */; };
 		493904CD25F36C9000C8C209 /* MainQueue&ThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493904C925F36C8F00C8C209 /* MainQueue&ThreadViewController.swift */; };
 		493904CE25F36C9000C8C209 /* EnumTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493904CB25F36C8F00C8C209 /* EnumTestViewController.swift */; };
+		493D7F75264E4C1F009FECDC /* TestShell.sh in Resources */ = {isa = PBXBuildFile; fileRef = 493D7F74264E4C1F009FECDC /* TestShell.sh */; };
 		4989DE1624BE0670009DAF62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE1524BE0670009DAF62 /* AppDelegate.swift */; };
-		4989DE1824BE0670009DAF62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE1724BE0670009DAF62 /* SceneDelegate.swift */; };
 		4989DE1A24BE0670009DAF62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE1924BE0670009DAF62 /* ViewController.swift */; };
 		4989DE1D24BE0670009DAF62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4989DE1B24BE0670009DAF62 /* Main.storyboard */; };
 		4989DE1F24BE0672009DAF62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4989DE1E24BE0672009DAF62 /* Assets.xcassets */; };
@@ -49,9 +49,9 @@
 		493904C825F36C8F00C8C209 /* MainQueue&ThreadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainQueue&ThreadViewController.swift"; sourceTree = "<group>"; };
 		493904C925F36C8F00C8C209 /* MainQueue&ThreadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainQueue&ThreadViewController.swift"; sourceTree = "<group>"; };
 		493904CB25F36C8F00C8C209 /* EnumTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumTestViewController.swift; sourceTree = "<group>"; };
+		493D7F74264E4C1F009FECDC /* TestShell.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = TestShell.sh; sourceTree = "<group>"; };
 		4989DE1224BE0670009DAF62 /* RXSwift_Explore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RXSwift_Explore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4989DE1524BE0670009DAF62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4989DE1724BE0670009DAF62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4989DE1924BE0670009DAF62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4989DE1C24BE0670009DAF62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4989DE1E24BE0672009DAF62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -177,6 +177,14 @@
 			path = "枚举Enum";
 			sourceTree = "<group>";
 		};
+		493D7F73264E4BFD009FECDC /* 脚本Shell */ = {
+			isa = PBXGroup;
+			children = (
+				493D7F74264E4C1F009FECDC /* TestShell.sh */,
+			);
+			path = "脚本Shell";
+			sourceTree = "<group>";
+		};
 		4989DE0924BE0670009DAF62 = {
 			isa = PBXGroup;
 			children = (
@@ -198,13 +206,13 @@
 		4989DE1424BE0670009DAF62 /* RXSwift_Explore */ = {
 			isa = PBXGroup;
 			children = (
+				493D7F73264E4BFD009FECDC /* 脚本Shell */,
 				493904BA25F36A9900C8C209 /* RX相关 */,
 				493904B925F36A1900C8C209 /* 特殊功能的Tool */,
 				F3B9937F24D173AE000AD623 /* EXtension */,
 				F3B9937C24D14C03000AD623 /* TestVC */,
 				493203E624C438C300690A7D /* Protocol面向协议编程 */,
 				4989DE1524BE0670009DAF62 /* AppDelegate.swift */,
-				4989DE1724BE0670009DAF62 /* SceneDelegate.swift */,
 				4989DE1924BE0670009DAF62 /* ViewController.swift */,
 				4989DE1B24BE0670009DAF62 /* Main.storyboard */,
 				4989DE1E24BE0672009DAF62 /* Assets.xcassets */,
@@ -386,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4989DE2224BE0672009DAF62 /* LaunchScreen.storyboard in Resources */,
+				493D7F75264E4C1F009FECDC /* TestShell.sh in Resources */,
 				4989DE1F24BE0672009DAF62 /* Assets.xcassets in Resources */,
 				4989DE1D24BE0670009DAF62 /* Main.storyboard in Resources */,
 			);
@@ -459,7 +468,6 @@
 				2B915E0E25907AEB009459A4 /* String+Extension.swift in Sources */,
 				49AE027024E8F3F7002C028B /* TestCViewController.swift in Sources */,
 				4989DE1624BE0670009DAF62 /* AppDelegate.swift in Sources */,
-				4989DE1824BE0670009DAF62 /* SceneDelegate.swift in Sources */,
 				49AE026724E8D2D5002C028B /* SubjectTestViewController.swift in Sources */,
 				F3B9937E24D14C1B000AD623 /* TestCuddeleViewController.swift in Sources */,
 				F318464E25593D63006BC8E5 /* LocationManager.swift in Sources */,
@@ -542,7 +550,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -596,7 +604,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -612,9 +620,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69MW7VVKA9;
+				DEVELOPMENT_TEAM = 9X97YKR3AP;
 				INFOPLIST_FILE = RXSwift_Explore/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -632,9 +640,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69MW7VVKA9;
+				DEVELOPMENT_TEAM = 9X97YKR3AP;
 				INFOPLIST_FILE = RXSwift_Explore/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
