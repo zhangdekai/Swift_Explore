@@ -10,7 +10,7 @@ echo push code to remote
 
 parmMsg=$1
 pushSuccess=0
-pushCount=0
+pushCount=1
 
 function pushAgain() {
 
