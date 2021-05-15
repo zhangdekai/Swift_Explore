@@ -17,6 +17,8 @@ function push() {
     echo "commit msg = $parmMsg"
     
     git commit -m"${parmMsg}"
+    
+    echo begin push
 
     git push .
     
