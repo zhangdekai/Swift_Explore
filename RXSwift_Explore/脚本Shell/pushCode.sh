@@ -20,10 +20,12 @@ function pushAgain() {
         
         git push
         
-        if [ "$?" == '0']
+        if [ "$?" == '0' ]
         then
             echo push success
             pushSuccess=1
+        else
+            pushCount+=1
         fi
     done
     exit
