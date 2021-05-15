@@ -14,7 +14,7 @@ function push() {
 
     git add .
     
-    echo "commit msg = $parmMsg";
+    echo "commit msg = $parmMsg"
     
     git commit -m"${parmMsg}"
 
