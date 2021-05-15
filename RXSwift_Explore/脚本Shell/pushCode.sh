@@ -26,7 +26,7 @@ function pushAgain() {
             pushSuccess=1
             exit
         else
-            pushCount+=1
+            let "pushCount++"
         fi
     done
     

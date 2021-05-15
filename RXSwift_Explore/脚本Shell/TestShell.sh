@@ -29,6 +29,24 @@ your_address1="jinan + \"$yourName"!\" # 双引号可以添加变量+转义字�
 _your2_address="beijing + ${your_age}"
 readonly yourEmail='664939067@qq.com'
 
+pushCount=0
+pushSuccess=0
+
+
+
+echo -e "OK! \c" # -e 开启转义 \c 不换行
+echo "It is a test"
+
+echo `date`
+
+
+    while(( $pushCount<=5 ))
+    do
+        echo push again $pushCount 次
+        let "pushCount++"
+        
+    done
+
 
 echo ${yourName} 年龄是 ${your_age} 1地址是 $your_address1 2地址is $_your2_address
 # yourEmail='7484y7'  #line 26: yourEmail: readonly variable
