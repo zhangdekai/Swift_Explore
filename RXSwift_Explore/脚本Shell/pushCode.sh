@@ -34,7 +34,7 @@ function pushAgain() {
 
 function push() {
 
-    if [ $parmMsg=='' ]
+    if [ $parmMsg='' ]
     then
         echo "  please add one parm for commit msg！！！"
         exit
