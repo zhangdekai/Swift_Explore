@@ -20,7 +20,7 @@ function push() {
     
     echo begin push
 
-    git push .
+    git push
     
     if [ "$?" != '0' ]
     then
