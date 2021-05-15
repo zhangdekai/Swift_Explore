@@ -22,20 +22,21 @@ function pushAgain() {
         
         if [ "$?" == '0' ]
         then
-            echo push success
+            echo "push success!\n"
             pushSuccess=1
+            exit
         else
             pushCount+=1
         fi
     done
-    exit
+    
 }
 
 function push() {
 
     git add .
     
-    echo "commit msg = $parmMsg"
+    echo "commit msg = $parmMsg \n"
     
     git commit -m"${parmMsg}"
     
@@ -45,11 +46,11 @@ function push() {
     
     if [ "$?" != '0' ]
     then
-        echo "push failed!"
+        echo "push failed!\n"
         pushSuccess=0
         pushAgain
     else
-        echo "push success!"
+        echo "push success!\n"
         exit
     fi
 }
