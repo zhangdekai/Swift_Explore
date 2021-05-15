@@ -34,6 +34,12 @@ function pushAgain() {
 
 function push() {
 
+    if [ $parmMsg=='' ]
+    then
+        echo "  please add one parm for commit msg！！！"
+        exit
+    fi
+
     git add .
     
     echo "commit msg = $parmMsg \n"

@@ -33,19 +33,11 @@ pushCount=0
 pushSuccess=0
 
 
-
 echo -e "OK! \c" # -e 开启转义 \c 不换行
 echo "It is a test"
 
+# 日期
 echo `date`
-
-
-    while(( $pushCount<=5 ))
-    do
-        echo push again $pushCount 次
-        let "pushCount++"
-        
-    done
 
 
 echo ${yourName} 年龄是 ${your_age} 1地址是 $your_address1 2地址is $_your2_address
@@ -124,6 +116,8 @@ echo 数字运算
 val=`expr 2 + 2` #空格
 echo "两数之和为 : $val"
 
+
+# for in
 echo '循环执行 for in ; do done'
 for ele in Cat dog house bed; do
 
@@ -131,6 +125,12 @@ for ele in Cat dog house bed; do
 
 done
 
+# while
+while(( $pushCount<=5 ))
+do
+    echo push again $pushCount 次
+    let "pushCount++"
+done
 
 
 
