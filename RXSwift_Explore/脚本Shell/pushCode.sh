@@ -36,13 +36,13 @@ function push() {
 
     if [ $parmMsg='' ]
     then
-        echo "  please add one parm for commit msg！！！"
+        echo "  please add one parm for commit msg！！！\n"
         exit
     fi
 
     git add .
     
-    echo "commit msg = $parmMsg \n"
+    echo "commit msg = ${parmMsg} \n"
     
     git commit -m"${parmMsg}"
     
