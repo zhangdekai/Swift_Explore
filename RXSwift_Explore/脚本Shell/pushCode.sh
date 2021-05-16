@@ -39,6 +39,10 @@ function push() {
         echo "  please add one parm for commit msg！！！\n"
         exit
     fi
+    
+    git status
+    
+    echo "###########\n"
 
     git add .
     
