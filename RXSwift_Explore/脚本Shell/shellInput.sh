@@ -39,6 +39,16 @@ cat << EOF
 www.runoob.com
 EOF
 
+# Shell 也可以包含外部脚本。这样可以很方便的封装一些公用的代码作为一个独立的文件。
+
+#使用 . 号来引用shellFileImport.sh 文件
+. ./shellFileImport.sh
+
+# 或者使用以下包含文件代码
+source ./shellFileImport.sh
+
+echo "shellFileImport file url = ${url}"
+
 
 #/dev/null 是一个特殊的文件，写入到它的内容都会被丢弃；如果尝试从该文件读取内容，
 # 那么什么也读不到。但是 /dev/null 文件非常有用，将命令的输出重定向到它，会起到"禁止输出"的效果。
