@@ -138,7 +138,6 @@ class TestAViewController: UIViewController {
             return view
         }()
         
-        
         private lazy var discountLabel: UILabel = {
             let label = UILabel()
             label.textColor = .white
@@ -256,7 +255,7 @@ class TestAViewController: UIViewController {
             // 其他点
             linePath.addLine(to: CGPoint.init(x: 50, y: 0))
             //可以添加n多个点 可为折线，直线等
-            //        linePath.addLine(to: CGPoint.init(x: 90, y: 70))
+            // linePath.addLine(to: CGPoint.init(x: 90, y: 70))
             
             let lineLayer = CAShapeLayer()
             
@@ -283,7 +282,6 @@ class TestAViewController: UIViewController {
             productSubTitle.text = "Popular"
             productSubTitle.textColor = UIColor(red: 0.99, green: 0.38, blue: 0.65, alpha: 1)
             priceTitle.isHidden = true
-            
         }
         
         required init?(coder: NSCoder) {

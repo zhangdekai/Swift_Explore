@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		2B915E0E25907AEB009459A4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B915E0D25907AEB009459A4 /* String+Extension.swift */; };
 		2B915E12259082B4009459A4 /* Social.DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B915E11259082B4009459A4 /* Social.DatePickerView.swift */; };
+		490A087B265CE85E0089FA1C /* shellTest.sh in Resources */ = {isa = PBXBuildFile; fileRef = 490A0872265CE85E0089FA1C /* shellTest.sh */; };
+		490A087C265CE85E0089FA1C /* shellInput.sh in Resources */ = {isa = PBXBuildFile; fileRef = 490A0873265CE85E0089FA1C /* shellInput.sh */; };
+		490A087D265CE85E0089FA1C /* shellFileImport.sh in Resources */ = {isa = PBXBuildFile; fileRef = 490A0874265CE85E0089FA1C /* shellFileImport.sh */; };
+		490A087E265CE85E0089FA1C /* testShell1.sh in Resources */ = {isa = PBXBuildFile; fileRef = 490A0875265CE85E0089FA1C /* testShell1.sh */; };
+		490A087F265CE85E0089FA1C /* pushCode.sh in Resources */ = {isa = PBXBuildFile; fileRef = 490A0876265CE85E0089FA1C /* pushCode.sh */; };
+		490A0880265CE85E0089FA1C /* users in Resources */ = {isa = PBXBuildFile; fileRef = 490A0877265CE85E0089FA1C /* users */; };
+		490A0881265CE85E0089FA1C /* funTest.sh in Resources */ = {isa = PBXBuildFile; fileRef = 490A0878265CE85E0089FA1C /* funTest.sh */; };
+		490A0882265CE85E0089FA1C /* printTest.sh in Resources */ = {isa = PBXBuildFile; fileRef = 490A0879265CE85E0089FA1C /* printTest.sh */; };
+		490A0883265CE85E0089FA1C /* shellIfElse.sh in Resources */ = {isa = PBXBuildFile; fileRef = 490A087A265CE85E0089FA1C /* shellIfElse.sh */; };
 		493203E524C437A500690A7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493203E424C437A500690A7D /* LoginViewController.swift */; };
 		493203E824C438E500690A7D /* GRENibloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493203E724C438E500690A7D /* GRENibloadable.swift */; };
 		493904C525F36BA700C8C209 /* MutileClassImpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493904C425F36BA700C8C209 /* MutileClassImpTest.swift */; };
@@ -27,6 +36,8 @@
 		49AE026C24E8F3E5002C028B /* TestAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE026B24E8F3E5002C028B /* TestAViewController.swift */; };
 		49AE026E24E8F3F0002C028B /* TestBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE026D24E8F3F0002C028B /* TestBViewController.swift */; };
 		49AE027024E8F3F7002C028B /* TestCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE026F24E8F3F7002C028B /* TestCViewController.swift */; };
+		49B5F009269D682D00D1B3F8 /* TimerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5F008269D682D00D1B3F8 /* TimerTest.swift */; };
+		49BAD6C6284319B100C199EC /* SampleFactoryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAD6C5284319B100C199EC /* SampleFactoryModule.swift */; };
 		7AF101A004E785E382CF7283 /* Pods_RXSwift_Explore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */; };
 		F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */; };
 		F318464E25593D63006BC8E5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F318464D25593D63006BC8E5 /* LocationManager.swift */; };
@@ -43,6 +54,15 @@
 /* Begin PBXFileReference section */
 		2B915E0D25907AEB009459A4 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		2B915E11259082B4009459A4 /* Social.DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Social.DatePickerView.swift; sourceTree = "<group>"; };
+		490A0872265CE85E0089FA1C /* shellTest.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = shellTest.sh; sourceTree = "<group>"; };
+		490A0873265CE85E0089FA1C /* shellInput.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = shellInput.sh; sourceTree = "<group>"; };
+		490A0874265CE85E0089FA1C /* shellFileImport.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = shellFileImport.sh; sourceTree = "<group>"; };
+		490A0875265CE85E0089FA1C /* testShell1.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = testShell1.sh; sourceTree = "<group>"; };
+		490A0876265CE85E0089FA1C /* pushCode.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pushCode.sh; sourceTree = "<group>"; };
+		490A0877265CE85E0089FA1C /* users */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = users; sourceTree = "<group>"; };
+		490A0878265CE85E0089FA1C /* funTest.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = funTest.sh; sourceTree = "<group>"; };
+		490A0879265CE85E0089FA1C /* printTest.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = printTest.sh; sourceTree = "<group>"; };
+		490A087A265CE85E0089FA1C /* shellIfElse.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = shellIfElse.sh; sourceTree = "<group>"; };
 		493203E424C437A500690A7D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		493203E724C438E500690A7D /* GRENibloadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRENibloadable.swift; sourceTree = "<group>"; };
 		493904C425F36BA700C8C209 /* MutileClassImpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutileClassImpTest.swift; sourceTree = "<group>"; };
@@ -64,6 +84,8 @@
 		49AE026B24E8F3E5002C028B /* TestAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAViewController.swift; sourceTree = "<group>"; };
 		49AE026D24E8F3F0002C028B /* TestBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBViewController.swift; sourceTree = "<group>"; };
 		49AE026F24E8F3F7002C028B /* TestCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCViewController.swift; sourceTree = "<group>"; };
+		49B5F008269D682D00D1B3F8 /* TimerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTest.swift; sourceTree = "<group>"; };
+		49BAD6C5284319B100C199EC /* SampleFactoryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleFactoryModule.swift; sourceTree = "<group>"; };
 		AAEFC897D70E78DB7C9BF5F9 /* Pods-RXSwift_Explore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXSwift_Explore.release.xcconfig"; path = "Target Support Files/Pods-RXSwift_Explore/Pods-RXSwift_Explore.release.xcconfig"; sourceTree = "<group>"; };
 		D474DB7044B723A277DDFCBC /* Pods-RXSwift_Explore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXSwift_Explore.debug.xcconfig"; path = "Target Support Files/Pods-RXSwift_Explore/Pods-RXSwift_Explore.debug.xcconfig"; sourceTree = "<group>"; };
 		EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXSwift_Explore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +148,7 @@
 		493904B925F36A1900C8C209 /* 特殊功能的Tool */ = {
 			isa = PBXGroup;
 			children = (
+				49B5F007269D637000D1B3F8 /* Timer */,
 				493904CA25F36C8F00C8C209 /* 枚举Enum */,
 				493904C725F36C8F00C8C209 /* 主队列&主线程 */,
 				493904C925F36C8F00C8C209 /* MainQueue&ThreadViewController.swift */,
@@ -180,6 +203,15 @@
 		493D7F73264E4BFD009FECDC /* 脚本Shell */ = {
 			isa = PBXGroup;
 			children = (
+				490A0878265CE85E0089FA1C /* funTest.sh */,
+				490A0879265CE85E0089FA1C /* printTest.sh */,
+				490A0876265CE85E0089FA1C /* pushCode.sh */,
+				490A0874265CE85E0089FA1C /* shellFileImport.sh */,
+				490A087A265CE85E0089FA1C /* shellIfElse.sh */,
+				490A0873265CE85E0089FA1C /* shellInput.sh */,
+				490A0872265CE85E0089FA1C /* shellTest.sh */,
+				490A0875265CE85E0089FA1C /* testShell1.sh */,
+				490A0877265CE85E0089FA1C /* users */,
 				493D7F74264E4C1F009FECDC /* TestShell.sh */,
 			);
 			path = "脚本Shell";
@@ -206,6 +238,7 @@
 		4989DE1424BE0670009DAF62 /* RXSwift_Explore */ = {
 			isa = PBXGroup;
 			children = (
+				49BAD6C42843196700C199EC /* 设计模式 */,
 				493D7F73264E4BFD009FECDC /* 脚本Shell */,
 				493904BA25F36A9900C8C209 /* RX相关 */,
 				493904B925F36A1900C8C209 /* 特殊功能的Tool */,
@@ -252,6 +285,22 @@
 				49AE026924E8EDD7002C028B /* WCDBCacheManager.swift */,
 			);
 			path = "数据库WCDB";
+			sourceTree = "<group>";
+		};
+		49B5F007269D637000D1B3F8 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				49B5F008269D682D00D1B3F8 /* TimerTest.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		49BAD6C42843196700C199EC /* 设计模式 */ = {
+			isa = PBXGroup;
+			children = (
+				49BAD6C5284319B100C199EC /* SampleFactoryModule.swift */,
+			);
+			path = "设计模式";
 			sourceTree = "<group>";
 		};
 		C94B334B363E5A41767CFB29 /* Pods */ = {
@@ -395,8 +444,17 @@
 			files = (
 				4989DE2224BE0672009DAF62 /* LaunchScreen.storyboard in Resources */,
 				493D7F75264E4C1F009FECDC /* TestShell.sh in Resources */,
+				490A087F265CE85E0089FA1C /* pushCode.sh in Resources */,
 				4989DE1F24BE0672009DAF62 /* Assets.xcassets in Resources */,
+				490A087B265CE85E0089FA1C /* shellTest.sh in Resources */,
+				490A0883265CE85E0089FA1C /* shellIfElse.sh in Resources */,
+				490A087C265CE85E0089FA1C /* shellInput.sh in Resources */,
+				490A0882265CE85E0089FA1C /* printTest.sh in Resources */,
+				490A0881265CE85E0089FA1C /* funTest.sh in Resources */,
+				490A087D265CE85E0089FA1C /* shellFileImport.sh in Resources */,
+				490A0880265CE85E0089FA1C /* users in Resources */,
 				4989DE1D24BE0670009DAF62 /* Main.storyboard in Resources */,
+				490A087E265CE85E0089FA1C /* testShell1.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F332693424F63ED100A18EA2 /* CustomAlterViewController.swift in Sources */,
+				49B5F009269D682D00D1B3F8 /* TimerTest.swift in Sources */,
 				493203E524C437A500690A7D /* LoginViewController.swift in Sources */,
 				4989DE1A24BE0670009DAF62 /* ViewController.swift in Sources */,
 				493904CE25F36C9000C8C209 /* EnumTestViewController.swift in Sources */,
@@ -472,6 +531,7 @@
 				F3B9937E24D14C1B000AD623 /* TestCuddeleViewController.swift in Sources */,
 				F318464E25593D63006BC8E5 /* LocationManager.swift in Sources */,
 				F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */,
+				49BAD6C6284319B100C199EC /* SampleFactoryModule.swift in Sources */,
 				493203E824C438E500690A7D /* GRENibloadable.swift in Sources */,
 				4989DE3024BE7F92009DAF62 /* RXSwiftRestViewController.swift in Sources */,
 				F3A51920256D33EA00A42B9D /* VideoPhotoBannerView.swift in Sources */,
