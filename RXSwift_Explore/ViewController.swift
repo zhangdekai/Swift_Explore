@@ -112,7 +112,28 @@ class ViewController: UIViewController {
         }
         
         print("statusBar height is \(size.height)")
+        
     
+    }
+    
+    @IBAction func videoDimensionButton(_ sender: Any) {
+//        getVideoDimensions()
+        
+        VideoDimension.printSupportedVideoResolutions()
+
+        
+        
+        
+    }
+    
+    
+    func getVideoDimensions() {
+        
+        VideoDimension.printSupportedVideoResolutions()
+
+        
+//        var list =  await VideoDimension.getVideoDimensions()
+//        print("list1111 = \(list)")
     }
     
     
@@ -420,6 +441,16 @@ class ViewController: UIViewController {
     
     }
     
+    
+    @IBAction func pushToVC(_ sender: Any) {
+        
+        let vc = TestCViewController()
+                
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    
     @IBAction func jumpToFRP(_ sender: Any) {
         let vc =  FRPTestViewController()
         self.present(vc, animated: true, completion: nil)
@@ -440,16 +471,16 @@ class ViewController: UIViewController {
     
     @IBAction func jumpLoginVC(_ sender: Any) {
         
-        let vc = TestAViewController()
-//        let vc = LoginViewController.instanceController(.main)
-        self.present(vc, animated: true, completion: nil)
+//        let vc = TestAViewController()
+        let vc = LoginViewController.instanceController(.main)
+//        self.present(vc, animated: true, completion: nil)
         
-        delay(3) {
-
-
-        }
+//        delay(3) {
+//
+//
+//        }
         
-//        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func jumpObserable(_ sender: Any) {

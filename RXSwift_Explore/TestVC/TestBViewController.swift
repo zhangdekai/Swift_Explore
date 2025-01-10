@@ -30,6 +30,14 @@ class TestBViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        addSubView()
+    }
+    
+    
+    func addSubView(){
+        
+        self.navigationItem.title = "Title"
+        
         
         view.addSubview(rejectButton)
         rejectButton.snp.makeConstraints { (make) in
@@ -39,11 +47,9 @@ class TestBViewController: UIViewController {
         }
         
         rejectButton.rx.tap.subscribe(onNext: {[weak self] () in
-
+            
             self?.publishSubject.onNext("我来自TestB")
             self?.navigationController?.popViewController(animated: true)
         }).disposed(by: bag)
-        
-        
     }
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,6 +38,8 @@
 		49AE027024E8F3F7002C028B /* TestCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE026F24E8F3F7002C028B /* TestCViewController.swift */; };
 		49B5F009269D682D00D1B3F8 /* TimerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5F008269D682D00D1B3F8 /* TimerTest.swift */; };
 		49BAD6C6284319B100C199EC /* SampleFactoryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAD6C5284319B100C199EC /* SampleFactoryModule.swift */; };
+		49CC01942D2FB86700BF2ECB /* SwiftUIViewTest1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC01932D2FB86700BF2ECB /* SwiftUIViewTest1.swift */; };
+		49F70D842C0D75CA00D80FDC /* VideoDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F70D832C0D75CA00D80FDC /* VideoDimension.swift */; };
 		7AF101A004E785E382CF7283 /* Pods_RXSwift_Explore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */; };
 		F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30ABAEA24C86867001936D5 /* ObservableTestViewController.swift */; };
 		F318464E25593D63006BC8E5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F318464D25593D63006BC8E5 /* LocationManager.swift */; };
@@ -86,6 +88,8 @@
 		49AE026F24E8F3F7002C028B /* TestCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCViewController.swift; sourceTree = "<group>"; };
 		49B5F008269D682D00D1B3F8 /* TimerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTest.swift; sourceTree = "<group>"; };
 		49BAD6C5284319B100C199EC /* SampleFactoryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleFactoryModule.swift; sourceTree = "<group>"; };
+		49CC01932D2FB86700BF2ECB /* SwiftUIViewTest1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewTest1.swift; sourceTree = "<group>"; };
+		49F70D832C0D75CA00D80FDC /* VideoDimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDimension.swift; sourceTree = "<group>"; };
 		AAEFC897D70E78DB7C9BF5F9 /* Pods-RXSwift_Explore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXSwift_Explore.release.xcconfig"; path = "Target Support Files/Pods-RXSwift_Explore/Pods-RXSwift_Explore.release.xcconfig"; sourceTree = "<group>"; };
 		D474DB7044B723A277DDFCBC /* Pods-RXSwift_Explore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXSwift_Explore.debug.xcconfig"; path = "Target Support Files/Pods-RXSwift_Explore/Pods-RXSwift_Explore.debug.xcconfig"; sourceTree = "<group>"; };
 		EE26AD85B05FDAF8588D47B9 /* Pods_RXSwift_Explore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXSwift_Explore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +152,7 @@
 		493904B925F36A1900C8C209 /* 特殊功能的Tool */ = {
 			isa = PBXGroup;
 			children = (
+				49F70D822C0D756800D80FDC /* 视频尺寸 */,
 				49B5F007269D637000D1B3F8 /* Timer */,
 				493904CA25F36C8F00C8C209 /* 枚举Enum */,
 				493904C725F36C8F00C8C209 /* 主队列&主线程 */,
@@ -238,6 +243,7 @@
 		4989DE1424BE0670009DAF62 /* RXSwift_Explore */ = {
 			isa = PBXGroup;
 			children = (
+				49CC01922D2FB83300BF2ECB /* SwiftUI */,
 				49BAD6C42843196700C199EC /* 设计模式 */,
 				493D7F73264E4BFD009FECDC /* 脚本Shell */,
 				493904BA25F36A9900C8C209 /* RX相关 */,
@@ -301,6 +307,22 @@
 				49BAD6C5284319B100C199EC /* SampleFactoryModule.swift */,
 			);
 			path = "设计模式";
+			sourceTree = "<group>";
+		};
+		49CC01922D2FB83300BF2ECB /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				49CC01932D2FB86700BF2ECB /* SwiftUIViewTest1.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		49F70D822C0D756800D80FDC /* 视频尺寸 */ = {
+			isa = PBXGroup;
+			children = (
+				49F70D832C0D75CA00D80FDC /* VideoDimension.swift */,
+			);
+			path = "视频尺寸";
 			sourceTree = "<group>";
 		};
 		C94B334B363E5A41767CFB29 /* Pods */ = {
@@ -519,6 +541,7 @@
 				49AE026E24E8F3F0002C028B /* TestBViewController.swift in Sources */,
 				49AE026A24E8EDD8002C028B /* WCDBCacheManager.swift in Sources */,
 				F31FF90F24EA5B2A00642DA9 /* SwiftTimer.swift in Sources */,
+				49F70D842C0D75CA00D80FDC /* VideoDimension.swift in Sources */,
 				F332693624F642CD00A18EA2 /* Frame.swift in Sources */,
 				493904CD25F36C9000C8C209 /* MainQueue&ThreadViewController.swift in Sources */,
 				F33801B624D7AFE900DAC697 /* DeviceAuthManager.swift in Sources */,
@@ -534,6 +557,7 @@
 				49BAD6C6284319B100C199EC /* SampleFactoryModule.swift in Sources */,
 				493203E824C438E500690A7D /* GRENibloadable.swift in Sources */,
 				4989DE3024BE7F92009DAF62 /* RXSwiftRestViewController.swift in Sources */,
+				49CC01942D2FB86700BF2ECB /* SwiftUIViewTest1.swift in Sources */,
 				F3A51920256D33EA00A42B9D /* VideoPhotoBannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,7 +634,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -664,7 +688,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -679,18 +703,27 @@
 			baseConfigurationReference = D474DB7044B723A277DDFCBC /* Pods-RXSwift_Explore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9X97YKR3AP;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TX7C33PXSE;
 				INFOPLIST_FILE = RXSwift_Explore/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				INFOPLIST_KEY_CFBundleDisplayName = "Swift Pro";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jialidun.RXSwift-Explore";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carsome.btoc.manage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -699,18 +732,27 @@
 			baseConfigurationReference = AAEFC897D70E78DB7C9BF5F9 /* Pods-RXSwift_Explore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9X97YKR3AP;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TX7C33PXSE;
 				INFOPLIST_FILE = RXSwift_Explore/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				INFOPLIST_KEY_CFBundleDisplayName = "Swift Pro";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jialidun.RXSwift-Explore";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carsome.btoc.manage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

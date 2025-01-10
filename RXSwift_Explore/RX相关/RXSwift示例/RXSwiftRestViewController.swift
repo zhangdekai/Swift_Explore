@@ -73,10 +73,10 @@ class RXSwiftRestViewController: UIViewController {
         
 //        setupTimer()
         //        setupNotification()
-//        setupGestureRecognizer()
-//        setupScrollerView()
-//        setupTextFiled()
-        setupKVO()
+        setupGestureRecognizer()
+        setupScrollerView()
+        setupTextFiled()
+//        setupKVO()
     }
     
     //MARK: - RxSwift应用-网络请求
@@ -175,8 +175,6 @@ class RXSwiftRestViewController: UIViewController {
             // 业务逻辑 和 功能逻辑
             // 设计
             
-//            button.rx.tap
-//                .subscribe(onNext: <#T##((Void) -> Void)?##((Void) -> Void)?##(Void) -> Void#>, onError: <#T##((Error) -> Void)?##((Error) -> Void)?##(Error) -> Void#>, onCompleted: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, onDisposed: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
             self.button.rx.tap
     //            .subscribe(onNext: { () in
     //                print("点击来了")

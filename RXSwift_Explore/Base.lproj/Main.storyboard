@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,49 +18,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oW-P0-iAs">
-                                <rect key="frame" x="50" y="106" width="77" height="30"/>
+                                <rect key="frame" x="50" y="110" width="75" height="30"/>
                                 <state key="normal" title="响应式测试"/>
                                 <connections>
                                     <action selector="jumpToFRP:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uWl-Gx-HMQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBf-xy-Vog">
-                                <rect key="frame" x="50" y="152" width="85" height="30"/>
+                                <rect key="frame" x="50" y="156" width="86" height="30"/>
                                 <state key="normal" title="RXSwift示例"/>
                                 <connections>
                                     <action selector="jumpToShiLi:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cwl-8N-MGM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ek-cm-3Mu">
-                                <rect key="frame" x="50" y="199" width="62" height="30"/>
+                                <rect key="frame" x="50" y="203" width="60" height="30"/>
                                 <state key="normal" title="登录测试"/>
                                 <connections>
                                     <action selector="jumpLoginVC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KeV-gp-eS3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khl-eJ-YAq">
-                                <rect key="frame" x="50" y="243" width="62" height="30"/>
+                                <rect key="frame" x="50" y="247" width="60" height="30"/>
                                 <state key="normal" title="序列创建"/>
                                 <connections>
                                     <action selector="jumpObserable:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ihO-br-j0Y"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Kz-G8-aJU">
-                                <rect key="frame" x="50" y="291" width="77" height="30"/>
+                                <rect key="frame" x="50" y="295" width="75" height="30"/>
                                 <state key="normal" title="操作符操作"/>
                                 <connections>
                                     <action selector="jumpOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WIU-r3-JZh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUH-t6-tj1">
-                                <rect key="frame" x="48" y="334" width="81" height="30"/>
+                                <rect key="frame" x="48" y="338" width="81" height="30"/>
                                 <state key="normal" title="SubjectTest"/>
                                 <connections>
                                     <action selector="subjectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2P7-HK-zur"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOv-YU-bwv">
-                                <rect key="frame" x="50" y="372" width="100" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOv-YU-bwv">
+                                <rect key="frame" x="50" y="376" width="72" height="34"/>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="测试定位">
                                     <color key="titleColor" systemColor="linkColor"/>
@@ -77,6 +77,25 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh7-AU-RY0">
+                                <rect key="frame" x="48" y="430" width="161" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="2Xk-q8-dJ7"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Video Dismension"/>
+                                <connections>
+                                    <action selector="videoDimensionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k1V-I5-g8O"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgO-4g-4jy">
+                                <rect key="frame" x="46" y="518" width="83" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Test VC"/>
+                                <connections>
+                                    <action selector="pushToVC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vah-YH-ugP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -84,15 +103,19 @@
                             <constraint firstItem="BBf-xy-Vog" firstAttribute="top" secondItem="3oW-P0-iAs" secondAttribute="bottom" constant="16" id="308-ha-VJS"/>
                             <constraint firstItem="Khl-eJ-YAq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="63k-z4-Mvz"/>
                             <constraint firstItem="3oW-P0-iAs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="62" id="7Tq-LC-VG4"/>
+                            <constraint firstItem="KgO-4g-4jy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="9hR-ju-MM0"/>
                             <constraint firstItem="Khl-eJ-YAq" firstAttribute="top" secondItem="6ek-cm-3Mu" secondAttribute="bottom" constant="14" id="AQ5-hr-XaX"/>
+                            <constraint firstItem="nh7-AU-RY0" firstAttribute="top" secondItem="JOv-YU-bwv" secondAttribute="bottom" constant="20" id="Bgs-ac-XCm"/>
                             <constraint firstItem="ZUH-t6-tj1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="BhX-Mf-9ni"/>
                             <constraint firstItem="BBf-xy-Vog" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="DNy-Gi-7Sd"/>
                             <constraint firstItem="3oW-P0-iAs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="G4T-uC-s3X"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BBf-xy-Vog" secondAttribute="trailing" symbolic="YES" id="GoT-No-zVv"/>
                             <constraint firstItem="4Kz-G8-aJU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Jq4-r7-Cgx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3oW-P0-iAs" secondAttribute="trailing" symbolic="YES" id="Jta-cd-sUP"/>
+                            <constraint firstItem="nh7-AU-RY0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="QmM-5M-j7f"/>
                             <constraint firstItem="JOv-YU-bwv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="TQE-qM-Gyc"/>
                             <constraint firstItem="6ek-cm-3Mu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="ViK-2k-aSA"/>
+                            <constraint firstItem="KgO-4g-4jy" firstAttribute="top" secondItem="nh7-AU-RY0" secondAttribute="bottom" constant="52" id="XAd-jD-xq5"/>
                             <constraint firstItem="ZUH-t6-tj1" firstAttribute="top" secondItem="4Kz-G8-aJU" secondAttribute="bottom" constant="13" id="dz2-Q1-rTE"/>
                             <constraint firstItem="4Kz-G8-aJU" firstAttribute="top" secondItem="Khl-eJ-YAq" secondAttribute="bottom" constant="18" id="k1Z-Rd-VSq"/>
                             <constraint firstItem="6ek-cm-3Mu" firstAttribute="top" secondItem="BBf-xy-Vog" secondAttribute="bottom" constant="17" id="p0U-Ae-2sM"/>
@@ -120,7 +143,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是一个可以点击的Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iy4-b2-VgY">
-                                <rect key="frame" x="108" y="108" width="198" height="21"/>
+                                <rect key="frame" x="109.5" y="112" width="195.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -131,7 +154,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5D0-2m-dZ0">
-                                <rect key="frame" x="98" y="243" width="218" height="30"/>
+                                <rect key="frame" x="98" y="247" width="218" height="30"/>
                                 <color key="backgroundColor" red="0.81504352410000003" green="1" blue="0.56536479470000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="218" id="8Yw-iD-rH7"/>
@@ -142,7 +165,7 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dey-as-MH7">
-                                <rect key="frame" x="57" y="353" width="300" height="200"/>
+                                <rect key="frame" x="57" y="357" width="300" height="200"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Yz-va-Nia">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="500"/>
@@ -162,7 +185,7 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn2-9d-AGW">
-                                <rect key="frame" x="181" y="309" width="52" height="30"/>
+                                <rect key="frame" x="181" y="313" width="52" height="30"/>
                                 <state key="normal" title="dismiss"/>
                                 <connections>
                                     <action selector="dismissAction:" destination="Rmi-TR-s9H" eventType="touchUpInside" id="pTJ-4Y-4ax"/>
@@ -205,12 +228,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rCM-8e-SqI">
-                                <rect key="frame" x="115" y="133" width="247" height="34"/>
+                                <rect key="frame" x="115" y="137" width="247" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vtl-53-cmM">
-                                <rect key="frame" x="31" y="138" width="63" height="24"/>
+                                <rect key="frame" x="31" y="142" width="63" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="63" id="1Jz-hz-FfO"/>
                                 </constraints>
@@ -219,18 +242,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名长度不小于5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS4-lL-XSU">
-                                <rect key="frame" x="31" y="175" width="331" height="21"/>
+                                <rect key="frame" x="31" y="179" width="331" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.98726278540000001" green="0.23694899680000001" blue="0.26975026730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1fg-rP-tNS">
-                                <rect key="frame" x="115" y="227" width="247" height="29"/>
+                                <rect key="frame" x="115" y="231" width="247" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgt-lB-a8h">
-                                <rect key="frame" x="31" y="231" width="63" height="21"/>
+                                <rect key="frame" x="31" y="235" width="63" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="h4y-7G-yUI"/>
                                 </constraints>
@@ -239,7 +262,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码提示文本长度不小于6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uu9-sQ-yu7">
-                                <rect key="frame" x="31" y="264" width="331" height="21"/>
+                                <rect key="frame" x="31" y="268" width="331" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.98726278540000001" green="0.23694899680000001" blue="0.26975026730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -296,35 +319,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJJ-yg-Gg2">
-                                <rect key="frame" x="35" y="149" width="112" height="30"/>
+                                <rect key="frame" x="35" y="153" width="112" height="30"/>
                                 <state key="normal" title="BehaviorSubject"/>
                                 <connections>
                                     <action selector="BehaviorSubjectAction:" destination="j0u-KV-7mq" eventType="touchUpInside" id="yRg-cr-7I5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTe-82-KbL">
-                                <rect key="frame" x="35" y="206" width="97" height="30"/>
+                                <rect key="frame" x="35" y="210" width="97" height="30"/>
                                 <state key="normal" title="BehaviorRelay"/>
                                 <connections>
                                     <action selector="BehaviorRelayAction:" destination="j0u-KV-7mq" eventType="touchUpInside" id="Nq1-qA-71z"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdT-px-S4i">
-                                <rect key="frame" x="35" y="253" width="98" height="30"/>
+                                <rect key="frame" x="35" y="257" width="98" height="30"/>
                                 <state key="normal" title="ReplaySubject"/>
                                 <connections>
                                     <action selector="ReplaySubjectAction:" destination="j0u-KV-7mq" eventType="touchUpInside" id="G1k-aD-bWJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcK-mK-7je">
-                                <rect key="frame" x="35" y="291" width="103" height="30"/>
+                                <rect key="frame" x="35" y="295" width="103" height="30"/>
                                 <state key="normal" title="PublishSubject"/>
                                 <connections>
                                     <action selector="PublishSubjectAction:" destination="j0u-KV-7mq" eventType="touchUpInside" id="fie-St-JJm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vf-xK-y70">
-                                <rect key="frame" x="35" y="329" width="94" height="30"/>
+                                <rect key="frame" x="35" y="333" width="94" height="30"/>
                                 <state key="normal" title="AsyncSubject"/>
                                 <connections>
                                     <action selector="AsyncSubjectAction:" destination="j0u-KV-7mq" eventType="touchUpInside" id="KCT-gn-8XV"/>
@@ -354,7 +377,7 @@
     </scenes>
     <resources>
         <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
