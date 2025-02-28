@@ -16,7 +16,7 @@ import MediaPlayer
 let ScreenW = UIScreen.main.bounds.width
 let ScreenH = UIScreen.main.bounds.height
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     @IBOutlet weak var textButton: UIButton!
     let bag = DisposeBag()
@@ -50,21 +50,21 @@ class ViewController: UIViewController {
     var timerCont = 0
     
     public enum LiveType: Int {
-           case single = 1
-           case multi
-           case dating
-           
-           func seatCount() -> Int {
-               switch self {
-               case .multi:
-                   return 5
-               case .dating:
-                   return 6
-               default:
-                   return 0
-               }
-           }
-       }
+        case single = 1
+        case multi
+        case dating
+        
+        func seatCount() -> Int {
+            switch self {
+            case .multi:
+                return 5
+            case .dating:
+                return 6
+            default:
+                return 0
+            }
+        }
+    }
     
     class TestSortType {
         var category: Int = 0
@@ -98,11 +98,28 @@ class ViewController: UIViewController {
         label.font = .systemFont(ofSize: 12, weight: .regular)
         return label
     }()
-            
+    
     //MARK: - life clycle
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
+        
+//        getStattusBarSize()
+        
+    
+        
+        
+        
+    }
+    
+    @IBAction func videoDimensionButton(_ sender: Any) {
+        getVideoDimensions()
+        
+    }
+    
+    fileprivate func getStattusBarSize() {
         var size: CGSize
         
         if #available(iOS 13.0, *) {
@@ -112,28 +129,17 @@ class ViewController: UIViewController {
         }
         
         print("statusBar height is \(size.height)")
-        
-    
     }
     
-    @IBAction func videoDimensionButton(_ sender: Any) {
-//        getVideoDimensions()
-        
-        VideoDimension.printSupportedVideoResolutions()
-
-        
-        
-        
-    }
     
     
     func getVideoDimensions() {
         
-        VideoDimension.printSupportedVideoResolutions()
-
+        let _ =  VideoDimension.printSupportedVideoResolutions()
         
-//        var list =  await VideoDimension.getVideoDimensions()
-//        print("list1111 = \(list)")
+        
+        //        var list =  await VideoDimension.getVideoDimensions()
+        //        print("list1111 = \(list)")
     }
     
     
@@ -214,7 +220,7 @@ class ViewController: UIViewController {
             make.bottom.left.right.equalToSuperview()
             make.height.equalTo(375)
         }
-         
+        
     }
     
     //MAR: - test 定时器
@@ -240,10 +246,10 @@ class ViewController: UIViewController {
         if (manager.hasLocationPermission()) {
             
             print("设备有权限")
-
+            
         } else {
             print("设备没有有权限")
-
+            
         }
         
         
@@ -259,7 +265,7 @@ class ViewController: UIViewController {
             }
             
             if manager.hasLocationPermission() {
-
+                
                 manager.requestLocation()
                 manager.getLocationHandle = { (success,latitude, longitude) in
                     
@@ -267,7 +273,7 @@ class ViewController: UIViewController {
                 }
             } else {
                 manager.requestLocationAuthorizaiton()
-
+                
             }
         } else {
             print("设备没有定位服务")
@@ -284,7 +290,7 @@ class ViewController: UIViewController {
             }
             alter.addAction(action)
             alter.addAction(action1)
-           
+            
             present(alter, animated: true, completion: nil)
         }
         
@@ -313,7 +319,7 @@ class ViewController: UIViewController {
     func testSort() {
         
         var aaa = [TestSortType(category: 1), TestSortType(category: 2), TestSortType(category: 3), TestSortType(category: 4)]
-                
+        
         aaa.sort(by: { $0.category > $1.category })
         aaa.map({ print($0.category) })
         
@@ -372,7 +378,7 @@ class ViewController: UIViewController {
         
         alterVC.dismissReturn = {
             print("hello 1wwew")
-
+            
         }
     }
     
@@ -384,13 +390,13 @@ class ViewController: UIViewController {
         
         print(count)
     }
-
+    
     func indexTest() {
         let array = [1,2,3,3,3,4]
         
         let ind = array.firstIndex(where: { $0 == 3})
         let lastIndex = array.lastIndex(where: { $0 == 3})
-
+        
         print(ind ?? -1)
         print(lastIndex ?? -1)
     }
@@ -406,9 +412,9 @@ class ViewController: UIViewController {
             
         })
         // 3秒后 。。。。
-//        randomTimer = SwiftTimer(interval: .seconds(3), handler: {[weak self] (timer) in
-//            print("SwiftTimer_____")
-//        })
+        //        randomTimer = SwiftTimer(interval: .seconds(3), handler: {[weak self] (timer) in
+        //            print("SwiftTimer_____")
+        //        })
         randomTimer?.start()
     }
     
@@ -432,20 +438,20 @@ class ViewController: UIViewController {
             make.bottom.equalTo(-152 - 0)
         }
     }
-
+    
     @IBAction func subjectAction(_ sender: Any) {
         
         let vc = SubjectTestViewController.instanceController(.main)
         
         self.navigationController?.pushViewController(vc, animated: true)
-    
+        
     }
     
     
     @IBAction func pushToVC(_ sender: Any) {
         
         let vc = TestCViewController()
-                
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -464,21 +470,21 @@ class ViewController: UIViewController {
         let nav = UINavigationController(rootViewController: vc)
         
         nav.modalPresentationStyle = .fullScreen
-
+        
         self.navigationController?.present(nav, animated: true, completion: nil)
-//        self.present(nav, animated: true, completion: nil)
+        //        self.present(nav, animated: true, completion: nil)
     }
     
     @IBAction func jumpLoginVC(_ sender: Any) {
         
-//        let vc = TestAViewController()
+        //        let vc = TestAViewController()
         let vc = LoginViewController.instanceController(.main)
-//        self.present(vc, animated: true, completion: nil)
+        //        self.present(vc, animated: true, completion: nil)
         
-//        delay(3) {
-//
-//
-//        }
+        //        delay(3) {
+        //
+        //
+        //        }
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -506,27 +512,27 @@ extension UIViewController: LoadStoryBoard {
 
 extension UIAlertController {
     
-//    /// 给 UIAlertController 添加空白处点击 dismiss
-//    func addTapDismiss() {
-//
-//        let arrayViews = UIApplication.shared.keyWindow?.subviews
-//
-//        if !(arrayViews?.isEmpty ?? true) {
-//            let backview = arrayViews?.last
-//            backview?.isUserInteractionEnabled = true
-//            let tap = UITapGestureRecognizer(target: self, action: #selector(tapMethod))
-//            tap.delegate = self
-//            backview?.addGestureRecognizer(tap)
-//
-//        }
-//    }
-//
-//    @objc func tapMethod() {
-//        self.dismiss(animated: true, completion: nil)
-//
-//    }
-
-
+    //    /// 给 UIAlertController 添加空白处点击 dismiss
+    //    func addTapDismiss() {
+    //
+    //        let arrayViews = UIApplication.shared.keyWindow?.subviews
+    //
+    //        if !(arrayViews?.isEmpty ?? true) {
+    //            let backview = arrayViews?.last
+    //            backview?.isUserInteractionEnabled = true
+    //            let tap = UITapGestureRecognizer(target: self, action: #selector(tapMethod))
+    //            tap.delegate = self
+    //            backview?.addGestureRecognizer(tap)
+    //
+    //        }
+    //    }
+    //
+    //    @objc func tapMethod() {
+    //        self.dismiss(animated: true, completion: nil)
+    //
+    //    }
+    
+    
     
     @discardableResult
     func addAction(title: String, style: UIAlertAction.Style = .default, isEnabled: Bool = true, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {

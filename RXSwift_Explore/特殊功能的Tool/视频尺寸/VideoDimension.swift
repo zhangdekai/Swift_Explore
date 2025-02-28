@@ -14,7 +14,7 @@ import CoreMedia
 class VideoDimension: NSObject {
     
     
-    static func printSupportedVideoResolutions() -> [String]{
+static func printSupportedVideoResolutions() -> [String]{
 //        let discoverySession1 = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInTelephotoCamera, .builtInUltraWideCamera], mediaType: .video, position: .unspecified)
         
         let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInTelephotoCamera,], mediaType: .video, position: .back)

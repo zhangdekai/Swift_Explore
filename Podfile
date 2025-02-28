@@ -18,6 +18,7 @@ target 'RXSwift_Explore' do
 
   # Pods for RXSwift_Explore
   
+  pod 'Alamofire'
   pod 'RxSwift', '~> 5.1.0'
   pod 'RxCocoa', '~> 5.1.1'
   pod 'SnapKit', '~> 5.0.1'
