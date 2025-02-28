@@ -106,6 +106,7 @@
 		49AE026F24E8F3F7002C028B /* TestCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCViewController.swift; sourceTree = "<group>"; };
 		49B5F008269D682D00D1B3F8 /* TimerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTest.swift; sourceTree = "<group>"; };
 		49C0FE632D71692D00E40B99 /* HomeMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainController.swift; sourceTree = "<group>"; };
+		49C0FE652D71767200E40B99 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		49CC01932D2FB86700BF2ECB /* SwiftUIViewTest1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewTest1.swift; sourceTree = "<group>"; };
 		49E873D42D6AED0200C8E850 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		49E873D82D6AEDAD00C8E850 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
@@ -191,7 +192,7 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		493904B925F36A1900C8C209 /* 特殊功能的Tool */ = {
+		493904B925F36A1900C8C209 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
 				49F70D822C0D756800D80FDC /* 视频尺寸 */,
@@ -207,7 +208,7 @@
 				49AE026824E8EDC5002C028B /* 数据库WCDB */,
 				F33801B424D7AFCF00DAC697 /* 权限检测 */,
 			);
-			path = "特殊功能的Tool";
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		493904BA25F36A9900C8C209 /* RX相关 */ = {
@@ -267,6 +268,7 @@
 		4989DE0924BE0670009DAF62 = {
 			isa = PBXGroup;
 			children = (
+				49C0FE652D71767200E40B99 /* README.md */,
 				4989DE1424BE0670009DAF62 /* RXSwift_Explore */,
 				4989DE1324BE0670009DAF62 /* Products */,
 				C94B334B363E5A41767CFB29 /* Pods */,
@@ -291,7 +293,7 @@
 				49CC01922D2FB83300BF2ECB /* SwiftUI */,
 				493D7F73264E4BFD009FECDC /* 脚本Shell */,
 				493904BA25F36A9900C8C209 /* RX相关 */,
-				493904B925F36A1900C8C209 /* 特殊功能的Tool */,
+				493904B925F36A1900C8C209 /* Tools */,
 				F3B9937F24D173AE000AD623 /* EXtension */,
 				F3B9937C24D14C03000AD623 /* Pages */,
 				493203E624C438C300690A7D /* Protocol */,

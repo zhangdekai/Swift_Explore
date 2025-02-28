@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 /*
- https://chatgpt.com/share/67c13cfa-8b94-800a-a29b-3e98835ed34e
  
  https://chatgpt.com/canvas/shared/67c13c2f6fa88191b608341c3b5d0d96
  */
