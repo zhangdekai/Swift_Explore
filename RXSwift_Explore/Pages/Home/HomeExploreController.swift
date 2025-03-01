@@ -10,11 +10,82 @@ import UIKit
 
 class HomeExploreController : UIViewController {
     
+    let tableview = UITableView()
+    
+    let list = ["User Page"]
+    
     override func viewDidLoad() {
         title = "Explore"
         view.backgroundColor = .white;
         
+        addTableview()
+        
     }
     
+    func addTableview(){
+        view.addSubview(tableview)
+        tableview.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        tableview.delegate = self
+        tableview.dataSource = self
+        tableview.register(ExploreListTableViewCell.self, forCellReuseIdentifier: "explore_list")
+        tableview.reloadData()
+    }
+    
+    
+}
+
+extension HomeExploreController : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return list.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "explore_list", for: indexPath) as! ExploreListTableViewCell
+        
+        cell.titleLabel.text = list[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(indexPath.row == 0){
+            let vc = UserViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}
+
+
+class ExploreListTableViewCell : UITableViewCell {
+    
+    let titleLabel = UILabel()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        self.selectionStyle = .none
+        
+        contentView.addSubview(titleLabel)
+        titleLabel.font = .systemFont(ofSize: 15)
+        titleLabel.textColor = .black
+        titleLabel.snp.makeConstraints { make in
+            make.leading.equalTo(12)
+            make.top.equalTo(12)
+        }
+    }
+    
+    //    func setData(T data){
+    //        titleLabel.text = T
+    //    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 }

@@ -362,6 +362,17 @@
 			path = Timer;
 			sourceTree = "<group>";
 		};
+		49C0FE662D71B16500E40B99 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */,
+				49AE026B24E8F3E5002C028B /* TestAViewController.swift */,
+				49AE026D24E8F3F0002C028B /* TestBViewController.swift */,
+				49AE026F24E8F3F7002C028B /* TestCViewController.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		49CC01922D2FB83300BF2ECB /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,12 +461,9 @@
 		F3B9937C24D14C03000AD623 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				49C0FE662D71B16500E40B99 /* Test */,
 				49091B702D704FC100369A9C /* Home */,
 				49091B6D2D701B9100369A9C /* User */,
-				F3B9937D24D14C1B000AD623 /* TestCuddeleViewController.swift */,
-				49AE026B24E8F3E5002C028B /* TestAViewController.swift */,
-				49AE026D24E8F3F0002C028B /* TestBViewController.swift */,
-				49AE026F24E8F3F7002C028B /* TestCViewController.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";

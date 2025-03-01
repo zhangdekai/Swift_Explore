@@ -15,6 +15,9 @@ class UserViewController : UIViewController {
     
     override func viewDidLoad() {
         
+        view.backgroundColor = .white
+        title = "User"
+        
         userService.fetchUser(byID: 11) {  res in //Result<User, NetworkError>
             
             switch (res){
