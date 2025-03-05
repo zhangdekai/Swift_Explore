@@ -149,17 +149,21 @@ class NetworkService {
                     
                     switch response.result {
                     case .success(let data):
+                        print("data 111 === \(data)");
                         if let cacheKey = cacheKey {
                             self?.memoryCache.setObject(data as AnyObject, forKey: cacheKey)
                         }
+                        
                         do {
                             let decoder = JSONDecoder()
                             let result = try decoder.decode(T.self, from: data)
                             completion(.success(result))
                         } catch {
+                            print("data decodingError === \(data)");
                             completion(.failure(.decodingError))
                         }
                     case .failure(let error):
+                        print("responseData error.localizedDescription == \(error.localizedDescription)")
                         let networkError = NetworkErrorHandler.handleAFError(error, response: response)
                         completion(.failure(networkError))
                     }

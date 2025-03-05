@@ -93,16 +93,16 @@ class SubjectTestViewController: UIViewController {
         print("**********Variable**********")
         // Variable : 5.0已经废弃(BehaviorSubject 替换) - 这里板书 大家可以了解一下
         
-        // 1:创建序列
-        let variableSub = Variable.init(1)
-        // 2:发送信号
-        variableSub.value = 100
-        variableSub.value = 10
-        // 3:订阅信号
-        variableSub.asObservable().subscribe{ print("订阅到了:",$0)}
-            .disposed(by: disposbag)
-        // 再次发送
-        variableSub.value = 1000
+//        // 1:创建序列
+//        let variableSub = Variable.init()
+//        // 2:发送信号
+//        variableSub.value = 100
+//        variableSub.value = 10
+//        // 3:订阅信号
+//        variableSub.asObservable().subscribe{ print("订阅到了:",$0)}
+//            .disposed(by: disposbag)
+//        // 再次发送
+//        variableSub.value = 1000
         
     }
     

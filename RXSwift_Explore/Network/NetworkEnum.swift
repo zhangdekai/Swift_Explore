@@ -25,8 +25,8 @@ enum NetworkError: Error {
 
 // 缓存策略
 enum CachePolicy {
+    case none
     case onlyCache
     case cacheThenUpdate
     case networkThenCache
-    case none
 }

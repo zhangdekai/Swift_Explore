@@ -28,6 +28,8 @@
 		493904CD25F36C9000C8C209 /* MainQueue&ThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493904C925F36C8F00C8C209 /* MainQueue&ThreadViewController.swift */; };
 		493904CE25F36C9000C8C209 /* EnumTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493904CB25F36C8F00C8C209 /* EnumTestViewController.swift */; };
 		493D7F75264E4C1F009FECDC /* TestShell.sh in Resources */ = {isa = PBXBuildFile; fileRef = 493D7F74264E4C1F009FECDC /* TestShell.sh */; };
+		4984B7472D770A890071798B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984B7462D770A890071798B /* UserViewModel.swift */; };
+		4984B7492D7831780071798B /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984B7482D7831780071798B /* BaseDataModel.swift */; };
 		4989DE1624BE0670009DAF62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE1524BE0670009DAF62 /* AppDelegate.swift */; };
 		4989DE1A24BE0670009DAF62 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE1924BE0670009DAF62 /* HomeViewController.swift */; };
 		4989DE1D24BE0670009DAF62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4989DE1B24BE0670009DAF62 /* Main.storyboard */; };
@@ -37,7 +39,7 @@
 		4989DE3024BE7F92009DAF62 /* RXSwiftRestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE2F24BE7F92009DAF62 /* RXSwiftRestViewController.swift */; };
 		49943F052D6C73C200F75B3B /* MemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49943F042D6C73C200F75B3B /* MemoryCache.swift */; };
 		49943F082D6C94CA00F75B3B /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49943F072D6C94CA00F75B3B /* UserService.swift */; };
-		49943F0B2D6C955300F75B3B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49943F0A2D6C955300F75B3B /* User.swift */; };
+		49943F0B2D6C955300F75B3B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49943F0A2D6C955300F75B3B /* UserModel.swift */; };
 		49AE026724E8D2D5002C028B /* SubjectTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE026624E8D2D5002C028B /* SubjectTestViewController.swift */; };
 		49AE026A24E8EDD8002C028B /* WCDBCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE026924E8EDD7002C028B /* WCDBCacheManager.swift */; };
 		49AE026C24E8F3E5002C028B /* TestAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE026B24E8F3E5002C028B /* TestAViewController.swift */; };
@@ -87,6 +89,8 @@
 		493904C925F36C8F00C8C209 /* MainQueue&ThreadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainQueue&ThreadViewController.swift"; sourceTree = "<group>"; };
 		493904CB25F36C8F00C8C209 /* EnumTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumTestViewController.swift; sourceTree = "<group>"; };
 		493D7F74264E4C1F009FECDC /* TestShell.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = TestShell.sh; sourceTree = "<group>"; };
+		4984B7462D770A890071798B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		4984B7482D7831780071798B /* BaseDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
 		4989DE1224BE0670009DAF62 /* RXSwift_Explore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RXSwift_Explore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4989DE1524BE0670009DAF62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4989DE1924BE0670009DAF62 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -98,7 +102,7 @@
 		4989DE2F24BE7F92009DAF62 /* RXSwiftRestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXSwiftRestViewController.swift; sourceTree = "<group>"; };
 		49943F042D6C73C200F75B3B /* MemoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCache.swift; sourceTree = "<group>"; };
 		49943F072D6C94CA00F75B3B /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
-		49943F0A2D6C955300F75B3B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		49943F0A2D6C955300F75B3B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		49AE026624E8D2D5002C028B /* SubjectTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTestViewController.swift; sourceTree = "<group>"; };
 		49AE026924E8EDD7002C028B /* WCDBCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WCDBCacheManager.swift; sourceTree = "<group>"; };
 		49AE026B24E8F3E5002C028B /* TestAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				49091B6E2D701BA000369A9C /* UserViewController.swift */,
+				4984B7462D770A890071798B /* UserViewModel.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -333,7 +338,8 @@
 		49943F092D6C953800F75B3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				49943F0A2D6C955300F75B3B /* User.swift */,
+				49943F0A2D6C955300F75B3B /* UserModel.swift */,
+				4984B7482D7831780071798B /* BaseDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -623,6 +629,7 @@
 				F31FF90F24EA5B2A00642DA9 /* SwiftTimer.swift in Sources */,
 				49E873DD2D6AEE0100C8E850 /* NetworkErrorHandle.swift in Sources */,
 				49F70D842C0D75CA00D80FDC /* VideoDimension.swift in Sources */,
+				4984B7472D770A890071798B /* UserViewModel.swift in Sources */,
 				F332693624F642CD00A18EA2 /* Frame.swift in Sources */,
 				49E873D92D6AEDAD00C8E850 /* NetworkConfig.swift in Sources */,
 				49091B6F2D701BA000369A9C /* UserViewController.swift in Sources */,
@@ -641,8 +648,9 @@
 				F30ABAEB24C86867001936D5 /* ObservableTestViewController.swift in Sources */,
 				493203E824C438E500690A7D /* GRENibloadable.swift in Sources */,
 				49091B782D7088F900369A9C /* HomeProfieViewController.swift in Sources */,
-				49943F0B2D6C955300F75B3B /* User.swift in Sources */,
+				49943F0B2D6C955300F75B3B /* UserModel.swift in Sources */,
 				4989DE3024BE7F92009DAF62 /* RXSwiftRestViewController.swift in Sources */,
+				4984B7492D7831780071798B /* BaseDataModel.swift in Sources */,
 				49CC01942D2FB86700BF2ECB /* SwiftUIViewTest1.swift in Sources */,
 				F3A51920256D33EA00A42B9D /* VideoPhotoBannerView.swift in Sources */,
 			);

@@ -10,21 +10,19 @@ import Foundation
 
 class UserService {
     
-    func fetchUser(byID id: Int, completion: @escaping (Result<User, NetworkError>) -> Void) {
-//        let endpoint = "/users/\(id)"
-        let endpoint = ""
-
+    let endpoint = "user"
+    
+    func fetchUser(byID id: Int, completion: @escaping (Result<UserBase, NetworkError>) -> Void) {
         NetworkService.shared.get(endpoint: endpoint, completion: completion)
     }
     
-    func createUser(user: User, completion: @escaping (Result<User, NetworkError>) -> Void) {
-        let endpoint = "/users"
-        do {
-            let parameters = try JSONEncoder().encode(user)
-            let json = try JSONSerialization.jsonObject(with: parameters, options: []) as? [String: Any]
-            NetworkService.shared.post(endpoint: endpoint, parameters: json, completion: completion)
-        } catch {
-            completion(.failure(.decodingError))
-        }
-    }
+//    func createUser(user: UserModel, completion: @escaping (Result<UserBase, NetworkError>) -> Void) {
+//        do {
+//            let parameters = try JSONEncoder().encode(user)
+//            let json = try JSONSerialization.jsonObject(with: parameters, options: []) as? [String: Any]
+//            NetworkService.shared.post(endpoint: endpoint, parameters: json, completion: completion)
+//        } catch {
+//            completion(.failure(.decodingError))
+//        }
+//    }
 }

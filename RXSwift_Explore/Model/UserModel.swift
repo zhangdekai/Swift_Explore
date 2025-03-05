@@ -8,7 +8,17 @@
 
 import Foundation
 
-struct User: Codable {
+///  json 转模型
+/// https://app.quicktype.io/
+///
+struct UserBase: Decodable {
+    let code: Int
+    let message: String
+    let status: String
+    let data: UserModel
+}
+
+struct UserModel: Decodable {
     let id: Int
     let name: String
     let email: String
