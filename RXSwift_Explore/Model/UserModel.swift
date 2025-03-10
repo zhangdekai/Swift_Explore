@@ -8,6 +8,15 @@
 
 import Foundation
 
+//struct BaseDataModel<T: Decodable>: Decodable {
+//
+//    let code: Int
+//    let message: String
+//    let status: String
+//    let data: T?
+//}
+
+
 ///  json 转模型
 /// https://app.quicktype.io/
 ///

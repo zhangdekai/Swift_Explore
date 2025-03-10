@@ -19,9 +19,9 @@ class UserViewModel {
             switch (res){
             case .success( let user):
                 
-                print("user === \(user.data)");
+//                print("user === \(user.data)");
                 
-                completionHandler(user.data)
+                completionHandler(user)
                 break
             case .failure(let error):
                 print("fetchUser error == \(error.localizedDescription)");

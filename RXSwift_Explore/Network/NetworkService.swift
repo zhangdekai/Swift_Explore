@@ -20,6 +20,8 @@ class NetworkService {
     private let memoryCache = MemoryCache.shared
     private var defaultHeaders: HTTPHeaders = [:]
     private var currentRequests: [Request] = []
+    /// 返回带 code 的 Object
+    private var returnOriginData = false
     
     
     private init() {
@@ -67,7 +69,8 @@ class NetworkService {
         encoding: ParameterEncoding = URLEncoding.default,
         headers: HTTPHeaders? = nil,
         cachePolicy: CachePolicy = .none,
-        completion: @escaping (Result<T, NetworkError>) -> Void
+        completion: @escaping (Result<T, NetworkError>) -> Void,
+        returnOriginData: Bool = false
     ) {
         let cacheKey = generateCacheKey(endpoint: endpoint, parameters: parameters)
         
@@ -96,14 +99,14 @@ class NetworkService {
                 }
             }
             // 发起网络请求更新缓存
-            performNetworkRequest(method: method, endpoint: endpoint, parameters: parameters, encoding: encoding, headers: headers, cacheKey: cacheKey, completion: completion)
+            performNetworkRequest(method: method, endpoint: endpoint, parameters: parameters, encoding: encoding, headers: headers, cacheKey: cacheKey, completion: completion,returnOriginData: returnOriginData)
             break
         case .networkThenCache:
-            performNetworkRequest(method: method, endpoint: endpoint, parameters: parameters, encoding: encoding, headers: headers, cacheKey: cacheKey, completion: completion)
+            performNetworkRequest(method: method, endpoint: endpoint, parameters: parameters, encoding: encoding, headers: headers, cacheKey: cacheKey, completion: completion,returnOriginData: returnOriginData)
             break
         case .none:
             // 不使用缓存，直接发起网络请求
-            performNetworkRequest(method: method, endpoint: endpoint, parameters: parameters, encoding: encoding, headers: headers, cacheKey: nil, completion: completion)
+            performNetworkRequest(method: method, endpoint: endpoint, parameters: parameters, encoding: encoding, headers: headers, cacheKey: nil, completion: completion,returnOriginData: returnOriginData)
             break
         }
     }
@@ -116,7 +119,8 @@ class NetworkService {
         encoding: ParameterEncoding = URLEncoding.default,
         headers: HTTPHeaders? = nil,
         cacheKey: String?,
-        completion: @escaping (Result<T, NetworkError>) -> Void
+        completion: @escaping (Result<T, NetworkError>) -> Void,
+        returnOriginData: Bool = false
     ) {
         guard let url = buildURL(with: endpoint) else {
             completion(.failure(.invalidURL))
@@ -156,8 +160,30 @@ class NetworkService {
                         
                         do {
                             let decoder = JSONDecoder()
-                            let result = try decoder.decode(T.self, from: data)
-                            completion(.success(result))
+                            if(returnOriginData){
+                                
+                                // 使用 JSONSerialization 将 Data 转换为字典
+                                if let jsonObject = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                                    print("转换后的字典: \(jsonObject)")
+                                    
+                                    if let dataD = jsonObject["data"] {
+                                        if let dataD = try? JSONSerialization.data(withJSONObject: dataD)
+                                        {
+                                            let result = try decoder.decode(T.self, from: dataD)
+                                            completion(.success(result))
+                                        }
+                                    } else {
+                                        completion(.failure(.decodingError))
+                                    }
+                                    
+                                } else {
+                                    print("Data 无法转换为字典。")
+                                    completion(.failure(.decodingError))
+                                }
+                            } else {
+                                let result = try decoder.decode(T.self, from: data)
+                                completion(.success(result))
+                            }
                         } catch {
                             print("data decodingError === \(data)");
                             completion(.failure(.decodingError))
@@ -180,9 +206,10 @@ class NetworkService {
         parameters: Parameters? = nil,
         headers: HTTPHeaders? = nil,
         cachePolicy: CachePolicy = .networkThenCache,
-        completion: @escaping (Result<T, NetworkError>) -> Void
+        completion: @escaping (Result<T, NetworkError>) -> Void,
+        returnOriginData: Bool = false
     ) {
-        performRequest(method: .get, endpoint: endpoint, parameters: parameters, headers: headers, cachePolicy: cachePolicy, completion: completion)
+        performRequest(method: .get, endpoint: endpoint, parameters: parameters, headers: headers, cachePolicy: cachePolicy, completion: completion,returnOriginData: returnOriginData)
     }
     
     // POST 请求方法
@@ -192,9 +219,10 @@ class NetworkService {
         encoding: ParameterEncoding = URLEncoding.default,
         headers: HTTPHeaders? = nil,
         cachePolicy: CachePolicy = .networkThenCache,
-        completion: @escaping (Result<T, NetworkError>) -> Void
+        completion: @escaping (Result<T, NetworkError>) -> Void,
+        returnOriginData: Bool = false
     ) {
-        performRequest(method: .post, endpoint: endpoint, parameters: parameters, encoding: encoding, headers: headers, cachePolicy: cachePolicy, completion: completion)
+        performRequest(method: .post, endpoint: endpoint, parameters: parameters, encoding: encoding, headers: headers, cachePolicy: cachePolicy, completion: completion,returnOriginData: returnOriginData)
     }
     
     // PUT 请求方法
@@ -204,9 +232,10 @@ class NetworkService {
         encoding: ParameterEncoding = URLEncoding.default,
         headers: HTTPHeaders? = nil,
         cachePolicy: CachePolicy = .networkThenCache,
-        completion: @escaping (Result<T, NetworkError>) -> Void
+        completion: @escaping (Result<T, NetworkError>) -> Void,
+        returnOriginData: Bool = false
     ) {
-        performRequest(method: .put, endpoint: endpoint, parameters: parameters, encoding: encoding, headers: headers, cachePolicy: cachePolicy, completion: completion)
+        performRequest(method: .put, endpoint: endpoint, parameters: parameters, encoding: encoding, headers: headers, cachePolicy: cachePolicy, completion: completion,returnOriginData: returnOriginData)
     }
     
     // DELETE 请求方法
@@ -216,9 +245,10 @@ class NetworkService {
         encoding: ParameterEncoding = URLEncoding.default,
         headers: HTTPHeaders? = nil,
         cachePolicy: CachePolicy = .networkThenCache,
-        completion: @escaping (Result<T, NetworkError>) -> Void
+        completion: @escaping (Result<T, NetworkError>) -> Void,
+        returnOriginData: Bool = false
     ) {
-        performRequest(method: .delete, endpoint: endpoint, parameters: parameters, encoding: encoding, headers: headers, cachePolicy: cachePolicy, completion: completion)
+        performRequest(method: .delete, endpoint: endpoint, parameters: parameters, encoding: encoding, headers: headers, cachePolicy: cachePolicy, completion: completion,returnOriginData: returnOriginData)
     }
     
     // 下载文件
