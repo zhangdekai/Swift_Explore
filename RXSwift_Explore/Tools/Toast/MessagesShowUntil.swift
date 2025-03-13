@@ -18,12 +18,10 @@ class MessagesShowUntil {
         
         SwiftMessages.show(config: initConfig()) {
             
-            let view = MessageView.viewFromNib(layout: .cardView)
+            let view = MessageView.viewFromNib(layout: .statusLine)
             view.configureTheme(.info)
-            
-            view.bodyLabel?.textAlignment = .center
-
-            view.configureContent(title: nil, body: message, iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: nil, buttonTapHandler: nil)
+                        
+            view.configureContent(body: message)
             
             view.layoutMarginAdditions = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
             
@@ -46,7 +44,7 @@ class MessagesShowUntil {
             config.duration = .automatic
             
 //            config.dimMode = .gray(interactive: true)
-            config.dimMode = .color(color: .black.withAlphaComponent(0.1), interactive: true)
+            config.dimMode = .color(color: .clear, interactive: true)
             
             
             //        config.interactiveHide = false

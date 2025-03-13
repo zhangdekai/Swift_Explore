@@ -12,20 +12,19 @@ class UserViewModel {
     
     let userService = UserService();
     
-    func getUser(_ completionHandler:@escaping (UserModel?)-> Void) {
+    func getUser(_ completionHandler:@escaping (UserModel?, NetworkError?)-> Void) {
         
         userService.getUser(byID: 11) {  res in //Result<User, NetworkError>
             
             switch (res){
             case .success( let user):
-                
-//                print("user === \(user.data)");
-                
-                completionHandler(user)
+                            
+                completionHandler(user,nil)
                 break
             case .failure(let error):
+            
                 print("fetchUser error == \(error.localizedDescription)");
-                completionHandler(nil)
+                completionHandler(nil,error)
                 break
                 
             }

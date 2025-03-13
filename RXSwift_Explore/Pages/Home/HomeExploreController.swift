@@ -69,7 +69,7 @@ extension HomeExploreController : UITableViewDelegate, UITableViewDataSource {
             break
             
         case 2:
-            LoadingUntil.show()
+            LoadingUntil.show("loading...")
             break
         
             

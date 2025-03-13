@@ -50,12 +50,15 @@ class UserViewController : UIViewController {
     }
     
     func setViewData(){
-        
-        viewModel.getUser { user in
+        LoadingUntil.show()
+        viewModel.getUser { (user,error)  in
+            LoadingUntil.dismiss()
             if(user != nil){
                 self.nameLabel.text = user?.name
                 self.emailLabel.text = user?.email
                 self.userIdLabel.text = user?.id.description
+            } else if (error != nil){
+                MessagesShowUntil.show(error?.localizedDescription ?? "Error")
             }
         }
         
