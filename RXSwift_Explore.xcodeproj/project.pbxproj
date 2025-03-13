@@ -25,9 +25,10 @@
 		493203E524C437A500690A7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493203E424C437A500690A7D /* LoginViewController.swift */; };
 		493203E824C438E500690A7D /* GRENibloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493203E724C438E500690A7D /* GRENibloadable.swift */; };
 		493904C525F36BA700C8C209 /* MutileClassImpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493904C425F36BA700C8C209 /* MutileClassImpTest.swift */; };
-		493904CD25F36C9000C8C209 /* MainQueue&ThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493904C925F36C8F00C8C209 /* MainQueue&ThreadViewController.swift */; };
 		493904CE25F36C9000C8C209 /* EnumTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493904CB25F36C8F00C8C209 /* EnumTestViewController.swift */; };
 		493D7F75264E4C1F009FECDC /* TestShell.sh in Resources */ = {isa = PBXBuildFile; fileRef = 493D7F74264E4C1F009FECDC /* TestShell.sh */; };
+		4942DAF42D7EE05800F2DB71 /* MessagesShowUntil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942DAF32D7EE05800F2DB71 /* MessagesShowUntil.swift */; };
+		4942DAF72D8132C100F2DB71 /* LoadingUntil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942DAF52D8132C100F2DB71 /* LoadingUntil.swift */; };
 		4984B7472D770A890071798B /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984B7462D770A890071798B /* UserViewModel.swift */; };
 		4989DE1624BE0670009DAF62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE1524BE0670009DAF62 /* AppDelegate.swift */; };
 		4989DE1A24BE0670009DAF62 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989DE1924BE0670009DAF62 /* HomeViewController.swift */; };
@@ -85,9 +86,10 @@
 		493203E724C438E500690A7D /* GRENibloadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRENibloadable.swift; sourceTree = "<group>"; };
 		493904C425F36BA700C8C209 /* MutileClassImpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutileClassImpTest.swift; sourceTree = "<group>"; };
 		493904C825F36C8F00C8C209 /* MainQueue&ThreadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainQueue&ThreadViewController.swift"; sourceTree = "<group>"; };
-		493904C925F36C8F00C8C209 /* MainQueue&ThreadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainQueue&ThreadViewController.swift"; sourceTree = "<group>"; };
 		493904CB25F36C8F00C8C209 /* EnumTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumTestViewController.swift; sourceTree = "<group>"; };
 		493D7F74264E4C1F009FECDC /* TestShell.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = TestShell.sh; sourceTree = "<group>"; };
+		4942DAF32D7EE05800F2DB71 /* MessagesShowUntil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesShowUntil.swift; sourceTree = "<group>"; };
+		4942DAF52D8132C100F2DB71 /* LoadingUntil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingUntil.swift; sourceTree = "<group>"; };
 		4984B7462D770A890071798B /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		4989DE1224BE0670009DAF62 /* RXSwift_Explore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RXSwift_Explore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4989DE1524BE0670009DAF62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -198,11 +200,12 @@
 		493904B925F36A1900C8C209 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				4942DAF22D7EE02C00F2DB71 /* Toast */,
+				4942DAF62D8132C100F2DB71 /* Loading */,
 				49F70D822C0D756800D80FDC /* 视频尺寸 */,
 				49B5F007269D637000D1B3F8 /* Timer */,
 				493904CA25F36C8F00C8C209 /* 枚举Enum */,
 				493904C725F36C8F00C8C209 /* 主队列&主线程 */,
-				493904C925F36C8F00C8C209 /* MainQueue&ThreadViewController.swift */,
 				493904C325F36B6C00C8C209 /* 多态的实现 */,
 				2B915E10259082A1009459A4 /* 生日选择器 */,
 				F3A5191E256D339000A42B9D /* 滑动BannerView */,
@@ -268,6 +271,22 @@
 			path = "脚本Shell";
 			sourceTree = "<group>";
 		};
+		4942DAF22D7EE02C00F2DB71 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				4942DAF32D7EE05800F2DB71 /* MessagesShowUntil.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		4942DAF62D8132C100F2DB71 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				4942DAF52D8132C100F2DB71 /* LoadingUntil.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
 		4989DE0924BE0670009DAF62 = {
 			isa = PBXGroup;
 			children = (
@@ -297,7 +316,7 @@
 				493D7F73264E4BFD009FECDC /* 脚本Shell */,
 				493904BA25F36A9900C8C209 /* RX相关 */,
 				493904B925F36A1900C8C209 /* Tools */,
-				F3B9937F24D173AE000AD623 /* EXtension */,
+				F3B9937F24D173AE000AD623 /* Extension */,
 				F3B9937C24D14C03000AD623 /* Pages */,
 				493203E624C438C300690A7D /* Protocol */,
 				4989DE1524BE0670009DAF62 /* AppDelegate.swift */,
@@ -471,7 +490,7 @@
 			path = Pages;
 			sourceTree = "<group>";
 		};
-		F3B9937F24D173AE000AD623 /* EXtension */ = {
+		F3B9937F24D173AE000AD623 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				F332693524F642CD00A18EA2 /* Frame.swift */,
@@ -479,7 +498,7 @@
 				F3B9938024D173CF000AD623 /* IntExtension.swift */,
 				2B915E0D25907AEB009459A4 /* String+Extension.swift */,
 			);
-			path = EXtension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -630,12 +649,13 @@
 				F332693624F642CD00A18EA2 /* Frame.swift in Sources */,
 				49E873D92D6AEDAD00C8E850 /* NetworkConfig.swift in Sources */,
 				49091B6F2D701BA000369A9C /* UserViewController.swift in Sources */,
-				493904CD25F36C9000C8C209 /* MainQueue&ThreadViewController.swift in Sources */,
 				F33801B624D7AFE900DAC697 /* DeviceAuthManager.swift in Sources */,
 				F3B9938124D173CF000AD623 /* IntExtension.swift in Sources */,
 				49943F082D6C94CA00F75B3B /* UserService.swift in Sources */,
 				49943F052D6C73C200F75B3B /* MemoryCache.swift in Sources */,
 				493904C525F36BA700C8C209 /* MutileClassImpTest.swift in Sources */,
+				4942DAF42D7EE05800F2DB71 /* MessagesShowUntil.swift in Sources */,
+				4942DAF72D8132C100F2DB71 /* LoadingUntil.swift in Sources */,
 				2B915E0E25907AEB009459A4 /* String+Extension.swift in Sources */,
 				49AE027024E8F3F7002C028B /* TestCViewController.swift in Sources */,
 				4989DE1624BE0670009DAF62 /* AppDelegate.swift in Sources */,

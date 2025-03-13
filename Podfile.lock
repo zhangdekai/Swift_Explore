@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.10.2)
   - DeviceKit (4.2.1)
+  - IHProgressHUD (0.1.4)
   - RxCocoa (6.9.0):
     - RxRelay (= 6.9.0)
     - RxSwift (= 6.9.0)
@@ -8,31 +9,40 @@ PODS:
     - RxSwift (= 6.9.0)
   - RxSwift (6.9.0)
   - SnapKit (5.7.1)
+  - SwiftMessages (10.0.1):
+    - SwiftMessages/App (= 10.0.1)
+  - SwiftMessages/App (10.0.1)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 5.10.2)
   - DeviceKit (~> 4.2.1)
+  - IHProgressHUD
   - RxCocoa (~> 6.9.0)
   - RxSwift (~> 6.9.0)
   - SnapKit (~> 5.7.1)
+  - SwiftMessages
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - DeviceKit
+    - IHProgressHUD
     - RxCocoa
     - RxRelay
     - RxSwift
     - SnapKit
+    - SwiftMessages
 
 SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   DeviceKit: cadb5ff25d45fe186778bf2d0fd2ea4750542189
+  IHProgressHUD: a01846bfbb581c761c79747c67b08387c3bdfae3
   RxCocoa: ac16414696ae706516be3e1ab00fcce5bdc9be8a
   RxRelay: 6b0c930e5cef57d5fe2032571e5e65b78e3cbdb1
   RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SwiftMessages: 759b4a0bf5c3a116a0d7e8a34b098ba83c458625
 
-PODFILE CHECKSUM: 6ca6a8ddcfeaa1789ea2af610777f2b7ee9aad7d
+PODFILE CHECKSUM: c92553eddf94af42cd88c63580baa4d67c7ad008
 
 COCOAPODS: 1.16.2

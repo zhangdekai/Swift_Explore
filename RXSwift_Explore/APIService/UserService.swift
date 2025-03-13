@@ -12,7 +12,7 @@ class UserService {
     
     let endpoint = "user"
     
-    func fetchUser(byID id: Int, completion: @escaping (Result<UserModel, NetworkError>) -> Void) {
+    func getUser(byID id: Int, completion: @escaping (Result<UserModel, NetworkError>) -> Void) {
         NetworkService.shared.get(endpoint: endpoint, completion: completion)
     }
     

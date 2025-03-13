@@ -164,7 +164,7 @@ class NetworkService {
                                 
                                 // 使用 JSONSerialization 将 Data 转换为字典
                                 if let jsonObject = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                                    print("转换后的字典: \(jsonObject)")
+                                    print("转换后的字典: \(jsonObject)\n")
                                     
                                     if let dataD = jsonObject["data"] {
                                         if let dataD = try? JSONSerialization.data(withJSONObject: dataD)

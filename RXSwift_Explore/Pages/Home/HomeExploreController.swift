@@ -12,7 +12,7 @@ class HomeExploreController : UIViewController {
     
     let tableview = UITableView()
     
-    let list = ["User Page"]
+    let list = ["User Page","Show SwiftMessages","Show Loading"]
     
     override func viewDidLoad() {
         title = "Explore"
@@ -53,10 +53,31 @@ extension HomeExploreController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.row == 0){
+        handleTap(indexPath.row)
+    
+    }
+    
+    func handleTap(_ index: Int){
+        
+        switch (index){
+        case 0:
             let vc = UserViewController()
             navigationController?.pushViewController(vc, animated: true)
+            break
+        case 1:
+            MessagesShowUntil.show("Hi, you made it!!!")
+            break
+            
+        case 2:
+            LoadingUntil.show()
+            break
+        
+            
+            
+        default:
+            break
         }
+    
     }
 }
 
@@ -75,8 +96,8 @@ class ExploreListTableViewCell : UITableViewCell {
         titleLabel.font = .systemFont(ofSize: 15)
         titleLabel.textColor = .black
         titleLabel.snp.makeConstraints { make in
-            make.leading.equalTo(12)
-            make.top.equalTo(12)
+            make.left.top.equalTo(12)
+            make.height.equalTo(20)
         }
     }
     

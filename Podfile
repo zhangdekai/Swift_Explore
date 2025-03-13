@@ -18,7 +18,7 @@ target 'RXSwift_Explore' do
 
   # Pods for RXSwift_Explore
   
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 5.10.2'
   pod 'RxSwift', '~> 6.9.0'
   pod 'RxCocoa', '~> 6.9.0'
   pod 'SnapKit', '~> 5.7.1'
@@ -27,5 +27,8 @@ target 'RXSwift_Explore' do
 #  pod 'CHIPageControl/Jaloro'
   # 数据库使用
 #  pod 'WCDB.swift', '~> 1.0.8.2'
+
+  pod 'SwiftMessages' # messages show
+  pod 'IHProgressHUD' # loading
   
 end

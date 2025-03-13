@@ -47,7 +47,6 @@ class UserViewController : UIViewController {
         
         setViewData()
         
-        
     }
     
     func setViewData(){

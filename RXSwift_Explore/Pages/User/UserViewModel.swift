@@ -14,7 +14,7 @@ class UserViewModel {
     
     func getUser(_ completionHandler:@escaping (UserModel?)-> Void) {
         
-        userService.fetchUser(byID: 11) {  res in //Result<User, NetworkError>
+        userService.getUser(byID: 11) {  res in //Result<User, NetworkError>
             
             switch (res){
             case .success( let user):
